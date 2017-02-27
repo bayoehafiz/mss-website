@@ -1,0 +1,220 @@
+<div class="container">
+    <span class="logo-form" style="z-index: 1000000000000;">
+        <a href="#"><img src="/assets/img/mssico.png" alt="" width="110"></a>
+    </span>
+    <div class="outer-title">
+        <h3>Infrastructure Project Inquiry</h3>
+    </div>
+    <div class="fs-form-wrap" id="fs-form-wrap">
+        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off" ng-submit="submit()">
+            <ol class="fs-fields">
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q1">What type of your project ?</label>
+                        <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+                            <span>
+                                <input name="type_project" type="radio" id="q1b" ng-model="infra.type_project" value="Devices-Proc" onFocus="window.scrollTo(0, 0);"/>
+                                <label for="q1b" class="radio-conversion">Devices Procurement</label>
+                            </span>
+                            <span>
+                                <input name="type_project" type="radio" id="q1a" ng-model="infra.type_project" value="Devices-Proc-and-Installation" onFocus="window.scrollTo(0, 0);"/>
+                                <label for="q1a" class="radio-conversion">Procurement Devices and Installation</label>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q2">What is your scope of the project?</label>
+                        <div class="fs-radio-group clearfix fs-anim-lower">
+                            <div class="cell">
+                                <div class="treeview" data-role="treeview">
+                                    <ul>
+                                        <li class="node collapsed" ng-repeat="check in checks" ng-if="check.val">
+                                            <span class="node-toggle" ng-if="check.val"></span>
+                                            <span class="leaf">{{check.cat}}</span>
+                                            <ul ng-repeat="checkVal in check.val" onFocus="window.scrollTo(0, 0);">
+                                                <li data-mode="checkbox" data-name="c1" ng-if="check.type=='checkbox'">
+                                                    <span class="leaf">{{checkVal.name}}</span>
+                                                </li>
+                                                <li data-mode="radio" data-name="c1" ng-if="check.type=='radio'">
+                                                    <span class="leaf">{{checkVal.name}}</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
+                                            <span class="leaf">{{check.cat}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q3">When your project start?</label>
+                        <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+                            <select class="form-control" ng-model="infra.target_complete" onFocus="window.scrollTo(0, 0);">
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="Maret">Maret</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q4">Name</label>
+                        <input class="fs-anim-lower" id="q4" name="name" ng-model="infra.name" type="name" placeholder="Your Name" onFocus="window.scrollTo(0, 0);" capitalize-first/>
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q5">Company / Instance</label>
+                        <input class="fs-anim-lower" id="q5" name="company" ng-model="infra.company" type="company" placeholder="Your Company" onFocus="window.scrollTo(0, 0);" capitalize-first/>
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q6">Address</label>
+                        <textarea class="fs-anim-lower" id="q6" name="address" ng-model="infra.address" onFocus="window.scrollTo(0, 0);"></textarea>
+                        <!-- <input class="fs-anim-lower" id="q6" name="address" ng-model="infra.address" type="company" placeholder="your address" onFocus="window.scrollTo(0, 0);" capitalize-first/> -->
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q7">Phone</label>
+                        <input class="fs-anim-lower" id="q7" name="phone" ng-model="infra.phone" type="phone" placeholder="+6231-12345678" onFocus="window.scrollTo(0, 0);" />
+                    </div>
+                </li>
+                <li data-input-trigger class="outer">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q8">Email Address</label>
+                        <input class="fs-anim-lower" id="q8" name="email" ng-model="infra.email" type="email" placeholder="your@email.com" onFocus="window.scrollTo(0, 0);" />
+                    </div>
+                </li>
+                <li class="outer re-captcha">
+                    <div class="middle">
+                        <label class="fs-field-label fs-anim-upper" for="q6">Verify this captcha</label>
+                        <div
+                            vc-recaptcha
+                            key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'"
+                            ng-model="gRecaptchaResponse"
+                            on-create="setWidgetId(widgetId)"
+                            on-success="setResponse(responsecap)"
+                            on-expire="cbExpiration()"
+                            lang=""
+                            class="fs-mark fs-anim-lower"
+                        ></div>
+                    </div>
+                </li>
+            </ol>
+            <!-- /fs-fields -->
+            <button class="fs-submit">Get Quotation</button>
+        </form>
+        <!-- /fs-form -->
+    </div>
+</div>
+<style type="text/css">
+.navbar-wrapper,
+#footer,
+.cd-cart-container {
+    display: none;
+}
+</style>
+<script>
+(function() {
+
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }
+
+    var formWrap = document.getElementById('fs-form-wrap');
+
+    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
+        new SelectFx(el, {
+            stickyPlaceholder: false,
+            onChange: function(val) {
+                document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+            }
+        });
+    });
+
+    new FForm(formWrap, {
+        onReview: function() {
+            classie.add(document.body, 'overview'); // for demo purposes only
+        }
+    });
+})();
+</script>
+<script>
+$('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
+$(".fs-progress").wrap("<div class='row-stretch'></div>");
+$(window).load(function() {
+    var width = $(window).width();
+
+    if (width < 840) {
+        $(document).find('.fs-continue').text('');
+        $(document).find('.fs-cancel').text('');
+    } else {
+        $(document).find('.fs-continue').text('Continue');
+        $(document).find('.fs-cancel').text('Cancel');
+    }
+
+    $(window).resize(function() {
+        var width = $(window).width();
+        if (width > 840) {
+            $(document).find('.fs-continue').text('Continue');
+            $(document).find('.fs-cancel').text('Cancel');
+        } else {
+            $(document).find('.fs-continue').text('');
+            $(document).find('.fs-cancel').text('');
+        }
+    })
+
+
+});
+//----- set clicked treeview on label -----//
+$(".treeview").on("click", "span.leaf", function(event) {
+    var radio = $(this).closest('li').find('input[type=radio]');
+    if (radio.is(':checked')) {
+        radio.prop('checked', false);
+    } else if (radio.not(':checked')) {
+        radio.prop('checked', true);
+    }
+});
+//----- set clicked label on checkbox------//
+$(".treeview").on("click", "span.leaf", function(event) {
+    var input = $(this).closest('li').find('input[type=checkbox]');
+    if (input.is(':checked')) {
+        input.prop('checked', false);
+    } else if (input.not(':checked')) {
+        input.prop('checked', true);
+    }
+});
+
+//------ set auto focus in form ----- //
+$(".fs-continue").click(function() {
+    $("input").focus();
+    $("textarea").focus();
+    $("select").focus();
+});
+
+$("input").keyup(function(e) {
+    if (e.keyCode == 13) {
+        $("input").focus();
+        $("textarea").focus();
+        $("select").focus();
+    }
+});
+</script>

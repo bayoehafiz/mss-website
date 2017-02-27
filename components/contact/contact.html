@@ -1,0 +1,156 @@
+<div class="container">
+    <div class="row margin-inline" id="section-contact">
+        <div class="col-md-6">
+            <h3 class="featurette-heading">Let us know what's in your mind</h3>
+            <hr>
+            <br>
+            <form class="form" id="form-div" ng-submit="submit()">
+                <input name="name" type="text" ng-model="contact.name" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+                <input name="email" type="text" ng-model="contact.email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+                <textarea name="comment" ng-model="contact.comment" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+                <div
+                    vc-recaptcha
+                    key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'"
+                    ng-model="gRecaptchaResponse"
+                    on-create="setWidgetId(widgetId)"
+                    on-success="setResponse(response)"
+                    on-expire="cbExpiration()"
+                    lang=""
+                ></div>
+                <br>
+                <input type="submit" value="SEND" class="btn btn-default btn-lg btn-custom text-default"/>
+                <div class="ease"></div>
+                <br>
+            </form>
+        </div>
+        <div class="col-md-offset-1 col-md-5">
+            <h3 class="featurette-heading">Get in Touch</h3>
+            <hr>
+            <br>
+            <div class="col-md-12">
+                <span class="left-icon"><i class="fa fa-building" aria-hidden="true"></i></span>
+                <span class="right-icon">Intiland Tower 2<sup>nd</sup> Floor Suite 6<br>
+                    Jl. Panglima Sudirman 101-103<br>Surabaya - 60271</span>
+                    <br>
+                    <br>
+            </div>
+            <div class="col-md-12">
+                <span class="left-icon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                <span class="right-icon">+6231 - 60003700 or +6231 - 60003600</span>
+            </div>
+        </div>
+        <div class="col-md-12 margin-inline">
+            <h3 class="featurette-heading">LOCATION</h3>
+            <hr>
+            <br>
+            <div id="map10"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('.navbar-wrapper').addClass('shrink');
+    
+    var latitude = -7.272713,
+        longitude = 112.742816,
+        map_zoom = 17;
+    var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+    var main_color = '#0085a1',
+        saturation_value = -20,
+        brightness_value = 5;
+    var style = [{
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [{
+            "hue": "#008eff"
+        }]
+    }, {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels.icon",
+        "stylers": [{
+            "visibility": "on"
+        }]
+    }, {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [{
+            "visibility": "off"
+        }]
+    }, {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [{
+            "visibility": "on"
+        }]
+    }, {
+        "featureType": "poi",
+        "elementType": "labels.icon",
+        "stylers": [{
+            "visibility": "on"
+        }]
+    }, {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [{
+            "saturation": "0"
+        }, {
+            "lightness": "0"
+        }]
+    }, {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [{
+            "visibility": "off"
+        }]
+    }, {
+        "featureType": "transit.station",
+        "elementType": "labels.text",
+        "stylers": [{
+            "visibility": "on"
+        }]
+    }, {
+        "featureType": "transit.station",
+        "elementType": "labels.icon",
+        "stylers": [{
+            "visibility": "on"
+        }]
+    }, {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [{
+            "visibility": "simplified"
+        }, {
+            "saturation": "-60"
+        }, {
+            "lightness": "-20"
+        }]
+    }];
+    var map_options = {
+        center: new google.maps.LatLng(latitude, longitude),
+        zoom: map_zoom,
+        panControl: false,
+        zoomControl: true,
+        mapTypeControl: false,
+        streetViewControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        styles: style,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        }
+    }
+    var map = new google.maps.Map(document.getElementById('map10'), map_options);
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(latitude, longitude),
+        map: map,
+        visible: true,
+    });
+
+
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }
+});
+</script>

@@ -1,0 +1,551 @@
+<div class="container padding-top-inline">
+    <!-- If not authenticated -->
+    <div class="middle" ng-if="!isAuthenticated">
+        <div class="text-center">
+            Please <a class="link" href="" ng-click="signin()">login or signup</a> to access client area
+        </div>
+    </div>
+    <!-- If not authenticated -->
+    <div ng-if="isAuthenticated">
+        <!-- If not signed-up -->
+        <div class="row" ng-if="!completed">
+            <div class="col-lg-12">
+                <div class="panel" block-ui="loadingBlock">
+                    <form name="signupForm" ng-submit="signup()">
+                        <div class="panel-body">
+                            <div class="row" style="padding:4em;">
+                                <div class="col-lg-6 col-md-6 col-sm-12 text-center"><img class="img-responsive" src="assets/img/icon/signup.svg" width="240px" style="padding-bottom: 2em; margin:auto;">
+                                    <h1>Hello {{signupData.first_name || "There"}},</h1>
+                                    <p>Thanks for joining MSS. But your identity is important for us,
+                                        <br>so we can provide you excellent quality of service.</p>
+                                    <p ng-show="signupForm.$invalid">To identify yourself, please complete the following form.
+                                        <br>Don't worry, we'll keep your data safe and secret.</p>
+                                    <p ng-show="signupForm.$valid">Nice! Your profile is now complete.
+                                        <br>You can now hit the 'Finish' button</p>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="row text-left">
+                                        <div class="row center-align">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">First Name</label>
+                                                    <input type="text" class="form-control" placeholder="Your first name" ng-model="signupData.first_name" capitalize-first ng-required="true">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Last Name</label>
+                                                    <input type="text" class="form-control" placeholder="Your last name" ng-model="signupData.last_name" capitalize-first ng-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Phone Number</label>
+                                                    <input type="phone" class="form-control" placeholder="Your phone number" ng-model="signupData.phone_number" ng-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Company</label>
+                                                    <input type="text" class="form-control" placeholder="Your company name" ng-model="signupData.company_name" ng-required="true" capitalize-first>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Website</label>
+                                                    <input type="text" class="form-control" placeholder="Company website" ng-model="signupData.website" ng-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Address</label>
+                                                    <textarea class="form-control" placeholder="Company address" rows="2" ng-model="signupData.company_address" capitalize-first ng-required="true"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">City</label>
+                                                    <input type="text" class="form-control" placeholder="City" ng-model="signupData.city" capitalize-first ng-required="true">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="form-group float-label-control">
+                                                    <label for="">Province</label>
+                                                    <input type="text" class="form-control" placeholder="Province" ng-model="signupData.province" capitalize-first ng-required="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-center">
+                                    <a class="btn btn-danger btn-lg" ng-click="signout()"><i class="fa fa-power-off"></i> Sign Out</a>
+                                    <button type="submit" class="btn btn-lg btn-success" ng-hide="signupForm.$invalid" style="margin-left: 3em;">Finish</button>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <span class="label label-danger">{{error | json}}</span>
+                                    <span class="label label-success">{{success | json}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- If already signed-up -->
+        <div class="row" ng-if="completed" block-ui="loadingBlock">
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('profile')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/profile.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Profile</h1>
+                        <br>
+                        <p class="text-muted">Information about your profile</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('service')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/service.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Services</h1>
+                        <br>
+                        <p class="text-muted">All of your active services</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('order')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/order.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Orders</h1>
+                        <br>
+                        <p class="text-muted">Manage your order</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('transaction')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/transaction.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Transactions</h1>
+                        <br>
+                        <p class="text-muted">Detail of your all transactions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('billing')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/billing.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Billing</h1>
+                        <br>
+                        <p class="text-muted">Your billing information</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('setting')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/setting.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Settings</h1>
+                        <br>
+                        <p class="text-muted">Manage your account settings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="open('support')">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/support.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Support</h1>
+                        <br>
+                        <p class="text-muted">Get help from our support</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+                <div class="box-chart hover" ng-click="signout()">
+                    <div class="box-chart-img">
+                        <img src="assets/img/icon/signout.svg">
+                    </div>
+                    <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+                        <h1>Sign Out</h1>
+                        <br>
+                        <p class="text-muted">Finish your session</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.box-chart {
+    min-height: 0px!important;
+}
+
+.hover {
+    -webkit-transition: all .15s ease;
+    /* Safari and Chrome */
+    -moz-transition: all .15s ease;
+    /* Firefox */
+    -o-transition: all .15s ease;
+    /* IE 9 */
+    -ms-transition: all .15s ease;
+    /* Opera */
+    transition: all .15s ease;
+}
+
+.hover:hover {
+    background-color: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.05);
+    /* Safari and Chrome */
+    -moz-transform: scale(1.05);
+    /* Firefox */
+    -ms-transform: scale(1.05);
+    /* IE 9 */
+    -o-transform: translatZ(0) scale(1.05);
+    /* Opera */
+    transform: translatZ(0) scale(1.05);
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+h4 {
+    padding-bottom: 20px;
+}
+
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    padding: 5px 0;
+}
+
+.v-center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.float-label-control {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.float-label-control::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.float-label-control:-moz-placeholder {
+    color: transparent;
+}
+
+.float-label-control::-moz-placeholder {
+    color: transparent;
+}
+
+.float-label-control:-ms-input-placeholder {
+    color: transparent;
+}
+
+.float-label-control input:-webkit-autofill,
+.float-label-control textarea:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -moz-box-shadow: 0 0 0 1000px white inset !important;
+    box-shadow: 0 0 0 1000px white inset !important;
+}
+
+.float-label-control input,
+.float-label-control textarea,
+.float-label-control label {
+    font-size: 1.3em;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.float-label-control input:focus,
+.float-label-control textarea:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-bottom-width: 2px;
+    padding-bottom: 0;
+}
+
+.float-label-control textarea:focus {
+    padding-bottom: 4px;
+}
+
+.float-label-control input,
+.float-label-control textarea {
+    display: block;
+    width: 100%;
+    padding: 0.1em 0em 1px 0em;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    margin: 0px;
+    background: none;
+}
+
+.float-label-control textarea {
+    padding: 0.1em 0em 5px 0em;
+}
+
+.float-label-control label {
+    position: absolute;
+    font-weight: normal;
+    top: -1.0em;
+    left: 0.08em;
+    color: #aaaaaa;
+    z-index: -1;
+    font-size: 0.85em;
+    -moz-animation: float-labels 300ms none ease-out;
+    -webkit-animation: float-labels 300ms none ease-out;
+    -o-animation: float-labels 300ms none ease-out;
+    -ms-animation: float-labels 300ms none ease-out;
+    -khtml-animation: float-labels 300ms none ease-out;
+    animation: float-labels 300ms none ease-out;
+    /* There is a bug sometimes pausing the animation. This avoids that.*/
+    animation-play-state: running !important;
+    -webkit-animation-play-state: running !important;
+}
+
+.float-label-control input.empty + label,
+.float-label-control textarea.empty + label {
+    top: 0.1em;
+    font-size: 1.5em;
+    animation: none;
+    -webkit-animation: none;
+}
+
+.float-label-control input:not(.empty) + label,
+.float-label-control textarea:not(.empty) + label {
+    z-index: 1;
+}
+
+.float-label-control input:not(.empty):focus + label,
+.float-label-control textarea:not(.empty):focus + label {
+    color: #aaaaaa;
+}
+
+.float-label-control.label-bottom label {
+    -moz-animation: float-labels-bottom 300ms none ease-out;
+    -webkit-animation: float-labels-bottom 300ms none ease-out;
+    -o-animation: float-labels-bottom 300ms none ease-out;
+    -ms-animation: float-labels-bottom 300ms none ease-out;
+    -khtml-animation: float-labels-bottom 300ms none ease-out;
+    animation: float-labels-bottom 300ms none ease-out;
+}
+
+.float-label-control.label-bottom input:not(.empty) + label,
+.float-label-control.label-bottom textarea:not(.empty) + label {
+    top: 3em;
+}
+
+@keyframes float-labels {
+    0% {
+        opacity: 1;
+        color: #aaa;
+        top: 0.1em;
+        font-size: 1.5em;
+    }
+    20% {
+        font-size: 1.5em;
+        opacity: 0;
+    }
+    30% {
+        top: 0.1em;
+    }
+    50% {
+        opacity: 0;
+        font-size: 0.85em;
+    }
+    100% {
+        top: -1em;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes float-labels {
+    0% {
+        opacity: 1;
+        color: #aaa;
+        top: 0.1em;
+        font-size: 1.5em;
+    }
+    20% {
+        font-size: 1.5em;
+        opacity: 0;
+    }
+    30% {
+        top: 0.1em;
+    }
+    50% {
+        opacity: 0;
+        font-size: 0.85em;
+    }
+    100% {
+        top: -1em;
+        opacity: 1;
+    }
+}
+
+@keyframes float-labels-bottom {
+    0% {
+        opacity: 1;
+        color: #aaa;
+        top: 0.1em;
+        font-size: 1.5em;
+    }
+    20% {
+        font-size: 1.5em;
+        opacity: 0;
+    }
+    30% {
+        top: 0.1em;
+    }
+    50% {
+        opacity: 0;
+        font-size: 0.85em;
+    }
+    100% {
+        top: 3em;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes float-labels-bottom {
+    0% {
+        opacity: 1;
+        color: #aaa;
+        top: 0.1em;
+        font-size: 1.5em;
+    }
+    20% {
+        font-size: 1.5em;
+        opacity: 0;
+    }
+    30% {
+        top: 0.1em;
+    }
+    50% {
+        opacity: 0;
+        font-size: 0.85em;
+    }
+    100% {
+        top: 3em;
+        opacity: 1;
+    }
+}
+</style>
+<script type="text/javascript">
+(function($) {
+    $.fn.floatLabels = function(options) {
+
+        // Settings
+        var self = this;
+        var settings = $.extend({}, options);
+
+
+        // Event Handlers
+        function registerEventHandlers() {
+            self.on('input keyup change', 'input, textarea', function() {
+                actions.swapLabels(this);
+            });
+        }
+
+
+        // Actions
+        var actions = {
+            initialize: function() {
+                self.each(function() {
+                    var $this = $(this);
+                    var $label = $this.children('label');
+                    var $field = $this.find('input,textarea').first();
+
+                    if ($this.children().first().is('label')) {
+                        $this.children().first().remove();
+                        $this.append($label);
+                    }
+
+                    var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
+
+                    $label.data('placeholder-text', placeholderText);
+                    $label.data('original-text', $label.text());
+
+                    if ($field.val() == '') {
+                        $field.addClass('empty')
+                    }
+                });
+            },
+            swapLabels: function(field) {
+                var $field = $(field);
+                var $label = $(field).siblings('label').first();
+                var isEmpty = Boolean($field.val());
+
+                if (isEmpty) {
+                    $field.removeClass('empty');
+                    $label.text($label.data('original-text'));
+                } else {
+                    $field.addClass('empty');
+                    $label.text($label.data('placeholder-text'));
+                }
+            }
+        }
+
+
+        // Initialization
+        function init() {
+            registerEventHandlers();
+
+            actions.initialize();
+            self.each(function() {
+                actions.swapLabels($(this).find('input,textarea').first());
+            });
+        }
+        init();
+
+
+        return this;
+    };
+
+    $(function() {
+        $('.float-label-control').floatLabels();
+    });
+})(jQuery);
+</script>

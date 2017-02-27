@@ -1,0 +1,20 @@
+{
+  "name": "mss-portal",
+  "version": "1.0.0",
+  "description": "Official portal of PT. MSS",
+  "main": "index.html",
+  "dependencies": {
+    "angular-formly": "^8.4.1",
+    "angular-formly-templates-bootstrap": "^6.4.0",
+    "angular-h-sweetalert": "^2.0.1",
+    "angular-loading-overlay-http-interceptor": "^1.1.1",
+    "api-check": "^7.5.5",
+    "sweetalert2": "^6.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MSS Dev Team",
+  "license": "ISC"
+}

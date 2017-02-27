@@ -1,0 +1,96 @@
+<div class="container padding-top-inline">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel" block-ui="loadingBlock">
+                <div class="panel-body" style="margin: 10px 0 10px 0;">
+                    <div class="row">
+                        <a href="" class="pull-right v-center" style="margin-right: 20px;color:grey;" ng-click="close()">
+                            <i class="fa fa-close fa-2x"></i>
+                        </a>
+                        <div class="col-lg-1 col-md-2 v-center">
+                            <img src="assets/img/icon/order.png" class="img-responsive" width="100px;">
+                        </div>
+                        <div class="col-lg-8 col-md-8 v-center">
+                            <h1>Order</h1>
+                            <p class="text-muted">Manage your order here</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 v-center">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <!--  <div class="col-lg-12 col-md-12 v-center">
+                            <p>Filter by</p>
+                            <select ng-model="select.type" ng-dropdown required ng-change="changeme()">
+                                <option ng-option value="Infra">IT Infrastructure</option>
+                                <option ng-option value="Soft">Software Development</option>
+                            </select>
+                            <div class="box-chart-content"> -->
+                                <!-- {{ select.null }}
+                        <md-toolbar class="md-table-toolbar md-default">
+                            <div class="md-toolbar-tools">
+                                <span>IT Infrastructure</span>
+                            </div>
+                        </md-toolbar> -->
+                                <md-table-container>
+                                    <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                                        <thead md-head md-on-reorder="getOrders">
+                                            <tr md-row>
+                                                <th md-column md-order-by="data.type"><span>Project Type</span></th>
+                                                <th md-column md-numeric>Status</th>
+                                                <th md-column md-numeric>Project Scope</th>
+                                                <th md-column md-numeric>Project Value / Budget</th>
+                                                <th md-column md-numeric>Company</th>
+                                                <th md-column md-numeric>Created On</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody md-body>
+                                            <tr md-row md-select="data" md-select-id="_id" md-auto-select ng-repeat="data in orders">
+                                                <td md-cell><span ng-if="data.order_type == 'softwarefo'">Software Dev</span><span ng-if="data.order_type == 'itinfrafo'">IT Infrastructure</span></td>
+                                                <td md-cell><span class="text-success font-500">Follow Up</span></td>
+                                                <td md-cell>{{ data.scope_project[0].cat || data.priority}}</td>
+                                                <td md-cell>{{ data.scope_project[0].val || data.budget | currency:'IDR ':0}}</td>
+                                                <td md-cell>{{ data.company }}</td>
+                                                <td md-cell>{{ data.created_on | date:"dd MMM yyyy" }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </md-table-container>
+                                <!-- <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{data.count}}" md-on-paginate="getInfra" md-page-select></md-table-pagination> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <a href="" class="btn btn-custom btn-default text-default btn-quotation" ng-click="openForminfra()">New IT Infrastructure Project Order</a>
+                            <a href="" class="btn btn-custom btn-default text-default btn-quotation" ng-click="openFormsoft()">New Software Development Project Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.v-center {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+</style>
+<script>
+// $(document).ready(function(){
+//     $("#tableInfra").hide();
+//     $("#tableSoft").hide();
+//     $("#selinfra").click(function() {
+//         alert("infra");
+//         // $('#tableInfra').show();
+//         // $('#tableSoft').hide();
+//     });
+//     $("#selsoft").click(function() {
+//         alert("soft");
+//         // $('#tableInfra').hide();
+//         // $('#tableSoft').show();
+//     });
+// });
+</script>

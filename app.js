@@ -1,0 +1,22 @@
+const app = angular.module('MSSPortal', [
+    'auth0.lockPasswordless',
+    'angular-jwt',
+    'ui.router',
+    'ngResource',
+    'ngAnimate',
+    'ui.bootstrap',
+    'ngDialog',
+    'bsLoadingOverlay',
+    'bsLoadingOverlayHttpInterceptor',
+    'ncy-angular-breadcrumb',
+    'duScroll',
+    'vcRecaptcha',
+    'LocalStorageModule',
+    'ui-notification',
+    'wu.masonry',
+    'blockUI',
+    'ngMaterial',
+    'md.data.table',
+    'ngAria',
+    'ngCart'
+]);

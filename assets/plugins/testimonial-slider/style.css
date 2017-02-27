@@ -1,0 +1,59 @@
+.callout-text {
+  text-align: center;
+  width:80%;
+  margin-left:10%;
+}
+.testimonial-carousel {
+  overflow: hidden;
+  height:150px;
+  position:relative;
+  padding: 50px 20px;
+  .icon {
+    position: absolute;
+    width: 30px;
+    height:30px;
+    top: 50%;
+      margin-top: -15px;
+    cursor: pointer;
+    z-index:2;
+    &.circle-left {
+      left: 0;
+    }
+    &.circle-right {
+      right:0;
+    }
+    &:hover {
+      
+    }
+  } 
+}
+.testimonial-item {
+  position: absolute;
+  width:100%;
+  transition: transform 1s;
+  &.first {
+    left:0;
+  }
+  &.second {
+    left: 100%;
+  }
+  &.third {
+    left: 200%;
+  }
+}
+.next-button-container {
+  text-align: center;
+  button {
+    background-color: #336fe2;
+    border: none;
+    width: 100px;
+    margin: auto;
+    padding:10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      background-color: red;
+      color: #fff;
+    }
+  }
+}

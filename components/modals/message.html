@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="modal-body" style="margin-top: 10px;">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="assets/img/icon/warning.svg" ng-if="type == 'warning'" style="max-height: 100px;">
+                <img class="img-responsive" src="assets/img/icon/error.svg" ng-if="type == 'error'" style="max-height: 100px;">
+                <img class="img-responsive" src="assets/img/icon/success.svg" ng-if="type == 'success'" style="max-height: 100px;">
+                <img class="img-responsive" src="assets/img/icon/info.svg" ng-if="type == 'info'" style="max-height: 100px;">
+            </div>
+        </div>
+        <div class="row text-center" style="margin-top: 2em;">
+            <div class="col-lg-12">
+                {{line1}}
+            </div>
+        </div>
+        <div class="row text-center" ng-if="line2 && line2 != ''">
+            <div class="col-lg-12 text-muted">
+                <small>{{line2}}</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid" block-ui="loadingBlockModal">
+    <div class="modal-heading text-center">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="assets/img/icon/code.svg" ng-if="type == 'warning'" style="max-height: 100px;">
+            </div>
+            <div class="col-lg-12">
+                <h1>Access code required!</h1>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" style="margin-top: 10px;">
+        <div class="row text-center">
+            <form name="verifyForm" ng-submit="verify(usercode)">
+                <div class="col-lg-12">
+                    To continue submitting this form, you are required to input access code which we have been sent into your email addres. Please kindly check your inbox/spam folder.
+                </div>
+                <div class="col-md-6 col-md-offset-3" style="margin-top: 30px;">
+                    <input type="text" class="form-control" ng-model="usercode" minlength="6" maxlength="6" size="6" style="font-size: 38px;" ng-required="true">
+                </div>
+                <div class="col-lg-12" style="margin-top: 30px;">
+                    <button type="submit" class="btn btn-success btn-lg" ng-disabled="verifyForm.$invalid">Verify</button>
+                </div>
+        </div>
+        <div class="row bg-danger text-center" ng-if="error" style="margin-top: 30px;">
+            <div class="col-lg-12">
+                <h3 class="text-danger">{{error}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,312 @@
+<html>
+
+<head>
+    <title>MSS - Serve Your IT Need Better</title>
+    <!-- Viewport settings-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Basic style -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/reset.css" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/carousel.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.2/jquery.fullPage.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/viewerjs/dist/viewer.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/cs-skin-boxes.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/style.css" />
+    <link rel="stylesheet" href="assets/plugins/product-quick-view/css/style.css">
+    <!-- Metro Ui (tree view) -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/metro-ui/css/metro.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/metro-ui/css/metro-responsive.css">
+    <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.min.css">
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+    <script src="assets/plugins/fullscreen-form/js/modernizr.custom.js"></script>
+    <!-- Start of Async Drift Code -->
+    <script ng-if="!isAuthenticated">
+    ! function() {
+        var t;
+        if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void(window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"], t.factory = function(e) {
+            return function() {
+                var n;
+                return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+            };
+        }, t.methods.forEach(function(e) {
+            t[e] = t.factory(e);
+        }), t.load = function(t) {
+            var e, n, o, i;
+            e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js", n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+        });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('wi9ncdax3chf');
+    </script>
+    <!-- End of Async Drift Code -->
+</head>
+
+<body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-static-top container" ng-controller="NavController">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="hidden-sm hidden-md hidden-lg nav-cart pull-right" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                <a class="navbar-brand" href="#"><img src="assets/img/mssico.png"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse pull-right">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a ui-sref="home" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">HOME</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                SERVICES <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="solutions" data-toggle="collapse" data-target=".navbar-collapse">SOLUTIONS</a></li>
+                            <li><a ui-sref="software-development" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE DEVELOPMENT</a></li>
+                            <li><a ui-sref="it-infrastructure" data-toggle="collapse" data-target=".navbar-collapse">IT INFRASTRUCTURE</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                PRODUCTS <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="software" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE</a></li>
+                            <li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a ui-sref="portfolio"> PORTFOLIO</a></li> -->
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                HELP <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="contact" data-toggle="collapse" data-target=".navbar-collapse">CONTACT</a></li>
+                            <li><a ui-sref="knowledge-base" data-toggle="collapse" data-target=".navbar-collapse">KNOWLEDGE BASE</a></li>
+                        </ul>
+                    </li>
+                    <li ng-if="!isAuthenticated">
+                        <a href="" class="link color-success" ng-click="authService.login()">
+                            LOGIN
+                        </a>
+                    </li>
+                    <li ng-if="isAuthenticated">
+                        <a href="" class="link" ui-sref="account">
+                            MY ACCOUNT
+                        </a>
+                    </li>
+                    <!-- <li id="box-btn-quotation" class="hidden-sm hidden-xs">
+                        <a href="#" ui-sref="quotation" id="btn-quotation">
+                            <button class="btn btn-default btn-custom text-default">GET A QUOTATION</button>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div style="height: 100%">
+        <!-- main content -->
+        <div ui-view style="background: #ecf0f1;padding-bottom: 50px"></div>
+        <!-- main content -->
+        <!-- footer -->
+        <div id="footer" class="padding-inline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-muted footer-content">
+                        <p>&copy; 2017 PT MENARA SINAR SEMESTA
+                            <br>Intiland Tower 2nd Floor Suite 6
+                            <br>Surabaya</p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <p>
+                            <a href="" class="social"><i class="fa fa-2x fa-facebook"></i></a>
+                            <a href="" class="social"><i class="fa fa-2x fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/mss.co.id/" target="new" class="social"><i class="fa fa-2x fa-instagram"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+    </div>
+    <!-- cd-cart-container -->
+    <div class="cd-cart-container empty">
+        <a href="#0" class="cd-cart-trigger" ng-click="cartTrigger()">
+                Cart
+                <ul class="count"> 
+                    <li>{{count}}</li>
+                </ul>
+            </a>
+        <div class="cd-cart">
+            <div class="wrapper">
+                <header>
+                    <h2>Cart</h2>
+                    <span class="undo">Item removed. <a href="#0">Undo</a></span>
+                </header>
+                <div class="body">
+                    <ul>
+                        <li class="product" ng-repeat="item in items track by $index">
+                            <div class="product-image">
+                                <a href="#0"><img src="{{item.img}}" alt="placeholder"></a>
+                            </div>
+                            <div class="product-details">
+                                <h3><a href="#0"> {{ item.name }}</a></h3>
+                                <span class="price">IDR {{ item.price }}</span>
+                                <div class="actions">
+                                    <a href="#0" class="delete-item" ng-click="remove($index, $event)">Delete</a>
+                                    <div class="quantity">
+                                        <label for="cd-product-">Qty</label>
+                                        <span class="select">
+                                                <a href="#0" ng-click="qtyMinus($index, $event)">-</a>
+                                                <input type="text" ng-model="item.qty" style="width: 40px;text-align: center; ">
+                                                <a href="#0" ng-click="qtyPlus($index, $event)">+</a>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <footer>
+                    <a href="#0 " class="checkout btn " ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <!-- cd-cart-container -->
+    <!-- <div class="cd-cart-container empty">
+            <a href="#0" class="cd-cart-trigger">
+                Cart
+                <ul class="count"> 
+                    <li>0</li>
+                </ul>
+            </a>
+            <div class="cd-cart">
+                <div class="wrapper">
+                    <header>
+                        <h2>Cart</h2>
+                        <span class="undo">Item removed. <a href="#0">Undo</a></span>
+                    </header>
+                    <div class="body">
+                        <ul>
+                        </ul>
+                    </div>
+                    <footer>
+                        <a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
+                    </footer>
+                </div>
+                <footer>
+                    <a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
+                </footer>
+            </div>
+        </div> -->
+    <!-- Jquery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+    <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+    <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <!-- JQuery plugins -->
+    <!-- Metro Ui (tree view) -->
+    <script src="assets/plugins/metro-ui/js/metro.js"></script>
+    <!-- Product View -->
+    <script src="assets/plugins/product-quick-view/js/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.2/jquery.fullPage.min.js"></script>
+    <script src="assets/plugins/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.min.js"></script>
+    <script src="assets/plugins/viewerjs/dist/viewer.min.js"></script>
+    <script src="assets/plugins/fullscreen-form/js/classie.js"></script>
+    <script src="assets/plugins/fullscreen-form/js/selectFx.js"></script>
+    <script src="assets/plugins/fullscreen-form/js/fullscreenForm.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js"></script>
+    <script src="assets/js/parallax.js"></script>
+    <script src="assets/js/float-label.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.1.1/masonry.pkgd.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- !!! Required !!! -->
+    <script src="env.js"></script>
+    <!-- Angular scripts -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="bower_components/auth0-lock-passwordless/build/lock-passwordless.min.js"></script>
+    <script src="bower_components/angular-lock-passwordless/dist/angular-lock-passwordless.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+    <script src="bower_components/angular-loading-overlay/dist/angular-loading-overlay.js"></script>
+    <script src="node_modules/angular-loading-overlay-http-interceptor/dist/angular-loading-overlay-http-interceptor.js"></script>
+    <script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+    <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+    <script src="bower_components/ngcart/dist/ngCart.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <!-- style sheet -->
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+    <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet" type="text/css" />
+    <!-- module -->
+    <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <!-- Core scripts -->
+    <script src="app.js"></script>
+    <script src="app.constant.js"></script>
+    <script src="app.config.js"></script>
+    <script src="app.run.js"></script>
+    <!-- Factories -->
+    <script src="app.factory.js"></script>
+    <!-- Services -->
+    <script src="app.service.js"></script>
+    <!-- Directives -->
+    <script src="app.directive.js"></script>
+    <!-- Navigation Controller -->
+    <script src="nav.controller.js"></script>
+    <!-- Controllers -->
+    <script src="components/home/home.controller.js"></script>
+    <script src="components/contact/contact.controller.js"></script>
+    <script src="components/hardwares/hardwares.controller.js"></script>
+    <script src="components/it-infrastructure/it-infrastructure.controller.js"></script>
+    <script src="components/it-infrastructure-order/it-infrastructure-order.controller.js"></script>
+    <script src="components/knowledge-base/knowledge-base.controller.js"></script>
+    <script src="components/portfolio/portfolio.controller.js"></script>
+    <script src="components/software-development/software-development.controller.js"></script>
+    <script src="components/softwares/softwares.controller.js"></script>
+    <script src="components/solutions/solutions.controller.js"></script>
+    <script src="components/quotation/quotation.controller.js"></script>
+    <script src="components/account/account.controller.js"></script>
+    <script src="components/account/profile.controller.js"></script>
+    <script src="components/account/service.controller.js"></script>
+    <script src="components/account/billing.controller.js"></script>
+    <script src="components/account/transaction.controller.js"></script>
+    <script src="components/account/support.controller.js"></script>
+    <script src="components/account/setting.controller.js"></script>
+    <script src="components/account/order.controller.js"></script>
+</body>
+
+</html>

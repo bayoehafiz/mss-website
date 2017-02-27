@@ -1,0 +1,126 @@
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('profile')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/profile.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Profile</h1>
+            <br>
+            <p class="text-muted">Information about your profile</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('service')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/service.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Services</h1>
+            <br>
+            <p class="text-muted">All of your active services</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('order')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/order.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Orders</h1>
+            <br>
+            <p class="text-muted">Manage your order</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('transaction')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/transaction.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Transactions</h1>
+            <br>
+            <p class="text-muted">Detail of your all transactions</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('billing')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/billing.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Billing</h1>
+            <br>
+            <p class="text-muted">Your billing information</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('setting')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/setting.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Settings</h1>
+            <br>
+            <p class="text-muted">Manage your account settings</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="open('support')">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/support.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Support</h1>
+            <br>
+            <p class="text-muted">Get help from our support team</p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 text-center">
+    <div class="box-chart hover" ng-click="signout()">
+        <div class="box-chart-img">
+            <img src="assets/img/icon/signout.svg">
+        </div>
+        <div class="box-chart-content" style="margin: 20px 0 10px 0;">
+            <h1>Sign Out</h1>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+.box-chart {
+    min-height: 0px!important;
+}
+
+.hover {
+    -webkit-transition: all .15s ease;
+    /* Safari and Chrome */
+    -moz-transition: all .15s ease;
+    /* Firefox */
+    -o-transition: all .15s ease;
+    /* IE 9 */
+    -ms-transition: all .15s ease;
+    /* Opera */
+    transition: all .15s ease;
+}
+
+.hover:hover {
+    background-color: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.05);
+    /* Safari and Chrome */
+    -moz-transform: scale(1.05);
+    /* Firefox */
+    -ms-transform: scale(1.05);
+    /* IE 9 */
+    -o-transform: translatZ(0) scale(1.05);
+    /* Opera */
+    transform: translatZ(0) scale(1.05);
+}
+</style>
