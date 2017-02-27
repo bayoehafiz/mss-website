@@ -919,6 +919,7 @@ ul.cbox li {
         -moz-background-size: cover!important;
         -o-background-size: cover!important;
         background-size: cover!important;
+        background-attachment: inherit!important;
     }
     .parallax.solutions {
         background-image: url('../img/bg/solution-xs.svg')!important
