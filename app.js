@@ -18,5 +18,6 @@ const app = angular.module('MSSPortal', [
     'ngMaterial',
     'md.data.table',
     'ngAria',
-    'ngCart'
+    'ngCart',
+    'alexjoffroy.angular-loaders'
 ]);

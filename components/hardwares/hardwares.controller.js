@@ -1,5 +1,5 @@
 app.controller('HardwaresController', function($scope, authService, NavShrink, hardwareService, blockUI, $timeout) { // Get the reference to the block service.
-    
+
     var vm = this;
     vm.authService = authService;
 
@@ -27,6 +27,7 @@ app.controller('HardwaresController', function($scope, authService, NavShrink, h
     //         }, 1000);
     //     })
 
+   
     $scope.categories = ['network', 'mikrotik', 'cctv'];
 
     $scope.items = [{

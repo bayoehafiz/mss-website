@@ -1,6 +1,6 @@
 app.run(run);
 
-function run($rootScope, authService, authManager, $rootScope, bsLoadingOverlayService) {
+function run($rootScope,$transitions, authService, authManager, bsLoadingOverlayService) {
     $rootScope.authService = authService;
 
     // check jwt token
@@ -20,6 +20,8 @@ function run($rootScope, authService, authManager, $rootScope, bsLoadingOverlayS
         templateUrl: 'components/loading.html'
     });
 
+    // bsLoadingOverlayService.start();
+
     // Page loader on state change
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         bsLoadingOverlayService.start();
@@ -29,4 +31,5 @@ function run($rootScope, authService, authManager, $rootScope, bsLoadingOverlayS
         bsLoadingOverlayService.stop();
         localStorage.setItem('prev_state', fromState.name);
     })
+
 }

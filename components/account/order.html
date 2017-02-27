@@ -21,45 +21,44 @@
                         </div>
                     </div>
                     <div class="row">
-                       <!--  <div class="col-lg-12 col-md-12 v-center">
+                        <!--  <div class="col-lg-12 col-md-12 v-center">
                             <p>Filter by</p>
                             <select ng-model="select.type" ng-dropdown required ng-change="changeme()">
                                 <option ng-option value="Infra">IT Infrastructure</option>
                                 <option ng-option value="Soft">Software Development</option>
                             </select>
                             <div class="box-chart-content"> -->
-                                <!-- {{ select.null }}
+                        <!-- {{ select.null }}
                         <md-toolbar class="md-table-toolbar md-default">
                             <div class="md-toolbar-tools">
                                 <span>IT Infrastructure</span>
                             </div>
                         </md-toolbar> -->
-                                <md-table-container>
-                                    <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-                                        <thead md-head md-on-reorder="getOrders">
-                                            <tr md-row>
-                                                <th md-column md-order-by="data.type"><span>Project Type</span></th>
-                                                <th md-column md-numeric>Status</th>
-                                                <th md-column md-numeric>Project Scope</th>
-                                                <th md-column md-numeric>Project Value / Budget</th>
-                                                <th md-column md-numeric>Company</th>
-                                                <th md-column md-numeric>Created On</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody md-body>
-                                            <tr md-row md-select="data" md-select-id="_id" md-auto-select ng-repeat="data in orders">
-                                                <td md-cell><span ng-if="data.order_type == 'softwarefo'">Software Dev</span><span ng-if="data.order_type == 'itinfrafo'">IT Infrastructure</span></td>
-                                                <td md-cell><span class="text-success font-500">Follow Up</span></td>
-                                                <td md-cell>{{ data.scope_project[0].cat || data.priority}}</td>
-                                                <td md-cell>{{ data.scope_project[0].val || data.budget | currency:'IDR ':0}}</td>
-                                                <td md-cell>{{ data.company }}</td>
-                                                <td md-cell>{{ data.created_on | date:"dd MMM yyyy" }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </md-table-container>
-                                <!-- <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{data.count}}" md-on-paginate="getInfra" md-page-select></md-table-pagination> -->
-                            </div>
+                        <div class="col-lg-12 col-md-12">
+                            <md-table-container>
+                                <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                                    <thead md-head md-on-reorder="getOrders">
+                                        <tr md-row>
+                                            <th md-column md-order-by="data.type"><span>Project Type</span></th>
+                                            <th md-column md-numeric>Status</th>
+                                            <th md-column md-numeric>Project Scope</th>
+                                            <th md-column md-numeric>Project Value / Budget</th>
+                                            <th md-column md-numeric>Company</th>
+                                            <th md-column md-numeric>Created On</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody md-body>
+                                        <tr md-row md-select="data" md-select-id="_id" md-auto-select ng-repeat="data in orders">
+                                            <td md-cell><span ng-if="data.order_type == 'softwarefo'">Software Dev</span><span ng-if="data.order_type == 'itinfrafo'">IT Infrastructure</span></td>
+                                            <td md-cell><span class="text-success font-500">Follow Up</span></td>
+                                            <td md-cell>{{ data.scope_project[0].cat || data.priority}}</td>
+                                            <td md-cell>{{ data.scope_project[0].val || data.budget | currency:'IDR ':0}}</td>
+                                            <td md-cell>{{ data.company }}</td>
+                                            <td md-cell>{{ data.created_on | date:"dd MMM yyyy" }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </md-table-container>
                         </div>
                         <div class="col-lg-12 col-md-12">
                             <a href="" class="btn btn-custom btn-default text-default btn-quotation" ng-click="openForminfra()">New IT Infrastructure Project Order</a>

@@ -50,6 +50,7 @@ a {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 100px 0;
 }
 
 .section-overlay {
@@ -168,6 +169,30 @@ a {
     line-height: 1.5;
     font-size: 11px;
     padding: 15px;
+}
+
+.main.loaded {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    z-index: 10000000;
+}
+
+.main.loaded > .content {
+    margin: auto;
+    width: 100%;
+    display: inherit;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-slider {
@@ -323,7 +348,6 @@ a {
     color: #fff
 }
 */
-
 
 .box-chart {
     background: #fdfdfd;
@@ -938,6 +962,21 @@ ul.cbox li {
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .padding-top-inline {
+        padding-top: 15%!important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .parallax {
+        background-attachment: inherit!important;
+    }
+    .section-bg {
+        padding: 20px 0 30px 0;
+    }
+}
+
 
 /* ----------- iPad mini ----------- */
 
@@ -997,7 +1036,7 @@ ul.cbox li {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
     .parallax.solutions {
-        background-image: url('../img/bg/solution-xs.svg')!important
+        background-image: url('../img/bg/solutions-md.svg')!important
     }
 }
 
@@ -1439,3 +1478,4 @@ img.vendor-logo:hover {
 .float-label-control textarea {
     padding: 0.1em 0em 5px 0em;
 }
+
