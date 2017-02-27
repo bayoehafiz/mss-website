@@ -5,20 +5,22 @@
             <hr>
             <br>
             <form class="form" id="form-div" ng-submit="submit()">
-                <input name="name" type="text" ng-model="contact.name" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
-                <input name="email" type="text" ng-model="contact.email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
-                <textarea name="comment" ng-model="contact.comment" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
-                <div
-                    vc-recaptcha
-                    key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'"
-                    ng-model="gRecaptchaResponse"
-                    on-create="setWidgetId(widgetId)"
-                    on-success="setResponse(response)"
-                    on-expire="cbExpiration()"
-                    lang=""
-                ></div>
+                <div class="form-group float-label-control">
+                    <label for="">First Name</label>
+                    <input name="name" type="text" ng-model="contact.name" class="validate[required,custom[onlyLetter],length[0,100]] form-control" placeholder="Name" id="name" />
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="">First Name</label>
+                    <input name="email" type="text" ng-model="contact.email" class="validate[required,custom[email]] form-control" id="email" placeholder="Email" />
+                </div>
+                <div class="form-group float-label-control">
+                    <label for="">First Name</label>
+                     <textarea name="comment" ng-model="contact.comment" class="validate[required,length[6,300]] form-control" id="comment" placeholder="Comment"></textarea>
+                </div>
+               
+                <div vc-recaptcha key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'" ng-model="gRecaptchaResponse" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" lang=""></div>
                 <br>
-                <input type="submit" value="SEND" class="btn btn-default btn-lg btn-custom text-default"/>
+                <input type="submit" value="SEND" class="btn btn-default btn-lg btn-custom text-default" />
                 <div class="ease"></div>
                 <br>
             </form>
@@ -31,8 +33,8 @@
                 <span class="left-icon"><i class="fa fa-building" aria-hidden="true"></i></span>
                 <span class="right-icon">Intiland Tower 2<sup>nd</sup> Floor Suite 6<br>
                     Jl. Panglima Sudirman 101-103<br>Surabaya - 60271</span>
-                    <br>
-                    <br>
+                <br>
+                <br>
             </div>
             <div class="col-md-12">
                 <span class="left-icon"><i class="fa fa-phone-square" aria-hidden="true"></i></span>
@@ -51,7 +53,7 @@
 $(document).ready(function() {
 
     $('.navbar-wrapper').addClass('shrink');
-    
+
     var latitude = -7.272713,
         longitude = 112.742816,
         map_zoom = 17;
