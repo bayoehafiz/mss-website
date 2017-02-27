@@ -1038,6 +1038,18 @@ ul.cbox li {
     .parallax.solutions {
         background-image: url('../img/bg/solutions-md.svg')!important
     }
+    .parallax.softdev {
+        background-image: url('../img/bg/software-dev-md.svg')!important
+    }
+    .parallax.netinfra {
+        background-image: url('../img/bg/net-infra-md.svg')!important
+    }
+    .parallax.soft {
+        background-image: url('../img/bg/softw-retail-md.svg')!important
+    }
+    .parallax.hard {
+        background-image: url('../img/bg/hardware-retail-xs.svg')!important
+    }
 }
 
 
