@@ -2,11 +2,9 @@ app
     .service('authService', authService)
     .service("userService", userService)
     .service('splashModal', splashModalService)
-    .service('sotfwareService', sotfwareService)
-    .service('hardwareService', hardwareService)
+    .service('productService', productService)
     .service('orderFormService', orderFormService)
-    .service('contactformService', contactformService)
-    .service('productRetailService', productRetailService);
+    .service('contactformService', contactformService);
 
 function authService(lockPasswordless, authManager, $q, $state, $http) {
     var userProfile = JSON.parse(localStorage.getItem('profile'));
@@ -174,39 +172,14 @@ function splashModalService($uibModal, $rootScope) {
     };
 }
 
-function sotfwareService($http, URL_BASE) {
-
-    var API = "http://a.msscloud.id/";
-
-    var get = function() {
-        return $http.get('data/software.json');
-    }
-
-    return {
-        get: get
-    }
-};
-
-function hardwareService($http) {
-    var get = function() {
-        return $http.get('data/hardware.json');
-    }
-
-    return {
-        get: get
-    }
-};
-
-
-function productRetailService($http) {
-    var get = function() {
-        return $http.get('data/product-retail.json');
-    }
-
-    return {
-        get: get
+function productService($http, URL_BASE) {
+    return get = function(type) {
+        $http.get('data/products.json').then(function(data) {
+            console.log(data);
+        });
     }
 }
+
 
 function orderFormService($resource, $http) {
     var API = "http://a.msscloud.id/";

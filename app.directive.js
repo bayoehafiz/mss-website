@@ -259,7 +259,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(sotfwareService, hardwareService, productRetailService, CartService, $window) {
+app.directive('productCartInteraction', function(productService, CartService, $window) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -281,8 +281,8 @@ app.directive('productCartInteraction', function(sotfwareService, hardwareServic
                 var index = $(e.target).attr('data-index');
                 var id = $(e.target).attr('data-id');
 
-                productRetailService
-                    .get()
+                productService
+                    .get('all')
                     .then(function(res) {
                         var data = res.data;
 
@@ -629,6 +629,19 @@ app.directive('masonry', function() {
             $grid.imagesLoaded().progress(function() {
                 $grid.masonry('layout');
             });
+        }
+    }
+})
+
+app.directive('loadingScreen', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs) {
+
+            $(window).load(function() {
+                $(element).fadeOut();
+            });
+
         }
     }
 })

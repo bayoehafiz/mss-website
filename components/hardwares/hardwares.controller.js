@@ -1,21 +1,21 @@
-app.controller('HardwaresController', function($scope, authService, NavShrink, productRetailService, blockUI, $timeout) { // Get the reference to the block service.
+app.controller('HardwaresController', function($scope, authService, NavShrink, productService, blockUI, $timeout) { // Get the reference to the block service.
 
     var vm = this;
     vm.authService = authService;
 
     $scope.categories = ['network', 'mikrotik', 'cctv'];
 
-    productRetailService
-        .get()
-        .then(function(res) {
-            $scope.items = [];
-            res.data.forEach(function(val) {
-                if (val.parent == 'hardware') {
-                    $scope.items.push(val);
-                }
-            })
+    // productRetailService
+    //     .get()
+    //     .then(function(res) {
+    //         $scope.items = [];
+    //         res.data.forEach(function(val) {
+    //             if (val.parent == 'hardware') {
+    //                 $scope.items.push(val);
+    //             }
+    //         })
 
-        })
+    //     })
 
     // $scope.items = [{
     //     "id": "78438fhf892hf9",
