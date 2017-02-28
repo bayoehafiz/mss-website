@@ -22,6 +22,10 @@ a {
     outline: none!important;
 }
 
+.bg-default {
+    background-color: #fff
+}
+
 .text-default {
     color: #fff!important
 }
@@ -185,7 +189,7 @@ a {
     z-index: 10000000;
 }
 
-.ball>div>div{
+.ball>div>div {
     border-color: #1b4488!important
 }
 
@@ -940,9 +944,12 @@ ul.cbox li {
     .parallax.hard {
         background-image: url('../img/bg/hardware-retail-xs.svg')!important
     }
-    /*.footer-content{
-        padding-bottom: 20px
-    }*/
+    .footer-content{
+        padding: 20px 0
+    }
+    .padding-top-inline {
+        padding-top: 30%!important;
+    }
 }
 
 @media (min-width: 992px) {
@@ -1496,3 +1503,34 @@ img.vendor-logo:hover {
     padding: 0.1em 0em 5px 0em;
 }
 
+.hover {
+    -webkit-transition: all .15s ease;
+    /* Safari and Chrome */
+    -moz-transition: all .15s ease;
+    /* Firefox */
+    -o-transition: all .15s ease;
+    /* IE 9 */
+    -ms-transition: all .15s ease;
+    /* Opera */
+    transition: all .15s ease;
+}
+
+.hover:hover {
+    background-color: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.05);
+    /* Safari and Chrome */
+    -moz-transform: scale(1.05);
+    /* Firefox */
+    -ms-transform: scale(1.05);
+    /* IE 9 */
+    -o-transform: translatZ(0) scale(1.05);
+    /* Opera */
+    transform: translatZ(0) scale(1.05);
+}
+
+.img-bussiness-process {
+    box-shadow: 2px 2px 5px 2px #d0d0d0;
+    margin: 20px auto
+}
