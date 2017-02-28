@@ -4,10 +4,6 @@ app.controller('SoftwaresController', function($scope, $window, authService, Nav
     $scope.items = [];
     $scope.categories = [];
 
-    productService
-        .get('software')
-        .then(function(response) {
-            console.log(response)
-            // $scope.items = res.data;
-        })
+    var result = productService.get('software');
+    console.log(result);
 });
