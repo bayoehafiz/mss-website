@@ -202,7 +202,7 @@ function productService($http, URL_BASE, $q) {
     return {
         get: get
     }
-};
+}
 
 
 function orderFormService($resource, $http) {

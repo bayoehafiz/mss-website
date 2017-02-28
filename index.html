@@ -55,6 +55,13 @@
 </head>
 
 <body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction>
+    <loading-screen>
+        <div class="main loaded">
+            <div class="content">
+                <div class="ball" loader-css="ball-scale-ripple-multiple"></div>
+            </div>
+        </div>
+    </loading-screen>
     <div class="navbar-wrapper">
         <nav class="navbar navbar-static-top container" ng-controller="NavController">
             <div class="navbar-header">
@@ -98,7 +105,7 @@
                             </a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref="contact" data-toggle="collapse" data-target=".navbar-collapse">CONTACT</a></li>
-                            <li><a ui-sref="knowledge-base" data-toggle="collapse" data-target=".navbar-collapse">KNOWLEDGE BASE</a></li>
+                            <!-- <li><a ui-sref="knowledge-base" data-toggle="collapse" data-target=".navbar-collapse">KNOWLEDGE BASE</a></li> -->
                         </ul>
                     </li>
                     <li ng-if="!isAuthenticated">

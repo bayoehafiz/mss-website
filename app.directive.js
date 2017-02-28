@@ -294,8 +294,11 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                                 val1.qty = 1;
 
                                 if (scope.items.length <= 0) {
+
                                     scope.items.push(val1);
+
                                 } else {
+
                                     scope.items.forEach(function(val2, key2) {
                                         if (id == val2.id) {
                                             found = true;
@@ -626,6 +629,19 @@ app.directive('masonry', function() {
             $grid.imagesLoaded().progress(function() {
                 $grid.masonry('layout');
             });
+        }
+    }
+})
+
+app.directive('loadingScreen', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs) {
+
+            $(window).load(function() {
+                $(element).fadeOut();
+            });
+
         }
     }
 })

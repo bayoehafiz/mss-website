@@ -24,11 +24,9 @@ function run($rootScope,$transitions, authService, authManager, bsLoadingOverlay
 
     // Page loader on state change
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        bsLoadingOverlayService.start();
     })
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-        bsLoadingOverlayService.stop();
         localStorage.setItem('prev_state', fromState.name);
     })
 
