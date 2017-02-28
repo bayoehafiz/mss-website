@@ -259,7 +259,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(sotfwareService, hardwareService, CartService, $window) {
+app.directive('productCartInteraction', function(productService, CartService, $window) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -281,8 +281,8 @@ app.directive('productCartInteraction', function(sotfwareService, hardwareServic
                 var index = $(e.target).attr('data-index');
                 var id = $(e.target).attr('data-id');
 
-                hardwareService
-                    .get()
+                productService
+                    .get('all')
                     .then(function(res) {
                         var data = res.data;
 

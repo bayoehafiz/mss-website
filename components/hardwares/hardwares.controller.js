@@ -1,4 +1,4 @@
-app.controller('HardwaresController', function($scope, authService, NavShrink, hardwareService, blockUI, $timeout) { // Get the reference to the block service.
+app.controller('HardwaresController', function($scope, authService, NavShrink, productService, blockUI, $timeout) { // Get the reference to the block service.
 
     var vm = this;
     vm.authService = authService;
