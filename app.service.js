@@ -5,7 +5,8 @@ app
     .service('sotfwareService', sotfwareService)
     .service('hardwareService', hardwareService)
     .service('orderFormService', orderFormService)
-    .service('contactformService', contactformService);
+    .service('contactformService', contactformService)
+    .service('productRetailService', productRetailService);
 
 function authService(lockPasswordless, authManager, $q, $state, $http) {
     var userProfile = JSON.parse(localStorage.getItem('profile'));
@@ -196,6 +197,16 @@ function hardwareService($http) {
     }
 };
 
+
+function productRetailService($http) {
+    var get = function() {
+        return $http.get('data/product-retail.json');
+    }
+
+    return {
+        get: get
+    }
+}
 
 function orderFormService($resource, $http) {
     var API = "http://a.msscloud.id/";

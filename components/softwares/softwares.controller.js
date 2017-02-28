@@ -1,19 +1,25 @@
-app.controller('SoftwaresController', function($scope, $window, authService, NavShrink, sotfwareService, CartService, localStorageService) {
+app.controller('SoftwaresController', function($scope,authService, NavShrink, productRetailService, CartService, localStorageService) {
 
     var vm = this;
     vm.authService = authService;
-    $scope.items = [];
 
-    sotfwareService
+    $scope.categories = ['email', 'windows', 'office'];
+
+    productRetailService
         .get()
         .then(function(res) {
-            console.log(res)
-            $scope.items = res.data;
+            $scope.items = [];
+            res.data.forEach(function(val) {
+                if (val.parent == 'software') {
+                    $scope.items.push(val);
+                }
+            })
+
         })
 
     NavShrink.shrink();
 
-    $scope.categories = ['email', 'windows', 'office'];
+   
 
     // $scope.items = [{
     //     "id": "poepwuriojvksdj",

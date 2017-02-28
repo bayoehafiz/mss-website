@@ -259,7 +259,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(sotfwareService, hardwareService, CartService, $window) {
+app.directive('productCartInteraction', function(sotfwareService, hardwareService, productRetailService, CartService, $window) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -281,7 +281,7 @@ app.directive('productCartInteraction', function(sotfwareService, hardwareServic
                 var index = $(e.target).attr('data-index');
                 var id = $(e.target).attr('data-id');
 
-                hardwareService
+                productRetailService
                     .get()
                     .then(function(res) {
                         var data = res.data;
@@ -294,8 +294,11 @@ app.directive('productCartInteraction', function(sotfwareService, hardwareServic
                                 val1.qty = 1;
 
                                 if (scope.items.length <= 0) {
+
                                     scope.items.push(val1);
+
                                 } else {
+
                                     scope.items.forEach(function(val2, key2) {
                                         if (id == val2.id) {
                                             found = true;
