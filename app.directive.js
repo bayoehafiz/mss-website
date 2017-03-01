@@ -282,7 +282,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                 var id = $(e.target).attr('data-id');
 
                 productService
-                    .get('all')
+                    .get()
                     .then(function(res) {
                         var data = res.data;
 
@@ -591,20 +591,32 @@ app.directive('productGrid', function() {
     }
 })
 
-app.directive('mixitup', function() {
+app.directive('mixitup', function($compile) {
     return {
         restrict: 'A',
         scope: {
-            entities: '='
+            datasource: '=',
+            add: '&',
         },
         link: function(scope, element, attrs) {
-            scope.$watch('entities', function() {
-                element.mixItUp();
+            scope.$on('init-mixitup', function(event) {
+                console.log('init');
+                angular.element(element).mixItUp({
+                    animation: {
+                        duration: 200
+                    },
+                    load: {
+                        sort: 'myorder:desc'
+                    }
+                });
+            });
+
+            scope.$on('resort-mixitup', function(event, sortCommand) {
+                angular.element(element).mixItUp('sort', sortCommand);
             });
         }
-
-    }
-})
+    };
+});
 
 app.directive('bgParallax', function() {
     return {

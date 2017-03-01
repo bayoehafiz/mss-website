@@ -173,30 +173,8 @@ function splashModalService($uibModal, $rootScope) {
 }
 
 function productService($http, URL_BASE, $q) {
-    var get = function(type) {
-        $http.get('data/products.json')
-            .then(function(response) {
-                var dataArray = [];
-
-                if (type == 'all') {
-                    dataArray = response.data;
-                    console.log('Result:', dataArray);
-                    return dataArray;
-                } else {
-                    var tempData = [];
-                    angular.forEach(response.data, function(val, key) {
-                        if (val.type == type) {
-                            tempData.push(val);
-                        }
-                    })
-
-                    $q.all(dataArray).then(function() {
-                        dataArray = tempData;
-                        console.log('Result:', dataArray);
-                        return dataArray;
-                    });
-                }
-            });
+    var get = function() {
+        return $http.get('data/products.json');
     }
 
     return {
