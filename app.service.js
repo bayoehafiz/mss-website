@@ -172,11 +172,13 @@ function splashModalService($uibModal, $rootScope) {
     };
 }
 
-function productService($http, URL_BASE) {
-    return get = function(type) {
-        $http.get('data/products.json').then(function(data) {
-            console.log(data);
-        });
+function productService($http, URL_BASE, $q) {
+    var get = function() {
+        return $http.get('data/products.json');
+    }
+
+    return {
+        get: get
     }
 }
 

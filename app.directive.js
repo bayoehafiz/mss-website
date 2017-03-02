@@ -282,7 +282,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                 var id = $(e.target).attr('data-id');
 
                 productService
-                    .get('all')
+                    .get()
                     .then(function(res) {
                         var data = res.data;
 
@@ -591,20 +591,35 @@ app.directive('productGrid', function() {
     }
 })
 
-app.directive('mixitup', function() {
+app.directive('mixitup', function($compile, $timeout) {
     return {
         restrict: 'A',
-        scope: {
-            entities: '='
-        },
-        link: function(scope, element, attrs) {
-            scope.$watch('entities', function() {
-                element.mixItUp();
+        link: function($scope, element, attrs) {
+            $compile(element.contents())($scope);
+            $timeout(function() {
+                angular.element(element).mixItUp(
+                    {
+                        callbacks: {
+                            onMixLoad: function() {
+                                console.log('MixItUp ready!');
+                            },
+                            onMixFail: function() {
+                                console.log("No elements found matching");
+                            }
+                        },
+                        load: {
+                            filter: 'all'
+                        },
+                        debug: {
+                            enable: true,
+                            mode: 'verbose'
+                        }
+                    }
+                );
             });
         }
-
     }
-})
+});
 
 app.directive('bgParallax', function() {
     return {

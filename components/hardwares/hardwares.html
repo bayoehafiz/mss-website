@@ -41,12 +41,12 @@
         </div>
         <div class="container controls text-center">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default filter" data-filter="all">All Products</button>
-                <button type="button" class="btn btn-default filter" data-filter=".category-{{category}}" ng-repeat="category in categories">{{category}}</button>
+                <button type="button" class="btn btn-default filter" data-filter="all">ALL</button>
+                <button type="button" class="btn btn-default filter" data-filter=".{{category}}" ng-repeat="category in categories">{{category | uppercase}}</button>
             </div>
         </div>
         <div mixitup='mixitup' class="container" entities='items'>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center mix category-{{item.group}}" ng-repeat="item in items">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center mix {{item.category}}" ng-repeat="item in items">
                 <div class="box-chart cd-item cd-trigger" data-id="{{item.id}}" data-index="{{$index}}">
                     <div class="box-chart-img">
                         <img src="{{item.img}}">
@@ -166,8 +166,8 @@
         </form>
     </div>
 </script> -->
-<!-- <style type="text/css">
+<style type="text/css">
 .container .mix {
     display: none;
 }
-</style> -->
+</style>
