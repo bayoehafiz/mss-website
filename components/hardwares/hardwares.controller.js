@@ -1,13 +1,18 @@
-app.controller('HardwaresController', function($scope, authService, NavShrink, productService, blockUI, $timeout) {
+app.controller('HardwaresController', function($scope, authService, NavShrink, productService, blockUI, $timeout, $q) {
     $scope.items = [];
-    $scope.categories = [];
+    $scope.categories = ['network', 'mikrotik', 'cctv'];
 
     productService.get().then(function(response) {
+        var promises = [];
         angular.forEach(response.data, function(val) {
             if (val.type == 'hardware') {
-                $scope.items.push(val);
-            }
+                promises.push(val);
+            };
         });
+
+        $q.all(promises).then(function(response) {
+            $scope.items = response;
+        })
     });
 
     NavShrink.shrink();
