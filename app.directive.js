@@ -591,31 +591,34 @@ app.directive('productGrid', function() {
     }
 })
 
-app.directive('mixitup', function($compile) {
+app.directive('mixitup', function($compile, $timeout) {
     return {
         restrict: 'A',
-        scope: {
-            datasource: '=',
-            add: '&',
-        },
-        link: function(scope, element, attrs) {
-            scope.$on('init-mixitup', function(event) {
-                console.log('init');
-                angular.element(element).mixItUp({
-                    animation: {
-                        duration: 200
-                    },
-                    load: {
-                        sort: 'myorder:desc'
+        link: function($scope, element, attrs) {
+            $compile(element.contents())($scope);
+            $timeout(function() {
+                angular.element(element).mixItUp(
+                    {
+                        callbacks: {
+                            onMixLoad: function() {
+                                console.log('MixItUp ready!');
+                            },
+                            onMixFail: function() {
+                                console.log("No elements found matching");
+                            }
+                        },
+                        load: {
+                            filter: 'all'
+                        },
+                        debug: {
+                            enable: true,
+                            mode: 'verbose'
+                        }
                     }
-                });
-            });
-
-            scope.$on('resort-mixitup', function(event, sortCommand) {
-                angular.element(element).mixItUp('sort', sortCommand);
+                );
             });
         }
-    };
+    }
 });
 
 app.directive('bgParallax', function() {

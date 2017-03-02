@@ -14,7 +14,6 @@ app.controller('SoftwaresController', function($scope, $rootScope, $window, auth
 
         $q.all(promises).then(function(response) {
             $scope.items = response;
-            $rootScope.$broadcast('init-mixitup');
         })
     });
 });
