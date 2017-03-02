@@ -1,10 +1,20 @@
 <html>
 
 <head>
-    <title>MSS - Serve Your IT Need Better</title>
+    <title>MSS - IT is yours</title>
     <!-- Viewport settings-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <META charset="UTF-8">
+    <META NAME="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <META NAME="description" CONTENT="Website of IT company which services are: software development, IT infrastructure project, IT solutions, and also online store of IT infrastructure hardwares.">
+    <META NAME="keywords" CONTENT="Software development, software, application, website development, IT solution, IT infrastructure, network, network infrastructure, business email,  telephone system">
+    <META NAME="robot" CONTENT="index,follow">
+    <META NAME="refresh" CONTENT="60">
+    <META NAME="copyright" CONTENT="Copyright © 2017 PT Menara Sinar Semesta. All Rights Reserved.">
+    <META NAME="author" CONTENT="MSS Web Development Team">
+    <META NAME="generator" CONTENT="www.onlinemetatag.com">
+    <META NAME="language" CONTENT="English, Indonesia">
+    <META NAME="revisit-after" CONTENT="2 days">
+    <link rel="shortcut icon" type="image/png" href="assets/img/favicon-32x32.png" />
     <!-- Basic style -->
     <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/reset.css" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -191,11 +201,21 @@
                     </ul>
                 </div>
                 <footer>
-                    <a href="#0 " class="checkout btn " ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
+                    <a href="#0 " class="checkout btn " id="pay-button" ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
                 </footer>
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript"
+            src="https://app.midtrans.com/snap/snap.js"
+            data-client-key="VT-client-_XRZTtVMrJ-7mjac"></script>
+    <script type="text/javascript">
+      var payButton = document.getElementById('pay-button');
+      payButton.addEventListener('click', function () {
+        snap.pay('SNAP-TOKEN');
+      });
+    </script>
     <!-- cd-cart-container -->
     <!-- <div class="cd-cart-container empty">
             <a href="#0" class="cd-cart-trigger">
@@ -316,6 +336,9 @@
     <script src="components/account/support.controller.js"></script>
     <script src="components/account/setting.controller.js"></script>
     <script src="components/account/order.controller.js"></script>
+
+    
+
 </body>
 
 </html>
