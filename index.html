@@ -201,21 +201,16 @@
                     </ul>
                 </div>
                 <footer>
-                    <a href="#0 " class="checkout btn " id="pay-button" ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
+                    <a href="#0 " class="checkout btn " id="pay-button" checkout><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
                 </footer>
             </div>
         </div>
     </div>
     
     <script type="text/javascript"
-            src="https://app.midtrans.com/snap/snap.js"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
             data-client-key="VT-client-_XRZTtVMrJ-7mjac"></script>
-    <script type="text/javascript">
-      var payButton = document.getElementById('pay-button');
-      payButton.addEventListener('click', function () {
-        snap.pay('SNAP-TOKEN');
-      });
-    </script>
+
     <!-- cd-cart-container -->
     <!-- <div class="cd-cart-container empty">
             <a href="#0" class="cd-cart-trigger">

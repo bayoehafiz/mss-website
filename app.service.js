@@ -4,7 +4,8 @@ app
     .service('splashModal', splashModalService)
     .service('productService', productService)
     .service('orderFormService', orderFormService)
-    .service('contactformService', contactformService);
+    .service('contactformService', contactformService)
+    .service('checkoutService', checkoutService);
 
 function authService(lockPasswordless, authManager, $q, $state, $http) {
     var userProfile = JSON.parse(localStorage.getItem('profile'));
@@ -279,7 +280,7 @@ function orderFormService($resource, $http) {
 
 
 function contactformService($resource) {
-    var API = "http://a.msscloud.id/";
+    var API = API_PROD;
     create = function(data) {
         return $resource(API + 'contactform').save(data);
     }
@@ -287,4 +288,14 @@ function contactformService($resource) {
         create: create
     }
 
+}
+
+function checkoutService($http) {
+    var API = API_PROD;
+    posttoken = function() {
+        return $http.post(API + "payment");
+    }
+    return {
+        posttoken: posttoken
+    }
 }
