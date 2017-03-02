@@ -41,8 +41,8 @@
         </div>
         <div class="container controls text-center">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default filter" data-filter="all">All Products</button>
-                <button type="button" class="btn btn-default filter" data-filter=".{{category}}" ng-repeat="category in categories">{{category}}</button>
+                <button type="button" class="btn btn-default filter" data-filter="all">ALL</button>
+                <button type="button" class="btn btn-default filter" data-filter=".{{category}}" ng-repeat="category in categories">{{category | uppercase}}</button>
             </div>
         </div>
         <div mixitup='mixitup' class="container" entities='items'>
