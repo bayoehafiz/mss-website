@@ -69,9 +69,7 @@ app.directive('slick', function() {
             });
         }
     }
-
 })
-
 
 app.directive('productView', function() {
     return {
