@@ -660,3 +660,24 @@ app.directive('loadingScreen', function() {
         }
     }
 })
+
+app.directive('checkout', function(uppercaseFilter, $parse, checkoutService) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs, modelCtrl) {
+            $(element).on("click",function () {
+                checkoutService.posttoken().then(function (res) {
+                    if(res.data.success){
+                        snap.pay(res.data.data.token, {
+                            onSuccess: function(result){console.log('success');console.log(result);},
+                            onPending: function(result){console.log('pending');console.log(result);},
+                            onError: function(result){console.log('error');console.log(result);},
+                            onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                        });
+                    }
+                })
+                //
+            })
+        }
+    };
+})
