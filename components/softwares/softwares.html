@@ -55,7 +55,7 @@
                     <div class="box-chart-content">
                         <p class="name">{{item.name}}</p>
                         <br>
-                        <h1 class="price">IDR <strong> {{item.price}}</strong></h1>
+                        <h1 class="price">IDR <strong> {{item.price | currency:"":0}}</strong></h1>
                         <br/>
                         <p class="text-muted">{{item.periode}}</p>
                     </div>
