@@ -1,6 +1,4 @@
-app.controller('QuotationController', QuotationController);
-
-function QuotationController($scope, $q, $state, $http, $location, $anchorScroll, authService, NavShrink, vcRecaptchaService, $q, orderFormService, authManager, ngDialog, blockUI, $timeout, userService) {
+app.controller('QuotationController', function QuotationController($scope, $q, $state, $http, $location, $anchorScroll, authService, NavShrink, vcRecaptchaService, $q, orderFormService, authManager, ngDialog, blockUI, $timeout, userService) {
     var vm = this;
     vm.authService = authService;
 
@@ -75,7 +73,7 @@ function QuotationController($scope, $q, $state, $http, $location, $anchorScroll
         var fo_data = $scope.softwaredev;
         var responsecap = $scope.responsecap;
         console.log('sending the captcha response to the server :', responsecap);
-        if (responsecap == null || responsecap == "" ) {
+        if (responsecap == null || responsecap == "") {
             console.log('Failed validation');
             vcRecaptchaService.reload($scope.widgetId);
         } else {
@@ -234,4 +232,6 @@ function QuotationController($scope, $q, $state, $http, $location, $anchorScroll
         else
             $state.go(prevState);
     }
-}
+
+    $anchorScroll();
+});

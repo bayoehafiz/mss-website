@@ -85,10 +85,13 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
         })
         .state('cookies-policy', {
             url: '/cookies-policy',
-            controller: 'CookiesPolicyController',
             templateUrl: 'components/help/cookies-policy.html'
         })
-        // User routes
+        .state('privacy-policy', {
+            url: '/privacy-policy',
+            templateUrl: 'components/help/privacy-policy.html'
+        })
+        // ACCOUNT routes
         .state('account', {
             url: '/account',
             controller: 'AccountController',

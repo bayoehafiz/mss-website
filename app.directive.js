@@ -60,7 +60,7 @@ app.directive('slick', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             $(element).slick({
-                autoplay: true,
+                autoplay: false,
                 arrows: false,
                 dots: true,
                 fadingEffect: true,

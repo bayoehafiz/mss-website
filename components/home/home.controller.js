@@ -1,3 +1,4 @@
-app.controller('HomeController', function HomeController($scope, authService, NavShrink ) {
+app.controller('HomeController', function HomeController($scope, $anchorScroll, authService, NavShrink ) {
     NavShrink.shrink();
+    $anchorScroll();
 });
