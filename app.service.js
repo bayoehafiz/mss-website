@@ -295,6 +295,16 @@ function checkoutService($http) {
     posttoken = function() {
         return $http.post(API + "payment");
     }
+    /*var prod_detail = function(data) {
+        return $http({
+            method: 'POST',
+            url: API + 'payment',
+            data: data,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }*/
     return {
         posttoken: posttoken
     }

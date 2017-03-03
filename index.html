@@ -190,10 +190,10 @@
                                     <div class="quantity">
                                         <label for="cd-product-">Qty</label>
                                         <span class="select">
-                                                <a href="#0" ng-click="qtyMinus($index, $event)">-</a>
-                                                <input type="text" ng-model="item.qty" style="width: 40px;text-align: center; ">
-                                                <a href="#0" ng-click="qtyPlus($index, $event)">+</a>
-                                            </span>
+                                            <a href="#0" ng-click="qtyMinus($index, $event)">-</a>
+                                            <input type="text" ng-model="item.qty" style="width: 40px;text-align: center; ">
+                                            <a href="#0" ng-click="qtyPlus($index, $event)">+</a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                     </ul>
                 </div>
                 <footer>
-                    <a href="#0 " class="checkout btn " id="pay-button" checkout><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
+                    <a href="#0 " class="checkout btn " id="pay-button" checkout ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
                 </footer>
             </div>
         </div>

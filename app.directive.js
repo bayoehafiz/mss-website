@@ -659,7 +659,7 @@ app.directive('loadingScreen', function() {
     }
 })
 
-app.directive('checkout', function(uppercaseFilter, $parse, checkoutService) {
+app.directive('checkout', function(uppercaseFilter, $parse, checkoutService, $scope) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs, modelCtrl) {
@@ -674,7 +674,17 @@ app.directive('checkout', function(uppercaseFilter, $parse, checkoutService) {
                         });
                     }
                 })
-                //
+                /*$scope.cart = {
+                    type_project: '',
+                    scope_project: [],
+                    target_complete: '',
+                    name: '',
+                    company: '',
+                    address: '',
+                    phone: '',
+                    email: ''
+                };*/
+
             })
         }
     };
