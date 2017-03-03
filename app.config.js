@@ -72,15 +72,21 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'PortfolioController',
             templateUrl: 'components/portfolio/portfolio.html'
         })
+        // HELP Routes
         .state('contact', {
             url: '/contact',
             controller: 'ContactController',
-            templateUrl: 'components/contact/contact.html'
+            templateUrl: 'components/help/contact.html'
         })
         .state('knowledge-base', {
             url: '/knowledge-base',
             controller: 'KnowledgeBaseController',
-            templateUrl: 'components/knowledge-base/knowledge-base.html'
+            templateUrl: 'components/help/knowledge-base.html'
+        })
+        .state('cookies-policy', {
+            url: '/cookies-policy',
+            controller: 'CookiesPolicyController',
+            templateUrl: 'components/help/cookies-policy.html'
         })
         // User routes
         .state('account', {
