@@ -1228,12 +1228,11 @@ html {
 img.tech-logo {
     padding-top: 20px;
     padding-bottom: 10px;
-    max-height: 90%;
 }
 
 img.vendor-logo {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 img.tech-logo,

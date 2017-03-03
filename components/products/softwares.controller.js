@@ -1,7 +1,6 @@
 app.controller('SoftwaresController', function($scope, $rootScope, $window, $anchorScroll, authService, NavShrink, productService, CartService, localStorageService, $q) {
     NavShrink.shrink();
 
-    $scope.items = [];
     $scope.categories = ['email', 'office', 'windows'];
 
     productService.get().then(function(response) {
@@ -13,7 +12,7 @@ app.controller('SoftwaresController', function($scope, $rootScope, $window, $anc
         });
 
         $q.all(promises).then(function(response) {
-            $scope.items = response;
+            $scope.softwares = response;
         })
     });
 

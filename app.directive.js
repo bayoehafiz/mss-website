@@ -620,6 +620,7 @@ app.directive('mixitup', function($compile, $timeout) {
                         },
                         debug: {
                             enable: true,
+                            showWarnings: true,
                             mode: 'verbose'
                         }
                     }
