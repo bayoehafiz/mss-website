@@ -185,7 +185,7 @@ function productService($http, URL_BASE, $q) {
 
 
 function orderFormService($resource, $http) {
-    var API = "http://a.msscloud.id/";
+    var API = API_PROD;
 
     var signUser = function(email) {
         var data = {
@@ -292,19 +292,10 @@ function contactformService($resource) {
 
 function checkoutService($http) {
     var API = API_PROD;
-    posttoken = function() {
-        return $http.post(API + "payment");
+    posttoken = function(data) {
+        console.log(data);
+        return $http.post(API + "payment", data);
     }
-    /*var prod_detail = function(data) {
-        return $http({
-            method: 'POST',
-            url: API + 'payment',
-            data: data,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    }*/
     return {
         posttoken: posttoken
     }
