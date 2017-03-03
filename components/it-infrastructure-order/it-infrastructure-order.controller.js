@@ -148,7 +148,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                                                             // send the form
                                                             console.log('.. sending the form');
-                                                            orderFormService.it_submit(fo_data).then(function(response) {
+                                                            /*orderFormService.it_submit(fo_data).then(function(response) {
                                                                 if (response.success) {
                                                                     ngDialog.open({
                                                                         template: 'components/modals/message.html',
@@ -162,7 +162,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                                                                     // $state.go('account.order');
                                                                 }
-                                                            })
+                                                            })*/
                                                         }
 
                                                         // if user is not registered
