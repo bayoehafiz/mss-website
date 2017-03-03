@@ -83,6 +83,10 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'KnowledgeBaseController',
             templateUrl: 'components/help/knowledge-base.html'
         })
+        .state('term-service', {
+            url: '/term-service',
+            templateUrl: 'components/help/term-service.html'
+        })
         .state('cookies-policy', {
             url: '/cookies-policy',
             templateUrl: 'components/help/cookies-policy.html'
