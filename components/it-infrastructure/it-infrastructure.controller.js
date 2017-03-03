@@ -1,4 +1,4 @@
-app.controller('ItInfrastructureController', function($scope, authService, NavShrink, $state) {
+app.controller('ItInfrastructureController', function($scope, $anchorScroll, authService, NavShrink, $state) {
 
     var vm = this;
     vm.authService = authService;
@@ -8,4 +8,6 @@ app.controller('ItInfrastructureController', function($scope, authService, NavSh
     $scope.openForm = function() {
     	$state.go('it-infrastructure-order');
     }
+
+    $anchorScroll();
 });

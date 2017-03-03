@@ -1,4 +1,4 @@
-app.controller('HardwaresController', function($scope, authService, NavShrink, productService, blockUI, $timeout, $q) {
+app.controller('HardwaresController', function($scope, $anchorScroll, authService, NavShrink, productService, blockUI, $timeout, $q) {
     $scope.items = [];
     $scope.categories = ['network', 'mikrotik', 'cctv'];
 
@@ -16,4 +16,5 @@ app.controller('HardwaresController', function($scope, authService, NavShrink, p
     });
 
     NavShrink.shrink();
+    $anchorScroll();
 });

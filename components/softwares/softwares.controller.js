@@ -1,4 +1,4 @@
-app.controller('SoftwaresController', function($scope, $rootScope, $window, authService, NavShrink, productService, CartService, localStorageService, $q) {
+app.controller('SoftwaresController', function($scope, $rootScope, $window, $anchorScroll, authService, NavShrink, productService, CartService, localStorageService, $q) {
     NavShrink.shrink();
 
     $scope.items = [];
@@ -16,4 +16,6 @@ app.controller('SoftwaresController', function($scope, $rootScope, $window, auth
             $scope.items = response;
         })
     });
+
+    $anchorScroll();
 });

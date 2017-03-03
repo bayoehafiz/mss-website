@@ -1,10 +1,9 @@
-app.controller('SolutionsController', SolutionsController);
-
-function SolutionsController(authService, NavShrink) {
+app.controller('SolutionsController', function SolutionsController($anchorScroll, authService, NavShrink) {
 
     var vm = this;
     vm.authService = authService;
 
-     NavShrink.shrink();
+    NavShrink.shrink();
+    $anchorScroll();
 
-}
+})
