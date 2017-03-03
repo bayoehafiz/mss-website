@@ -60,7 +60,7 @@ app.directive('slick', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             $(element).slick({
-                autoplay: true,
+                autoplay: false,
                 arrows: false,
                 dots: true,
                 fadingEffect: true,
@@ -257,7 +257,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(productService, CartService, $window) {
+app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -352,16 +352,26 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e) {
-
+            scope.checkout = function(e, $http, uppercaseFilter, $parse) {
+                var API = API_PROD;
                 e.preventDefault();
-
                 scope.data = {
                     products: scope.items,
-                    total: scope.cartTotal
+                    order_id: "ORDER-0002",
+                    gross_amount: scope.cartTotal
                 }
-
                 console.log(scope.data);
+                checkoutService.posttoken(scope.data).then(function (res) {
+                    if(res.data.success){
+                        console.log(res.data.data.token);
+                        snap.pay(res.data.data.token, {
+                            onSuccess: function(result){console.log('success');console.log(result);},
+                            onPending: function(result){console.log('pending');console.log(result);},
+                            onError: function(result){console.log('error');console.log(result);},
+                            onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                        });
+                    }
+                })
             }
 
             scope.$watch('items', function(newVal) {
@@ -659,23 +669,3 @@ app.directive('loadingScreen', function() {
     }
 })
 
-app.directive('checkout', function(uppercaseFilter, $parse, checkoutService) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs, modelCtrl) {
-            $(element).on("click",function () {
-                checkoutService.posttoken().then(function (res) {
-                    if(res.data.success){
-                        snap.pay(res.data.data.token, {
-                            onSuccess: function(result){console.log('success');console.log(result);},
-                            onPending: function(result){console.log('pending');console.log(result);},
-                            onError: function(result){console.log('error');console.log(result);},
-                            onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                        });
-                    }
-                })
-                //
-            })
-        }
-    };
-})

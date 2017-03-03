@@ -95,12 +95,12 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         var fo_data = $scope.infra;
         var responsecap = $scope.responsecap;
         console.log('sending the captcha response to the server :', responsecap);
-        if (responsecap == null || responsecap == "" ) {
+        if (responsecap == null || responsecap == "") {
             console.log('Failed validation');
             vcRecaptchaService.reload($scope.widgetId);
         } else {
             console.log('Success');
-            
+
             if (!$scope.isAuthenticated) {
                 // sign the guest in
                 orderFormService.signUser(fo_data.email).then(function(response, id_token, profile) {
@@ -255,4 +255,6 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         else
             $state.go(prevState);
     }
+
+    $anchorScroll();
 });

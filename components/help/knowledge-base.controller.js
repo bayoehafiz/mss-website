@@ -1,12 +1,9 @@
-app.controller('KnowledgeBaseController', KnowledgeBaseController);
+app.controller('KnowledgeBaseController', function KnowledgeBaseController($anchorScroll, authService, NavShrink) {
 
-    KnowledgeBaseController.$inject = ['authService', 'NavShrink'];
+    var vm = this;
+    vm.authService = authService;
 
-    function KnowledgeBaseController(authService, NavShrink) {
+    NavShrink.shrink();
 
-        var vm = this;
-        vm.authService = authService;
-
-        NavShrink.shrink();
-    }
-
+    $anchorScroll();
+});
