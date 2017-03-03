@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>MSS - IT is yours</title>
+    <title>MSS - IT IS YOURS</title>
     <!-- Viewport settings-->
     <META charset="UTF-8">
     <META NAME="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -62,6 +62,29 @@
     drift.load('wi9ncdax3chf');
     </script>
     <!-- End of Async Drift Code -->
+    <!-- Cokkie Consent -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function() {
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#252e39"
+                },
+                "button": {
+                    "background": "#1c4488"
+                }
+            },
+            "theme": "edgeless",
+            "position": "bottom-left",
+            "content": {
+                "href": "#/cookies-policy"
+            }
+        })
+    });
+    </script>
+    <!-- Cokkie Consent -->
 </head>
 
 <body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction>
@@ -116,6 +139,8 @@
                         <ul class="dropdown-menu">
                             <li><a ui-sref="contact" data-toggle="collapse" data-target=".navbar-collapse">CONTACT</a></li>
                             <!-- <li><a ui-sref="knowledge-base" data-toggle="collapse" data-target=".navbar-collapse">KNOWLEDGE BASE</a></li> -->
+                            <li><a ui-sref="privacy-policy" data-toggle="collapse" data-target=".navbar-collapse">PRIVACY POLICY</a></li>
+                            <li><a ui-sref="cookies-policy" data-toggle="collapse" data-target=".navbar-collapse">COOKIES POLICY</a></li>
                         </ul>
                     </li>
                     <li ng-if="!isAuthenticated">
@@ -201,11 +226,12 @@
                     </ul>
                 </div>
                 <footer>
-                    <a href="#0 " class="checkout btn " ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
+                    <a href="#0 " class="checkout btn " id="pay-button" checkout><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
                 </footer>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="VT-client-_XRZTtVMrJ-7mjac"></script>
     <!-- cd-cart-container -->
     <!-- <div class="cd-cart-container empty">
             <a href="#0" class="cd-cart-trigger">
@@ -308,11 +334,11 @@
     <script src="nav.controller.js"></script>
     <!-- Controllers -->
     <script src="components/home/home.controller.js"></script>
-    <script src="components/contact/contact.controller.js"></script>
     <script src="components/hardwares/hardwares.controller.js"></script>
     <script src="components/it-infrastructure/it-infrastructure.controller.js"></script>
     <script src="components/it-infrastructure-order/it-infrastructure-order.controller.js"></script>
-    <script src="components/knowledge-base/knowledge-base.controller.js"></script>
+    <script src="components/help/contact.controller.js"></script>
+    <script src="components/help/knowledge-base.controller.js"></script>
     <script src="components/portfolio/portfolio.controller.js"></script>
     <script src="components/software-development/software-development.controller.js"></script>
     <script src="components/softwares/softwares.controller.js"></script>

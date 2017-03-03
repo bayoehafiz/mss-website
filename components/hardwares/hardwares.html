@@ -13,6 +13,7 @@
         </div>
     </div>
     <div class="row">
+        <!-- Quickview template -->
         <div class="cd-quick-view">
             <div class="cd-slider-wrapper">
                 <ul class="cd-slider">
@@ -36,6 +37,7 @@
             </div>
             <a href="#" class="cd-close">Close</a>
         </div>
+        <!-- Mixitup -->
         <div class="container controls text-center">
             <div class="btn-group" role="group" aria-label="...">
                 <button type="button" class="btn btn-default filter" data-filter="all">ALL</button>
@@ -51,7 +53,7 @@
                     <div class="box-chart-content">
                         <p class="name">{{item.name}}</p>
                         <br>
-                        <h1 class="price">IDR <strong> {{item.price}}</strong></h1>
+                        <h1 class="price">IDR <strong> {{item.price | currency:"":0}}</strong></h1>
                         <br/>
                         <p class="text-muted">{{item.periode}}</p>
                     </div>
