@@ -48,5 +48,10 @@
     "imagesloaded": "^4.1.1",
     "angular-bootstrap": "^2.5.0",
     "datatables.net": "^2.1.1"
+  },
+  "resolutions": {
+    "masonry": "^4.1.1",
+    "outlayer": "^2.1.0",
+    "angular": "1.6.2"
   }
 }
