@@ -44,6 +44,9 @@
     "ng-dialog": "^1.0.0",
     "angular-material-data-table": "^0.10.10",
     "angular-bootstrap-material": "abm#^0.1.4",
-    "angular-loaders": "^1.0.0"
+    "angular-loaders": "^1.0.0",
+    "imagesloaded": "^4.1.1",
+    "angular-bootstrap": "^2.5.0",
+    "datatables.net": "^2.1.1"
   }
 }
