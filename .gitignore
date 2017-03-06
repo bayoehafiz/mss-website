@@ -1,5 +1,3 @@
-// Client
-vendor
-node_modules
-
+vendor/*
+node_modules/*
 .DS_Store
