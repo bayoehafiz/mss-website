@@ -1,5 +1,5 @@
 // Client
-bower_components
+vendor
 node_modules
 
 .DS_Store
