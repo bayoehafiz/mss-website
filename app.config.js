@@ -52,16 +52,6 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'ItinfrastructureorderController',
             templateUrl: 'components/it-infrastructure-order/it-infrastructure-order.html'
         })
-        .state('software', {
-            url: '/retail-software',
-            controller: 'SoftwaresController',
-            templateUrl: 'components/softwares/softwares.html'
-        })
-        .state('hardware', {
-            url: '/retail-hardware',
-            controller: 'HardwaresController',
-            templateUrl: 'components/hardwares/hardwares.html'
-        })
         .state('hardware-detail', {
             url: '/hardware-detail',
             controller: 'HardwareDtlController',
@@ -71,6 +61,17 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/portfolio',
             controller: 'PortfolioController',
             templateUrl: 'components/portfolio/portfolio.html'
+        })
+        // PRODUCTS Routes
+        .state('software', {
+            url: '/products-software',
+            controller: 'SoftwaresController',
+            templateUrl: 'components/products/softwares.html'
+        })
+        .state('hardware', {
+            url: '/products-hardware',
+            controller: 'HardwaresController',
+            templateUrl: 'components/products/hardwares.html'
         })
         // HELP Routes
         .state('contact', {
@@ -82,6 +83,10 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/knowledge-base',
             controller: 'KnowledgeBaseController',
             templateUrl: 'components/help/knowledge-base.html'
+        })
+        .state('term-use', {
+            url: '/term-use',
+            templateUrl: 'components/help/term-use.html'
         })
         .state('cookies-policy', {
             url: '/cookies-policy',

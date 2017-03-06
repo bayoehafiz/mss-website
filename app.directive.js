@@ -352,26 +352,87 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse) {
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
                 var API = API_PROD;
                 e.preventDefault();
                 scope.data = {
                     products: scope.items,
-                    order_id: "ORDER-0002",
+                    order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                console.log(scope.data);
-                checkoutService.posttoken(scope.data).then(function (res) {
-                    if(res.data.success){
-                        console.log(res.data.data.token);
-                        snap.pay(res.data.data.token, {
-                            onSuccess: function(result){console.log('success');console.log(result);},
-                            onPending: function(result){console.log('pending');console.log(result);},
-                            onError: function(result){console.log('error');console.log(result);},
-                            onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                        });
+                var order_id = Math.floor((Math.random()*100000)+1);
+                localStorage.setItem('order_id',order_id);
+                var lostor = localStorage.getItem('order_id');
+                if(lostor == order_id)
+                {
+                    var userProfile = JSON.parse(localStorage.getItem('profile'));
+                    console.log(userProfile);
+                    // if user already logged in
+                    if (localStorage.getItem('profile') != undefined) {
+                        console.log("have a profile");
+                        var userProfile = JSON.parse(localStorage.getItem('profile'));
+                        
+                        //if user have metadata
+                        if (userProfile.user_metadata != undefined) {
+                            console.log('User is registered, syncing the form now...');
+
+                            // replace form data with related user's data
+                            /*fo_data.name = wantedUser.user_metadata.first_name + ' ' + wantedUser.user_metadata.last_name;
+                            fo_data.company = wantedUser.user_metadata.company_name;
+                            fo_data.phone = wantedUser.user_metadata.phone_number;
+                            fo_data.address = wantedUser.user_metadata.company_address + ', ' + wantedUser.user_metadata.city + ', ' + wantedUser.user_metadata.province;
+
+                            // send the form
+                            console.log('.. sending the form');
+                            orderFormService.it_submit(fo_data).then(function(response) {
+                                if (response.success) {
+                                    ngDialog.open({
+                                        template: 'components/modals/message.html',
+                                        className: 'ngdialog-theme-default',
+                                        scope: $scope,
+                                        controller: ['$scope', function($scope) {
+                                            $scope.type = 'success';
+                                            $scope.line1 = "Thank You. Your form has been submitted succesfully and is going into our sales email. We'll get you in touch soon!";
+                                        }]
+                                    });
+                                    // $state.go('account.order');
+                                }
+                            })*/
+                        }
+                        //if user have not metadata
+                        else {
+                            console.log('User is not registered, getting to signup page...');
+                            // save form data into local-storage & set origin-state flag
+                            /*localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('pay_page', 'payment');
+                            $scope.closeThisDialog();
+                            $state.go('account');*/
+                        }
                     }
-                })
+                    // if user not logged in
+                    else{
+                        console.log("undefined");
+                    }
+                    /*
+                    var order_id = Math.floor((Math.random()*100000)+1);
+                    console.log(lostor);
+                    
+                    
+                    checkoutService.posttoken(scope.data).then(function (res) {
+                        if(res.data.success){
+                            console.log(res.data.data.token);
+                            snap.pay(res.data.data.token, {
+                                onSuccess: function(result){console.log('success');console.log(result);},
+                                onPending: function(result){console.log('pending');console.log(result);},
+                                onError: function(result){console.log('error');console.log(result);},
+                                onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                            });
+                        }
+                    })
+                    */
+                
+                }
+                
             }
 
             scope.$watch('items', function(newVal) {
@@ -620,6 +681,7 @@ app.directive('mixitup', function($compile, $timeout) {
                         },
                         debug: {
                             enable: true,
+                            showWarnings: true,
                             mode: 'verbose'
                         }
                     }
