@@ -352,7 +352,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope, authService) {
                 var API = API_PROD;
                 e.preventDefault();
                 scope.data = {
@@ -375,33 +375,11 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
-
-                            // replace form data with related user's data
-                            /*fo_data.name = wantedUser.user_metadata.first_name + ' ' + wantedUser.user_metadata.last_name;
-                            fo_data.company = wantedUser.user_metadata.company_name;
-                            fo_data.phone = wantedUser.user_metadata.phone_number;
-                            fo_data.address = wantedUser.user_metadata.company_address + ', ' + wantedUser.user_metadata.city + ', ' + wantedUser.user_metadata.province;
-
-                            // send the form
-                            console.log('.. sending the form');
-                            orderFormService.it_submit(fo_data).then(function(response) {
-                                if (response.success) {
-                                    ngDialog.open({
-                                        template: 'components/modals/message.html',
-                                        className: 'ngdialog-theme-default',
-                                        scope: $scope,
-                                        controller: ['$scope', function($scope) {
-                                            $scope.type = 'success';
-                                            $scope.line1 = "Thank You. Your form has been submitted succesfully and is going into our sales email. We'll get you in touch soon!";
-                                        }]
-                                    });
-                                    // $state.go('account.order');
-                                }
-                            })*/
                         }
                         //if user have not metadata
                         else {
                             console.log('User is not registered, getting to signup page...');
+                            $state.go('account');
                             // save form data into local-storage & set origin-state flag
                             /*localStorage.setItem('cart_data', JSON.stringify(scope.data));
                             localStorage.setItem('pay_page', 'payment');
@@ -412,6 +390,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     // if user not logged in
                     else{
                         console.log("undefined");
+                        authService.login();
                     }
                     /*
                     var order_id = Math.floor((Math.random()*100000)+1);

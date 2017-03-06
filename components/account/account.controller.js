@@ -93,9 +93,17 @@ function AccountController($scope, $state, authService, userService, Notificatio
                                             $scope.line1 = "Thank You. Your form has been submitted succesfully and is going into our sales team's email. We'll get you in touch soon!";
                                         }],
                                         preCloseCallback: function() {
+                                            var payment = localStorage.getItem('pay_page');
+                                            if (payment){
+                                                $state.go('order');
+                                            }
+                                            else{
+                                                $state.go('order');
+                                            }
                                             localStorage.removeItem('fo_type');
                                             localStorage.removeItem('fo_data');
-                                            $state.go('order');
+                                            
+
                                         }
                                     });
                                 } else {
