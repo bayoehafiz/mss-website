@@ -52,7 +52,6 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
         }
     }
 
-
     $anchorScroll();
 
 });
