@@ -1,6 +1,6 @@
 app.config(config);
 
-function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $urlRouterProvider, $locationProvider, $httpProvider, NotificationProvider) {
+function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $urlRouterProvider, $locationProvider, $httpProvider, NotificationProvider, AnalyticsProvider) {
     $stateProvider
         .state('home', {
             url: '/',
@@ -167,6 +167,13 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
     $urlRouterProvider.otherwise('/');
 
     $locationProvider.hashPrefix('');
+
+    // Google Analytics
+    AnalyticsProvider
+        .logAllCalls(true)
+        .startOffline(true)
+        .useECommerce(true, true);
+    AnalyticsProvider.setAccount('UA-93159229-1');
 
     // UI Notification
     NotificationProvider.setOptions({
