@@ -19,5 +19,6 @@ const app = angular.module('MSSPortal', [
     'md.data.table',
     'ngAria',
     'ngCart',
-    'alexjoffroy.angular-loaders'
+    'alexjoffroy.angular-loaders',
+    '720kb.socialshare'
 ]);

@@ -338,7 +338,7 @@ a {
     padding: 10em 2em;
 }
 
-.page-title h2 {
+.page-title h1 {
     color: #fff;
     font-size: 4em;
     font-weight: 600;
@@ -740,6 +740,33 @@ ul.cbox li {
     left: 0;
     position: relative;
     top: 0;
+}
+
+
+/* Social share ---------------------------------- */
+
+.social-share {
+    padding: 2.2em;
+    position: fixed;
+    bottom: 2em;
+}
+
+.social-share p {
+    color: black;
+    line-height: 2.5;
+    font-weight: 600;
+}
+
+.social-share a {
+    margin-right: 15px;
+}
+
+a.social-twitter {
+    color: #1da1f2;
+}
+
+a.social-facebook {
+    color: #3f5d9a;
 }
 
 
