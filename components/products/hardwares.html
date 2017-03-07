@@ -17,21 +17,21 @@
         <div class="cd-quick-view">
             <div class="cd-slider-wrapper">
                 <ul class="cd-slider">
-                    <li class="selected"><img src="img/item-1.jpg" alt="Product 1"></li>
+                    <li class="selected"><img src="" alt=""></li>
                 </ul>
                 <ul class="cd-slider-navigation">
-                    <li><a class="cd-next" href="#0">Prev</a></li>
-                    <li><a class="cd-prev" href="#0">Next</a></li>
+                    <li><a class="cd-next" href="">Prev</a></li>
+                    <li><a class="cd-prev" href="">Next</a></li>
                 </ul>
             </div>
             <div class="cd-item-info">
-                <h2>Product Title</h2>
+                <h2 class="title"></h2>
                 <br>
                 <h4 class="price" style="color: #000"></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+                <p class="desc"></p>
                 <ul class="cd-item-action">
                     <li>
-                        <button class="btn btn-lg btn-success btn-custom cd-add-to-cart" data-price="25.99" data-id="" ng-click="addCart($event)">ADD TO CART</button>
+                        <button class="btn btn-lg btn-success btn-custom cd-add-to-cart" data-price="" data-id="" ng-click="addCart($event)">ADD TO CART</button>
                     </li>
                 </ul>
             </div>
@@ -45,17 +45,17 @@
             </div>
         </div> -->
         <div class="container">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center {{item.category}}" data-myorder="{{item.category}}" ng-repeat="item in hardwares">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center mix {{item.category}}" data-myorder="{{item.category}}" ng-repeat="item in hardwares">
                 <div class="box-chart cd-item cd-trigger" data-id="{{item.id}}" data-index="{{$index}}">
                     <div class="box-chart-img">
                         <img src="{{item.img}}">
                     </div>
                     <div class="box-chart-content">
-                        <p class="name">{{item.name}}</p>
+                        <p class="title">{{item.name}}</p>
                         <br>
                         <h1 class="price">IDR <strong> {{item.price | currency:"":0}}</strong></h1>
+                        <input type="hidden" class="desc" value="{{item.desc}}" />
                         <br/>
-                        <p class="text-muted">{{item.periode}}</p>
                     </div>
                     <button class="btn btn-success btn-custom">View Details</button>
                 </div>
@@ -63,23 +63,13 @@
         </div>
     </div>
     <!-- Social share -->
-    <div class="row-stretch">        
+    <div class="row-stretch">
         <div class="social-share">
             <p>Share on:</p>
-            <a href="#" 
-            socialshare socialshare-provider="twitter" 
-            socialshare-text="IT Hardware retail by PT Menara Sinar Semesta" 
-            socialshare-hashtags="hardware, server, cctv, accesspoint, router" 
-            socialshare-url="http://mss.co.id/#/products-hardware"
-            class="social-twitter">
+            <a href="#" socialshare socialshare-provider="twitter" socialshare-text="IT Hardware retail by PT Menara Sinar Semesta" socialshare-hashtags="hardware, server, cctv, accesspoint, router" socialshare-url="http://mss.co.id/#/products-hardware" class="social-twitter" prevent-default>
                 <i class="fa fa-twitter fa-2x"></i>
             </a>
-            <a href="#" 
-            socialshare socialshare-provider="facebook" 
-            socialshare-text="IT Hardware retail by PT Menara Sinar Semesta" 
-            socialshare-hashtags="hardware, server, cctv, accesspoint, router" 
-            socialshare-url="http://mss.co.id/#/products-hardware"
-            class="social-facebook">
+            <a href="#" socialshare socialshare-provider="facebook" socialshare-text="IT Hardware retail by PT Menara Sinar Semesta" socialshare-hashtags="hardware, server, cctv, accesspoint, router" socialshare-url="http://mss.co.id/#/products-hardware" class="social-facebook" prevent-default>
                 <i class="fa fa-facebook fa-2x"></i>
             </a>
         </div>
