@@ -1002,6 +1002,10 @@ ul.cbox li {
         width: 80%;
         margin: auto;
     }
+
+    .lead{
+        font-size: inherit;
+    }
 }
 
 @media (min-width: 992px) {
