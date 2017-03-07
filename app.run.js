@@ -1,6 +1,6 @@
 app.run(run);
 
-function run($rootScope, authService, authManager, bsLoadingOverlayService) {
+function run($rootScope, authService, authManager, bsLoadingOverlayService, Analytics) {
     $rootScope.authService = authService;
 
     // check jwt token

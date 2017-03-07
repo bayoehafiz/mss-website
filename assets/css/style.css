@@ -1009,6 +1009,30 @@ a.social-facebook {
     .home-slider #slider1 {
         background-image: url(../img/slider/bg-softdev-sm.svg);
     }
+    .ourTeam .i .c:hover img {
+        -moz-opacity: 1!important;
+        -khtml-opacity: 1!important;
+        -webkit-opacity: 1!important;
+        opacity: 1!important
+    }
+    .ourTeam .i .c:hover .info {
+        top: inherit!important;
+    }
+    .ourTeam .i .c:hover .more {
+        bottom: inherit!important;
+        display: none;
+    }
+    .ourTeam .i {
+        margin-top: 0
+    }
+    .ourTeam .i .c {
+        width: 80%;
+        margin: auto;
+    }
+
+    .lead{
+        font-size: inherit;
+    }
 }
 
 @media (min-width: 992px) {
@@ -1347,7 +1371,8 @@ img.vendor-logo:hover {
     background-clip: padding-box;
     position: relative;
     overflow: hidden;
-    padding-bottom: 110px
+    padding-bottom: 110px;
+    border: 1px solid #f3f3f3;
 }
 
 .ourTeam .i .c .wrap {
@@ -1595,4 +1620,9 @@ img.vendor-logo:hover {
 .img-bussiness-process {
     box-shadow: 2px 2px 5px 2px #d0d0d0;
     margin: 20px auto
+}
+
+.home-slider-box-content {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
 }
