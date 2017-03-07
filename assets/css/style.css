@@ -1569,3 +1569,8 @@ img.vendor-logo:hover {
     box-shadow: 2px 2px 5px 2px #d0d0d0;
     margin: 20px auto
 }
+
+.home-slider-box-content {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+}
