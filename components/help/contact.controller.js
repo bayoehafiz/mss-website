@@ -1,4 +1,4 @@
-app.controller('ContactController', function ContactController($scope, $anchorScroll,authService, vcRecaptchaService, contactformService) {
+app.controller('ContactController', function ContactController($scope, $anchorScroll, authService, vcRecaptchaService, contactformService) {
     $scope.contact = {
         name: '',
         email: '',
