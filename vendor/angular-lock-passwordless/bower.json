@@ -1,8 +1,0 @@
-{
-  "name": "angular-lock-passwordless",
-  "main": "angular-lock-passwordless.js",
-  "dependencies": {
-    "angular": "~1.5.8",
-    "auth0-lock-passwordless": "~2.2.3"
-  }
-}
