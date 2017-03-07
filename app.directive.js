@@ -360,18 +360,17 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                var order_id = Math.floor((Math.random()*100000)+1);
-                localStorage.setItem('order_id',order_id);
+                var order_id = Math.floor((Math.random() * 100000) + 1);
+                localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
-                if(lostor == order_id)
-                {
+                if (lostor == order_id) {
                     var userProfile = JSON.parse(localStorage.getItem('profile'));
                     console.log(userProfile);
                     // if user already logged in
                     if (localStorage.getItem('profile') != undefined) {
                         console.log("have a profile");
                         var userProfile = JSON.parse(localStorage.getItem('profile'));
-                        
+
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
@@ -388,7 +387,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         }
                     }
                     // if user not logged in
-                    else{
+                    else {
                         console.log("undefined");
                         authService.login();
                     }
@@ -409,9 +408,9 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         }
                     })
                     */
-                
+
                 }
-                
+
             }
 
             scope.$watch('items', function(newVal) {
@@ -645,26 +644,24 @@ app.directive('mixitup', function($compile, $timeout) {
         link: function($scope, element, attrs) {
             $compile(element.contents())($scope);
             $timeout(function() {
-                angular.element(element).mixItUp(
-                    {
-                        callbacks: {
-                            onMixLoad: function() {
-                                console.log('MixItUp ready!');
-                            },
-                            onMixFail: function() {
-                                console.log("No elements found matching");
-                            }
+                angular.element(element).mixItUp({
+                    callbacks: {
+                        onMixLoad: function() {
+                            console.log('MixItUp ready!');
                         },
-                        load: {
-                            filter: 'all'
-                        },
-                        debug: {
-                            enable: true,
-                            showWarnings: true,
-                            mode: 'verbose'
+                        onMixFail: function() {
+                            console.log("No elements found matching");
                         }
+                    },
+                    load: {
+                        filter: 'all'
+                    },
+                    debug: {
+                        enable: true,
+                        showWarnings: true,
+                        mode: 'verbose'
                     }
-                );
+                });
             });
         }
     }
@@ -710,3 +707,13 @@ app.directive('loadingScreen', function() {
     }
 })
 
+app.directive('preventDefault', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.on('click', function(e) {
+                e.preventDefault();
+            });
+        }
+    }
+})

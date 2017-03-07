@@ -772,6 +772,26 @@ a.social-facebook {
 
 /* Portfolio */
 
+/* Cookies page ---------------------------------- */
+.cookie-img {
+    width: 128px;
+    padding-bottom: 25px;
+    margin: auto;
+}
+
+.cookie-heading {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.cookie-content {
+    line-height: 1.75em;
+}
+
+.cookie-section {
+    margin-bottom: 3em;
+}
+
 
 /* Target Elements
 ---------------------------------------------------------------------- */
