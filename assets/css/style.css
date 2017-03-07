@@ -344,7 +344,10 @@ a {
     font-weight: 600;
 }
 
-
+.hardware-lead {
+    font-size: 1.5em;
+    line-height: 1.2em;
+}
 /*footer #copyright {
     position: absolute;
     bottom: 0;
@@ -791,7 +794,11 @@ a.social-facebook {
 .cookie-section {
     margin-bottom: 3em;
 }
-
+.cookie-list > li {
+    /*display: block;*/
+    line-height: 1.75em;
+    padding-bottom: 10px;
+}
 
 /* Target Elements
 ---------------------------------------------------------------------- */
@@ -829,6 +836,10 @@ a.social-facebook {
     background-color: #121212;
 }
 
+#mixitup-container .mix {
+    display: none;
+    float: none;
+}
 
 /* Grid Breakpoints
 ---------------------------------------------------------------------- */
