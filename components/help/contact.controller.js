@@ -39,6 +39,11 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
         console.log('sending the captcha response to the server :', response);
         if (response == null || response == "") {
             console.log('Failed validation');
+            localStorage.setItem('callback_contact_captcha', 'Please fill captcha correctly');
+            var callback = localStorage.getItem('callback_contact_captcha');
+            document.getElementById('callback').innerHTML = callback;
+            localStorage.removeItem('callback');
+            var callback = "";
             vcRecaptchaService.reload($scope.widgetId);
         } else {
             //console.log('Success');
