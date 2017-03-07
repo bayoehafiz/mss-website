@@ -1547,6 +1547,7 @@ img.vendor-logo:hover {
     -ms-transition: all .15s ease;
     /* Opera */
     transition: all .15s ease;
+    cursor: pointer;
 }
 
 .hover:hover {
