@@ -52,16 +52,16 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
         $scope.widgetId = widgetId;
     };
 
-    $scope.setResponse = function(responsecap) {
+    $scope.setResponse = function(response) {
         console.info('Response available');
-        $scope.responsecap = responsecap;
+        $scope.response = response;
         // send the `response` to your server for verification.
     };
 
     $scope.cbExpiration = function() {
         console.info('Captcha expired. Resetting response object');
         vcRecaptchaService.reload($scope.widgetId);
-        $scope.responsecap = null;
+        $scope.response = null;
     };
 
     function getQuote(fo_data) {
@@ -71,9 +71,9 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
 
     $scope.submit = function() {
         var fo_data = $scope.softwaredev;
-        var responsecap = $scope.responsecap;
-        console.log('sending the captcha response to the server :', responsecap);
-        if (responsecap == null || responsecap == "") {
+        var response = $scope.response;
+        console.log('sending the captcha response to the server :', response);
+        if (response == null || response == "") {
             console.log('Failed validation');
             vcRecaptchaService.reload($scope.widgetId);
         } else {
