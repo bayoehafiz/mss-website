@@ -995,12 +995,12 @@ ul.cbox li {
         bottom: inherit!important;
         display: none;
     }
-    .ourTeam .i .c .wrap img {
-        width: 80%!important;
-        margin: 0 auto
-    }
     .ourTeam .i {
         margin-top: 0
+    }
+    .ourTeam .i .c {
+        width: 80%;
+        margin: auto;
     }
 }
 
@@ -1340,7 +1340,8 @@ img.vendor-logo:hover {
     background-clip: padding-box;
     position: relative;
     overflow: hidden;
-    padding-bottom: 110px
+    padding-bottom: 110px;
+    border: 1px solid #f3f3f3;
 }
 
 .ourTeam .i .c .wrap {
