@@ -85,11 +85,12 @@ app.directive('productView', function() {
             //open the quick view panel
             $(element).on('click', '.cd-trigger', function(event) {
 
-                var selectedImage = $(this).closest('.mix').find('img'),
+                var selectedImage = $(this).find('img'),
                     slectedImageUrl = selectedImage.attr('src'),
-                    title = $(this).closest('.mix').find('.box-chart-content').children('p.name').text(),
-                    price = $(this).closest('.mix').find('.box-chart-content').children('.price').html(),
-                    data_price = $(this).closest('.mix').find('.box-chart-content').children('.price').text(),
+                    title = $(this).closest('.mix').find('.box-chart-content').children('p.title').text(),
+                    price = $(this).closest('.mix').find('.price').text(),
+                    desc = $(this).closest('.mix').find('.desc').val(),
+                    data_price = parseInt(price.replace(/[^\d.]/g, '')),
                     data_index = $(this).attr('data-index'),
                     id = $(this).attr('data-id');
 
@@ -99,7 +100,7 @@ app.directive('productView', function() {
 
                 //update the visible slider image in the quick view panel
                 //you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
-                updateQuickView(slectedImageUrl, title, price, parseInt(data_price.replace(/[^\d.]/g, '')), data_index);
+                updateQuickView(slectedImageUrl, title, price, desc, data_price, data_index);
             });
 
             //close the quick view panel
@@ -142,13 +143,13 @@ app.directive('productView', function() {
                 }
             }
 
-            function updateQuickView(url, title, price, data_price, data_index) {
+            function updateQuickView(url, title, price, desc, data_price, data_index) {
                 $('.cd-quick-view .cd-slider li').removeClass('selected').find('img').attr('src', url).parent('li').addClass('selected');
-                $('.cd-quick-view .cd-item-info').find('h2').text(title);
+                $('.cd-quick-view .cd-item-info').find('.title').html(title);
                 $('.cd-quick-view .cd-item-info').find('.price').html(price);
+                $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
-
             }
 
             function resizeQuickView() {
@@ -163,7 +164,9 @@ app.directive('productView', function() {
             function closeQuickView(finalWidth, maxQuickWidth) {
                 var close = $('.cd-close'),
                     activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
-                    selectedImage = $(element).find('img');
+                    // selectedImage = $(element).find('img');
+                    selectedImage = close.siblings('.cd-slider-wrapper').find('.selected img');
+
                 //update the image in the gallery
                 if (!$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
 
@@ -176,7 +179,6 @@ app.directive('productView', function() {
             }
 
             function animateQuickView(image, finalWidth, maxQuickWidth, animationType) {
-
                 //store some image data (width, top position, ...)
                 //store window data to calculate quick view panel position
                 var parentListItem = image.closest('.cd-item'),
@@ -191,8 +193,6 @@ app.directive('productView', function() {
                     finalTop = (windowHeight - finalHeight) / 2,
                     quickViewWidth = (windowWidth * .8 < maxQuickWidth) ? windowWidth * .8 : maxQuickWidth,
                     quickViewLeft = (windowWidth - quickViewWidth) / 2;
-
-
 
                 if (animationType == 'open') {
                     //hide the image in the gallery
@@ -360,18 +360,17 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                var order_id = Math.floor((Math.random()*100000)+1);
-                localStorage.setItem('order_id',order_id);
+                var order_id = Math.floor((Math.random() * 100000) + 1);
+                localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
-                if(lostor == order_id)
-                {
+                if (lostor == order_id) {
                     var userProfile = JSON.parse(localStorage.getItem('profile'));
                     console.log(userProfile);
                     // if user already logged in
                     if (localStorage.getItem('profile') != undefined) {
                         console.log("have a profile");
                         var userProfile = JSON.parse(localStorage.getItem('profile'));
-                        
+
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
@@ -388,7 +387,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         }
                     }
                     // if user not logged in
-                    else{
+                    else {
                         console.log("undefined");
                         authService.login();
                     }
@@ -409,9 +408,9 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         }
                     })
                     */
-                
+
                 }
-                
+
             }
 
             scope.$watch('items', function(newVal) {
@@ -639,35 +638,33 @@ app.directive('productGrid', function() {
     }
 })
 
-app.directive('mixitup', function($compile, $timeout) {
+app.directive('mixitup', function($compile) {
     return {
         restrict: 'A',
         link: function($scope, element, attrs) {
             $compile(element.contents())($scope);
             $timeout(function() {
-                angular.element(element).mixItUp(
-                    {
-                        callbacks: {
-                            onMixLoad: function() {
-                                console.log('MixItUp ready!');
-                            },
-                            onMixFail: function() {
-                                console.log("No elements found matching");
-                            }
+                angular.element(element).mixItUp({
+                    callbacks: {
+                        onMixLoad: function() {
+                            console.log('MixItUp ready!');
                         },
-                        load: {
-                            filter: 'all'
-                        },
-                        debug: {
-                            enable: true,
-                            showWarnings: true,
-                            mode: 'verbose'
+                        onMixFail: function() {
+                            console.log("No elements found matching");
                         }
+                    },
+                    load: {
+                        filter: 'all'
+                    },
+                    debug: {
+                        enable: true,
+                        showWarnings: true,
+                        mode: 'verbose'
                     }
-                );
+                });
             });
         }
-    }
+    };
 });
 
 app.directive('bgParallax', function() {
@@ -710,3 +707,13 @@ app.directive('loadingScreen', function() {
     }
 })
 
+app.directive('preventDefault', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.on('click', function(e) {
+                e.preventDefault();
+            });
+        }
+    }
+})

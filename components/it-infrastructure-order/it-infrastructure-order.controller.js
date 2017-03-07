@@ -77,25 +77,25 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         $scope.widgetId = widgetId;
     };
 
-    $scope.setResponse = function(responsecap) {
+    $scope.setResponse = function(response) {
         console.info('Response available');
-        $scope.responsecap = responsecap;
-        console.log($scope.responsecap);
+        $scope.response = response;
+        console.log($scope.response);
         // send the `response` to your server for verification.
     };
 
     $scope.cbExpiration = function() {
         console.info('Captcha expired. Resetting response object');
         vcRecaptchaService.reload($scope.widgetId);
-        $scope.responsecap = null;
+        $scope.response = null;
     };
 
 
     $scope.submit = function() {
         var fo_data = $scope.infra;
-        var responsecap = $scope.responsecap;
-        console.log('sending the captcha response to the server :', responsecap);
-        if (responsecap == null || responsecap == "") {
+        var response = $scope.response;
+        console.log('sending the captcha response to the server :', response);
+        if (response == null || response == "") {
             console.log('Failed validation');
             vcRecaptchaService.reload($scope.widgetId);
         } else {

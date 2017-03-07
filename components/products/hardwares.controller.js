@@ -1,6 +1,4 @@
 app.controller('HardwaresController', function($scope, $anchorScroll, authService, NavShrink, productService, blockUI, $timeout, $q) {
-    $scope.items = [];
-    $scope.categories = ['network', 'mikrotik', 'cctv'];
 
     productService.get().then(function(response) {
         var promises = [];
@@ -11,7 +9,7 @@ app.controller('HardwaresController', function($scope, $anchorScroll, authServic
         });
 
         $q.all(promises).then(function(response) {
-            $scope.items = response;
+            $scope.hardwares = response;
         })
     });
 

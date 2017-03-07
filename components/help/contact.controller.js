@@ -39,6 +39,12 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
         console.log('sending the captcha response to the server :', response);
         if (response == null || response == "") {
             console.log('Failed validation');
+            localStorage.setItem('callback_contact_captcha_error', 'Please fill captcha correctly');
+            var callback = localStorage.getItem('callback_contact_captcha_error');
+            document.getElementById('callbackerror').innerHTML = callback;
+            document.getElementById('callbacksuccess').innerHTML = "";
+            localStorage.removeItem('callback_contact_captcha_error');
+            var callback = "";
             vcRecaptchaService.reload($scope.widgetId);
         } else {
             //console.log('Success');
@@ -46,9 +52,15 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
             //$scope.tmpval = [];
             //$scope.tmpval.push($scope.contact);
             contactformService.create($scope.contact, function(res) {
+
                 console.log(res);
             })
-
+            localStorage.setItem('callback_contact_captcha_success', 'Thank You for contact us, we will touch you under 1x24 hours');
+            var callback = localStorage.getItem('callback_contact_captcha_success');
+            document.getElementById('callbacksuccess').innerHTML = callback;
+            document.getElementById('callbackerror').innerHTML = "";
+            localStorage.removeItem('callback_contact_captcha_success');
+            var callback = "";
         }
     }
 
