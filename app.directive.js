@@ -352,8 +352,8 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
-                var API = API_PROD;
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope, snap) {
+                var API = API_LOCAL;
                 e.preventDefault();
                 var order_id = Math.floor((Math.random() * 100000) + 1);
                 scope.data = {
