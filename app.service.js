@@ -293,9 +293,7 @@ function contactformService($resource) {
 function checkoutService($http) {
     var API = API_LOCAL;
     posttoken = function(data) {
-        console.log(data);
         return $http.post(API + "payment", data);
-
     }
     return {
         posttoken: posttoken

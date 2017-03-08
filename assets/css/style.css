@@ -1403,7 +1403,7 @@ img.vendor-logo:hover {
     position: relative;
     overflow: hidden;
     padding-bottom: 110px;
-    border: 1px solid #f3f3f3;
+    border: 1px solid #eee;
 }
 
 .ourTeam .i .c .wrap {
@@ -1528,14 +1528,15 @@ img.vendor-logo:hover {
 }
 
 .ourTeam .i .c:hover img {
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    -webkit-opacity: 0;
-    opacity: 0
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
+    -webkit-opacity: 0.2;
+    opacity: 0.2;
+    top: 60%;
 }
 
 .ourTeam .i .c:hover .info {
-    top: 0
+    top: 60%
 }
 
 .ourTeam .i .c:hover .more {
