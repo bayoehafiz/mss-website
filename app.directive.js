@@ -432,7 +432,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             //product id - you don't need a counter in your real project but you can use your real product id
             var productId = 0;
 
-            if (cartWrapper.length > 0) {
+            // if (cartWrapper.length > 0) {
                 //store jQuery objects
                 var cartBody = cartWrapper.find('.body')
                 var cartList = cartBody.find('ul').eq(0);
@@ -444,6 +444,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                 //add product to cart
                 addToCartBtn.on('click', function(event) {
                     event.preventDefault();
+                    console.log($(this));
                     addToCart($(this));
                 });
 
@@ -458,7 +459,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     if ($(event.target).is($(this))) toggleCart(true);
                 });
 
-            }
+            // }
 
             // show cart when localstorage product id not empty
             if ($window.localStorage['product_id'] != undefined) {

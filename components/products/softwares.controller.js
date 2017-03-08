@@ -11,7 +11,11 @@ app.controller('SoftwaresController', function($scope, $rootScope, $window, $anc
             $scope.softwares = response;
         })
     });
-    
+
+    $scope.add = function() {
+        console.log($(this));
+    }
+
     NavShrink.shrink();
     $anchorScroll();
 });
