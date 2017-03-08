@@ -173,7 +173,7 @@ function splashModalService($uibModal, $rootScope) {
     };
 }
 
-function productService($http, URL_BASE, $q) {
+function productService($http, $q) {
     var get = function() {
         return $http.get('data/products.json');
     }
@@ -185,7 +185,7 @@ function productService($http, URL_BASE, $q) {
 
 
 function orderFormService($resource, $http) {
-    var API = API_PROD;
+    var API = API_LOCAL;
 
     var signUser = function(email) {
         var data = {
@@ -280,7 +280,7 @@ function orderFormService($resource, $http) {
 
 
 function contactformService($resource) {
-    var API = API_PROD;
+    var API = API_LOCAL;
     create = function(data) {
         return $resource(API + 'contactform').save(data);
     }
@@ -291,11 +291,9 @@ function contactformService($resource) {
 }
 
 function checkoutService($http) {
-    var API = API_PROD;
+    var API = API_LOCAL;
     posttoken = function(data) {
-        console.log(data);
         return $http.post(API + "payment", data);
-
     }
     //checkoutService.posttoken(scope.data).then(function (res) {
         //if(res.data.success){
