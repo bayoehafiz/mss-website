@@ -149,7 +149,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
                                                             console.log('User is not registered, getting to signup page...');
                                                             // save form data into local-storage & set origin-state flag
                                                             localStorage.setItem('fo_data', JSON.stringify(fo_data));
-                                                            localStorage.setItem('fo_type', 'it');
+                                                            localStorage.setItem('fo_type', 'sd');
                                                             $scope.closeThisDialog();
                                                             $state.go('account');
                                                         }
@@ -218,7 +218,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
                 } else {
                     // save form data into local-storage & set origin-state flag
                     localStorage.setItem('fo_data', JSON.stringify(fo_data));
-                    localStorage.setItem('fo_type', 'it');
+                    localStorage.setItem('fo_type', 'sd');
                     $state.go('account');
 
                 }

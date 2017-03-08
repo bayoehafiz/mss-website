@@ -1,6 +1,6 @@
 app.controller('AccountController', AccountController);
 
-function AccountController($scope, $state, authService, userService, Notification, blockUI, $timeout, ngDialog, orderFormService) {
+function AccountController($scope, $state, authService, userService, Notification, blockUI, $timeout, ngDialog, orderFormService, checkoutService) {
     // Get the reference to the block service.
     var myBlockUI = blockUI.instances.get('loadingBlock');
     // Start blocking the element.
@@ -80,7 +80,8 @@ function AccountController($scope, $state, authService, userService, Notificatio
                         var fo_data = JSON.parse(localStorage.getItem('fo_data'));
 
                         // send the form
-                        if (localStorage.getItem('fo_type') == 'it') { // Send INFRA form data
+                        if (localStorage.getItem('fo_type') == 'it') {
+                            // Send INFRA form data
                             orderFormService.it_submit(fo_data).then(function(response) {
                                 if (response.data.success) {
                                     ngDialog.open({
@@ -106,7 +107,8 @@ function AccountController($scope, $state, authService, userService, Notificatio
 
                                         }
                                     });
-                                } else {
+                                } 
+                                else {
                                     ngDialog.open({
                                         template: 'components/modals/message.html',
                                         className: 'ngdialog-theme-default',
@@ -123,8 +125,10 @@ function AccountController($scope, $state, authService, userService, Notificatio
                                     });
                                 }
                             })
-                        } else {
-                            orderFormService.sd_submit(fo_data).then(function(response) { // Send SOFTDEV form data
+                        }
+                        else{
+                            // Send SOFTDEV form data
+                            orderFormService.sd_submit(fo_data).then(function(response) { 
                                 if (response.data.success) {
                                     ngDialog.open({
                                         template: 'components/modals/message.html',
@@ -159,10 +163,29 @@ function AccountController($scope, $state, authService, userService, Notificatio
                                 }
                             })
                         }
-                    } else {
+                    }
+                    else if (localStorage.getItem('pay_page') == 'payment'){
+                        console.log("you are in the account page");
+                        var cart_data = JSON.parse(localStorage.getItem('cart_data'));
+                        checkoutService.posttoken(cart_data).then(function (res) {
+                            console.log(res.data);
+                            if(res.data.success){
+                                //console.log(res.data.data.token);
+                                snap.pay(res.data.data.token, {
+                                    onSuccess: function(result){console.log('success');console.log(result);},
+                                    onPending: function(result){console.log('pending');console.log(result);},
+                                    onError: function(result){console.log('error');console.log(result);},
+                                    onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                                });
+                            }
+                        })
+                        //localStorage.removeItem('pay_page');
+                    }
+                    else {
                         $scope.showMain = true;
                     }
-                } else {
+                }
+                else {
                     $scope.error = response.data.message;
                 }
 

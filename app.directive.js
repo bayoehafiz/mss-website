@@ -257,7 +257,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService) {
+app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService,authService, $state) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -352,15 +352,27 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope, authService) {
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
                 var API = API_PROD;
                 e.preventDefault();
+                var order_id = Math.floor((Math.random() * 100000) + 1);
                 scope.data = {
                     products: scope.items,
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                var order_id = Math.floor((Math.random() * 100000) + 1);
+                checkoutService.posttoken(scope.data).then(function (res) {
+                                if(res.data.success){
+                                    console.log(res.data.data.token);
+                                    snap.pay(res.data.data.token, {
+                                        onSuccess: function(result){console.log('success');console.log(result);},
+                                        onPending: function(result){console.log('pending');console.log(result);},
+                                        onError: function(result){console.log('error');console.log(result);},
+                                        onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                                    });
+                                }
+                            })
+                /*
                 localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
                 if (lostor == order_id) {
@@ -369,48 +381,61 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     // if user already logged in
                     if (localStorage.getItem('profile') != undefined) {
                         console.log("have a profile");
-                        var userProfile = JSON.parse(localStorage.getItem('profile'));
-
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
-                        }
+                            /*checkoutService.posttoken(scope.data).then(function (res) {
+                                if(res.data.success){
+                                    console.log(res.data.data.token);
+                                    snap.pay(res.data.data.token, {
+                                        onSuccess: function(result){console.log('success');console.log(result);},
+                                        onPending: function(result){console.log('pending');console.log(result);},
+                                        onError: function(result){console.log('error');console.log(result);},
+                                        onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                                    });
+                                }
+                            })*/
+                        /*}
                         //if user have not metadata
                         else {
                             console.log('User is not registered, getting to signup page...');
-                            $state.go('account');
                             // save form data into local-storage & set origin-state flag
-                            /*localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
                             localStorage.setItem('pay_page', 'payment');
-                            $scope.closeThisDialog();
-                            $state.go('account');*/
+                            $state.go('account');
+                            toggleCart();
+                            
                         }
                     }
                     // if user not logged in
                     else {
-                        console.log("undefined");
-                        authService.login();
-                    }
-                    /*
-                    var order_id = Math.floor((Math.random()*100000)+1);
-                    console.log(lostor);
-                    
-                    
-                    checkoutService.posttoken(scope.data).then(function (res) {
-                        if(res.data.success){
-                            console.log(res.data.data.token);
-                            snap.pay(res.data.data.token, {
-                                onSuccess: function(result){console.log('success');console.log(result);},
-                                onPending: function(result){console.log('pending');console.log(result);},
-                                onError: function(result){console.log('error');console.log(result);},
-                                onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                            });
+                        console.log("user not login ");
+                        /*
+                        if (userProfile.user_metadata != undefined) {
+                            console.log('User is registered, syncing the form now...');
+                            checkoutService.posttoken(scope.data).then(function (res) {
+                                if(res.data.success){
+                                    console.log(res.data.data.token);
+                                    snap.pay(res.data.data.token, {
+                                        onSuccess: function(result){console.log('success');console.log(result);},
+                                        onPending: function(result){console.log('pending');console.log(result);},
+                                        onError: function(result){console.log('error');console.log(result);},
+                                        onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                                    });
+                                }
+                            })
                         }
-                    })
-                    */
-
-                }
-
+                        //if user have not metadata
+                        else {
+                            console.log('User is not registered, getting to signup page...');
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('pay_page', 'payment');
+                            $scope.closeThisDialog();
+                            authService.login();
+                        }                       
+                        
+                    }
+                }*/
             }
 
             scope.$watch('items', function(newVal) {
@@ -448,7 +473,6 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     addToCart($(this));
                 });
 
-                //open/close cart
                 cartTrigger.on('click', function(event) {
                     event.preventDefault();
                     toggleCart();
