@@ -66,6 +66,7 @@ app.directive('slick', function() {
                 fadingEffect: true,
                 easing: 'easeInOutCubic',
                 easingcss3: 'ease',
+                fade: true
             });
         }
     }
