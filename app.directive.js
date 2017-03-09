@@ -378,7 +378,9 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                                         console.log('error');
                                         console.log(result);
                                     },
-                                    onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                    onClose: function() { 
+                                        console.log('customer closed the popup without finishing the payment'); 
+                                    }
                                 });
                             } else {
                                 alert(response.data.error_messages[0]);

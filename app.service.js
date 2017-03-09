@@ -185,7 +185,7 @@ function productService($http, $q) {
 
 
 function orderFormService($resource, $http) {
-    var API = API_LOCAL;
+    var API = API_PROD;
 
     var signUser = function(email) {
         var data = {
@@ -280,7 +280,7 @@ function orderFormService($resource, $http) {
 
 
 function contactformService($resource) {
-    var API = API_LOCAL;
+    var API = API_PROD;
     create = function(data) {
         return $resource(API + 'contactform').save(data);
     }
@@ -291,7 +291,7 @@ function contactformService($resource) {
 }
 
 function checkoutService($http) {
-    var API = API_LOCAL;
+    var API = API_PROD;
     posttoken = function(data) {
         return $http.post(API + "payment", data);
     }
