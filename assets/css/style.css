@@ -207,6 +207,10 @@ a {
     /*padding: 0 100px*/
 }
 
+.slick-dotted.slick-slider {
+    margin-bottom: 0px!important;
+}
+
 .home-slider img {
     width: 100%
 }
@@ -1055,6 +1059,12 @@ a.social-facebook {
     .home-slider #slider1 {
         background-image: url(../img/slider/bg-softdev-sm.svg);
     }
+     .home-slider #slider2 {
+        background-image: url(../img/slider/infras-sm.svg);
+    }
+     .home-slider #slider3 {
+        background-image: url(../img/slider/software-sm.svg);
+    }
     .ourTeam .i .c:hover img {
         -moz-opacity: 1!important;
         -khtml-opacity: 1!important;
@@ -1109,6 +1119,12 @@ a.social-facebook {
     }
     .home-slider #slider1 {
         background-image: url(../img/slider/bg-softdev-md.svg);
+    }
+    .home-slider #slider2 {
+        background-image: url(../img/slider/infras-md.svg);
+    }
+    .home-slider #slider3 {
+        background-image: url(../img/slider/software-md.svg);
     }
 }
 
