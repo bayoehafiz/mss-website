@@ -94,6 +94,7 @@ app.directive('productView', function() {
                     data_index = $(this).attr('data-index'),
                     id = $(this).attr('data-id');
 
+
                 $('body').addClass('overlay-layer');
                 getId(id);
                 animateQuickView(selectedImage, sliderFinalWidth, maxQuickWidth, 'open');
@@ -150,6 +151,8 @@ app.directive('productView', function() {
                 $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
+                console.log($('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a'));
+                $('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a').attr('socialshare-text', title);
             }
 
             function resizeQuickView() {

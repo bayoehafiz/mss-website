@@ -749,9 +749,14 @@ ul.cbox li {
 /* Social share ---------------------------------- */
 
 .social-share {
-    padding: 2.2em;
+    padding: 1.2em 2.2em;
     position: fixed;
-    bottom: 2em;
+    bottom: 1em;
+}
+.social-share-product {
+    padding: 1.2em 2.2em;
+    position: fixed;
+    bottom: 1em;
 }
 
 .social-share p {
@@ -877,8 +882,10 @@ a.social-facebook {
 }
 
 .home-slider #slider2 {
-    background-image: url(../img/slider/infras.svg);
-    
+    background-image: url(../img/slider/infras.svg);    
+}
+.home-slider #slider3 {
+    background-image: url(../img/slider/software.svg);    
 }
 
 .steps li {
