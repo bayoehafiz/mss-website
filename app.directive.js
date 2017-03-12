@@ -60,12 +60,13 @@ app.directive('slick', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             $(element).slick({
-                autoplay: false,
+                autoplay: true,
                 arrows: false,
                 dots: true,
                 fadingEffect: true,
                 easing: 'easeInOutCubic',
                 easingcss3: 'ease',
+                fade: true
             });
         }
     }
@@ -93,6 +94,7 @@ app.directive('productView', function() {
                     data_price = parseInt(price.replace(/[^\d.]/g, '')),
                     data_index = $(this).attr('data-index'),
                     id = $(this).attr('data-id');
+
 
                 $('body').addClass('overlay-layer');
                 getId(id);
@@ -150,6 +152,8 @@ app.directive('productView', function() {
                 $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
+                console.log($('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a'));
+                $('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a').attr('socialshare-text', title);
             }
 
             function resizeQuickView() {
@@ -257,7 +261,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService) {
+app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService, authService, $state) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -352,15 +356,16 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope, authService) {
-                var API = API_PROD;
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
+                var API = API_LOCAL;
                 e.preventDefault();
+                var order_id = Math.floor((Math.random() * 100000) + 1);
                 scope.data = {
                     products: scope.items,
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                var order_id = Math.floor((Math.random() * 100000) + 1);
+                
                 localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
                 if (lostor == order_id) {
@@ -369,48 +374,85 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     // if user already logged in
                     if (localStorage.getItem('profile') != undefined) {
                         console.log("have a profile");
-                        var userProfile = JSON.parse(localStorage.getItem('profile'));
-
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
+                                }
+                            })
                         }
                         //if user have not metadata
                         else {
                             console.log('User is not registered, getting to signup page...');
-                            $state.go('account');
                             // save form data into local-storage & set origin-state flag
-                            /*localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
                             localStorage.setItem('pay_page', 'payment');
-                            $scope.closeThisDialog();
-                            $state.go('account');*/
+                            $state.go('account');
+                            toggleCart();
                         }
                     }
                     // if user not logged in
                     else {
-                        console.log("undefined");
+                        console.log("user not login yet");
                         authService.login();
-                    }
-                    /*
-                    var order_id = Math.floor((Math.random()*100000)+1);
-                    console.log(lostor);
-                    
-                    
-                    checkoutService.posttoken(scope.data).then(function (res) {
-                        if(res.data.success){
-                            console.log(res.data.data.token);
-                            snap.pay(res.data.data.token, {
-                                onSuccess: function(result){console.log('success');console.log(result);},
-                                onPending: function(result){console.log('pending');console.log(result);},
-                                onError: function(result){console.log('error');console.log(result);},
-                                onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                            });
+                        if (userProfile.user_metadata != undefined) {
+                            console.log("User is registered, syncing the form now...");
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
+                                }
+                            })
                         }
-                    })
-                    */
-
+                        else{
+                            console.log('User is not registered, getting to signup page...');
+                            // save form data into local-storage & set origin-state flag
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('pay_page', 'payment');
+                            $state.go('account');
+                            toggleCart();
+                        }
+                    }
                 }
-
             }
 
             scope.$watch('items', function(newVal) {
@@ -432,33 +474,33 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             //product id - you don't need a counter in your real project but you can use your real product id
             var productId = 0;
 
-            if (cartWrapper.length > 0) {
-                //store jQuery objects
-                var cartBody = cartWrapper.find('.body')
-                var cartList = cartBody.find('ul').eq(0);
-                var cartTotal = cartWrapper.find('.checkout').find('span');
-                var cartTrigger = cartWrapper.children('.cd-cart-trigger');
-                var cartCount = cartTrigger.children('.count')
-                var addToCartBtn = $('.cd-add-to-cart');
+            // if (cartWrapper.length > 0) {
+            //store jQuery objects
+            var cartBody = cartWrapper.find('.body')
+            var cartList = cartBody.find('ul').eq(0);
+            var cartTotal = cartWrapper.find('.checkout').find('span');
+            var cartTrigger = cartWrapper.children('.cd-cart-trigger');
+            var cartCount = cartTrigger.children('.count')
+            var addToCartBtn = $('.cd-add-to-cart');
 
-                //add product to cart
-                addToCartBtn.on('click', function(event) {
-                    event.preventDefault();
-                    addToCart($(this));
-                });
+            //add product to cart
+            addToCartBtn.on('click', function(event) {
+                event.preventDefault();
+                console.log($(this));
+                addToCart($(this));
+            });
 
-                //open/close cart
-                cartTrigger.on('click', function(event) {
-                    event.preventDefault();
-                    toggleCart();
-                });
+            cartTrigger.on('click', function(event) {
+                event.preventDefault();
+                toggleCart();
+            });
 
-                //close cart when clicking on the .cd-cart-container::before (bg layer)
-                cartWrapper.on('click', function(event) {
-                    if ($(event.target).is($(this))) toggleCart(true);
-                });
+            //close cart when clicking on the .cd-cart-container::before (bg layer)
+            cartWrapper.on('click', function(event) {
+                if ($(event.target).is($(this))) toggleCart(true);
+            });
 
-            }
+            // }
 
             // show cart when localstorage product id not empty
             if ($window.localStorage['product_id'] != undefined) {

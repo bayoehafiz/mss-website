@@ -207,6 +207,10 @@ a {
     /*padding: 0 100px*/
 }
 
+.slick-dotted.slick-slider {
+    margin-bottom: 0px!important;
+}
+
 .home-slider img {
     width: 100%
 }
@@ -749,9 +753,14 @@ ul.cbox li {
 /* Social share ---------------------------------- */
 
 .social-share {
-    padding: 2.2em;
+    padding: 1.2em 2.2em;
     position: fixed;
-    bottom: 2em;
+    bottom: 1em;
+}
+.social-share-product {
+    padding: 1.2em 2.2em;
+    position: fixed;
+    bottom: 1em;
 }
 
 .social-share p {
@@ -864,13 +873,23 @@ a.social-facebook {
     height: 320px!important
 }
 
-.home-slider #slider1 {
-    background-image: url(../img/slider/bg-softdev.svg);
+.slider{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 100%;
+}
+
+.home-slider #slider1 {
+    background-image: url(../img/slider/bg-softdev.svg);
+}
+
+.home-slider #slider2 {
+    background-image: url(../img/slider/infras.svg);    
+}
+.home-slider #slider3 {
+    background-image: url(../img/slider/software.svg);    
 }
 
 .steps li {
@@ -1040,6 +1059,12 @@ a.social-facebook {
     .home-slider #slider1 {
         background-image: url(../img/slider/bg-softdev-sm.svg);
     }
+     .home-slider #slider2 {
+        background-image: url(../img/slider/infras-sm.svg);
+    }
+     .home-slider #slider3 {
+        background-image: url(../img/slider/software-sm.svg);
+    }
     .ourTeam .i .c:hover img {
         -moz-opacity: 1!important;
         -khtml-opacity: 1!important;
@@ -1094,6 +1119,12 @@ a.social-facebook {
     }
     .home-slider #slider1 {
         background-image: url(../img/slider/bg-softdev-md.svg);
+    }
+    .home-slider #slider2 {
+        background-image: url(../img/slider/infras-md.svg);
+    }
+    .home-slider #slider3 {
+        background-image: url(../img/slider/software-md.svg);
     }
 }
 
@@ -1403,7 +1434,7 @@ img.vendor-logo:hover {
     position: relative;
     overflow: hidden;
     padding-bottom: 110px;
-    border: 1px solid #f3f3f3;
+    border: 1px solid #eee;
 }
 
 .ourTeam .i .c .wrap {
@@ -1528,14 +1559,15 @@ img.vendor-logo:hover {
 }
 
 .ourTeam .i .c:hover img {
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    -webkit-opacity: 0;
-    opacity: 0
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
+    -webkit-opacity: 0.2;
+    opacity: 0.2;
+    top: 60%;
 }
 
 .ourTeam .i .c:hover .info {
-    top: 0
+    top: 60%
 }
 
 .ourTeam .i .c:hover .more {
