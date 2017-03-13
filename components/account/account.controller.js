@@ -5,7 +5,7 @@ function AccountController($scope, $state, authService, userService, Notificatio
     var myBlockUI = blockUI.instances.get('loadingBlock');
     // Start blocking the element.
     myBlockUI.start();
-
+    toggleCart();
     if ($scope.isAuthenticated) {
         $scope.user = {};
         $scope.signupData = {};
@@ -167,18 +167,30 @@ function AccountController($scope, $state, authService, userService, Notificatio
                     else if (localStorage.getItem('pay_page') == 'payment'){
                         console.log("you are in the account page");
                         var cart_data = JSON.parse(localStorage.getItem('cart_data'));
-                        checkoutService.posttoken(cart_data).then(function (res) {
-                            console.log(res.data);
-                            if(res.data.success){
-                                //console.log(res.data.data.token);
-                                snap.pay(res.data.data.token, {
-                                    onSuccess: function(result){console.log('success');console.log(result);},
-                                    onPending: function(result){console.log('pending');console.log(result);},
-                                    onError: function(result){console.log('error');console.log(result);},
-                                    onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                                });
-                            }
-                        })
+                        checkoutService.posttoken(cart_data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
+                                }
+                            })
                         //localStorage.removeItem('pay_page');
                     }
                     else {

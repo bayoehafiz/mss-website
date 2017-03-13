@@ -295,20 +295,6 @@ function checkoutService($http) {
     posttoken = function(data) {
         return $http.post(API + "payment", data);
     }
-    //checkoutService.posttoken(scope.data).then(function (res) {
-        //if(res.data.success){
-            //console.log(res.data.data.token);
-    // function snap(res){
-    //     snap.pay(res.data.data.token, {
-    //         onSuccess: function(result){console.log('success');console.log(result);},
-    //         onPending: function(result){console.log('pending');console.log(result);},
-    //         onError: function(result){console.log('error');console.log(result);},
-    //         onClose: function(){console.log('customer closed the popup without finishing the payment');}
-    //     });
-    // }
-            
-                        //}
-                    //})
     return {
         posttoken: posttoken
     }

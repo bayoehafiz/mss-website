@@ -66,6 +66,7 @@ app.directive('slick', function() {
                 fadingEffect: true,
                 easing: 'easeInOutCubic',
                 easingcss3: 'ease',
+                fade: true
             });
         }
     }
@@ -93,6 +94,7 @@ app.directive('productView', function() {
                     data_price = parseInt(price.replace(/[^\d.]/g, '')),
                     data_index = $(this).attr('data-index'),
                     id = $(this).attr('data-id');
+
 
                 $('body').addClass('overlay-layer');
                 getId(id);
@@ -150,6 +152,8 @@ app.directive('productView', function() {
                 $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
+                console.log($('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a'));
+                $('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a').attr('socialshare-text', title);
             }
 
             function resizeQuickView() {
@@ -353,7 +357,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
 
 
             scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
-                var API = API_PROD;
+                var API = API_LOCAL;
                 e.preventDefault();
 
                 // check if user sigend in or not
@@ -442,38 +446,49 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                             localStorage.setItem('pay_page', 'payment');
                             $state.go('account');
                             toggleCart();
-                            
                         }
                     }
                     // if user not logged in
                     else {
-                        console.log("user not login ");
-                        /*
+                        console.log("user not login yet");
+                        authService.login();
                         if (userProfile.user_metadata != undefined) {
-                            console.log('User is registered, syncing the form now...');
-                            checkoutService.posttoken(scope.data).then(function (res) {
-                                if(res.data.success){
-                                    console.log(res.data.data.token);
-                                    snap.pay(res.data.data.token, {
-                                        onSuccess: function(result){console.log('success');console.log(result);},
-                                        onPending: function(result){console.log('pending');console.log(result);},
-                                        onError: function(result){console.log('error');console.log(result);},
-                                        onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                                    });
+                            console.log("User is registered, syncing the form now...");
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
                                 }
                             })
                         }
-                        //if user have not metadata
-                        else {
+                        else{
                             console.log('User is not registered, getting to signup page...');
+                            // save form data into local-storage & set origin-state flag
                             localStorage.setItem('cart_data', JSON.stringify(scope.data));
                             localStorage.setItem('pay_page', 'payment');
-                            $scope.closeThisDialog();
-                            authService.login();
-                        }                       
-                        
+                            $state.go('account');
+                            toggleCart();
+                        }
                     }
-                }*/
+                }
             }
 
             scope.$watch('items', function(newVal) {
