@@ -38,6 +38,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/survey-tools.html'
         })
+        .state('live-ticker', {
+            url: '/live-ticker',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/live-ticker.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',
