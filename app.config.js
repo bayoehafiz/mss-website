@@ -42,6 +42,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'QuotationController',
             templateUrl: 'components/quotation/quotation.html'
         })
+        .state('webapp', {
+            url: '/webapp',
+            controller: 'QuotationController',
+            templateUrl: 'components/software-development/webapp.html'
+        })
         .state('it-infrastructure', {
             url: '/it-infrastructure',
             controller: 'ItInfrastructureController',
