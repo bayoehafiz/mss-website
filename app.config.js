@@ -32,6 +32,12 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/solutions.html'
         })
+        //SOLUTION ROUTES
+        .state('survey-tool', {
+            url: '/survey-tool',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/survey-tools.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',
