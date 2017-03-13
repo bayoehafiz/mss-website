@@ -359,62 +359,13 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
                 var API = API_LOCAL;
                 e.preventDefault();
-
-                // check if user sigend in or not
-                var userProfile = JSON.parse(localStorage.getItem('profile'));
-
-                // if user isn't signed in
-                if (userProfile == undefined) {
-                    ngDialog.open({
-                        template: 'components/modals/message.html',
-                        className: 'ngdialog-theme-default',
-                        scope: $scope,
-                        cache: false,
-                        controller: ['$scope', function($scope) {
-                            $scope.type = 'info';
-                            $scope.line1 = "You need to be sign into your account to continue the check out process";
-                            $scope.line2 = "If you don't have an account, don't be worry! Just hit the below signin button and follow the instruction";
-                        }]
-                    });
-                } else {
-                    var order_id = Math.floor((Math.random() * 100000) + 1);
-                    scope.data = {
-                        products: scope.items,
-                        order_id: "ORD-" + order_id,
-                        gross_amount: scope.cartTotal
-                    };
-
-                    // get the token to open snap
-                    checkoutService.posttoken(scope.data).then(function(res) {
-                        var response = res.data;
-                        if (response.success) {
-                            if (response.data.token) {
-                                // open snap popup
-                                snap.pay(res.data.data.token, {
-                                    onSuccess: function(result) {
-                                        console.log('success');
-                                        console.log(result);
-                                    },
-                                    onPending: function(result) {
-                                        console.log('pending');
-                                        console.log(result);
-                                    },
-                                    onError: function(result) {
-                                        console.log('error');
-                                        console.log(result);
-                                    },
-                                    onClose: function() {
-                                        console.log('customer closed the popup without finishing the payment');
-                                    }
-                                });
-                            } else {
-                                alert(response.data.error_messages[0]);
-                            }
-                        }
-                    });
+                var order_id = Math.floor((Math.random() * 100000) + 1);
+                scope.data = {
+                    products: scope.items,
+                    order_id: "ORD-" + order_id,
+                    gross_amount: scope.cartTotal
                 }
-
-                /*
+                
                 localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
                 if (lostor == order_id) {
@@ -426,18 +377,31 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
-                            /*checkoutService.posttoken(scope.data).then(function (res) {
-                                if(res.data.success){
-                                    console.log(res.data.data.token);
-                                    snap.pay(res.data.data.token, {
-                                        onSuccess: function(result){console.log('success');console.log(result);},
-                                        onPending: function(result){console.log('pending');console.log(result);},
-                                        onError: function(result){console.log('error');console.log(result);},
-                                        onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                                    });
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
                                 }
-                            })*/
-                /*}
+                            })
+                        }
                         //if user have not metadata
                         else {
                             console.log('User is not registered, getting to signup page...');
@@ -751,46 +715,6 @@ app.directive('bgParallax', function() {
         link: function(scope, element, attrs) {
             $(element).parallax({
                 imageSrc: attrs.img
-            });
-        }
-    }
-})
-
-app.directive('masonry', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var $grid = $('.product-gallery').masonry({
-                // options
-                itemSelector: '.mix',
-            });
-            // layout Masonry after each image loads
-            $grid.imagesLoaded().progress(function() {
-                $grid.masonry('layout');
-            });
-        }
-    }
-})
-
-app.directive('loadingScreen', function() {
-    return {
-        restrict: 'E',
-        link: function(scope, element, attrs) {
-
-            $(window).load(function() {
-                $(element).fadeOut();
-            });
-
-        }
-    }
-})
-
-app.directive('preventDefault', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.on('click', function(e) {
-                e.preventDefault();
             });
         }
     }
