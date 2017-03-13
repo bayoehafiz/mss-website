@@ -43,6 +43,16 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/live-ticker.html'
         })
+        .state('email-migration', {
+            url: '/email-migration',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/email-migration.html'
+        })
+        .state('acronis-backup', {
+            url: '/acronis-backup',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/acronis-backup.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',

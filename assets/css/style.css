@@ -342,7 +342,7 @@ a {
     padding: 10em 2em;
 }
 
-.page-title h1 {
+.page-title h1, .page-title-2 h1 {
     color: #fff;
     font-size: 4em;
     font-weight: 600;
@@ -1099,10 +1099,13 @@ a.social-facebook {
     .page-title {
         padding: 15em 2em;
     }
-    .page-title h2 {
+    .page-title h2, {
         color: #fff;
         font-size: 6em;
         font-weight: 600;
+    }
+    .page-title-2 {
+        padding: 12em 2em 8em;
     }
 }
 
