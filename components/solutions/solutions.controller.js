@@ -1,9 +1,9 @@
-app.controller('SolutionsController', function SolutionsController($anchorScroll, authService, NavShrink) {
-
-    var vm = this;
-    vm.authService = authService;
+app.controller('SolutionsController', function SolutionsController($scope, $anchorScroll, authService, NavShrink, $window) {
+	$scope.goto = function(sub) {
+		var landingUrl = "https://" + sub + ".mss.co.id";
+		$window.location.href = landingUrl;
+	};
 
     NavShrink.shrink();
     $anchorScroll();
-
-})
+});

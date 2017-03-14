@@ -365,7 +365,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                
+
                 localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
                 if (lostor == order_id) {
@@ -442,8 +442,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                                     }
                                 }
                             })
-                        }
-                        else{
+                        } else {
                             console.log('User is not registered, getting to signup page...');
                             // save form data into local-storage & set origin-state flag
                             localStorage.setItem('cart_data', JSON.stringify(scope.data));
@@ -718,13 +717,13 @@ app.directive('bgParallax', function() {
             });
         }
     }
-})
+});
 
 app.directive('masonry', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var $grid = $('.product-gallery').masonry({
+            var $grid = $(element).masonry({
                 // options
                 itemSelector: '.mix',
             });
@@ -734,20 +733,7 @@ app.directive('masonry', function() {
             });
         }
     }
-})
-
-app.directive('loadingScreen', function() {
-    return {
-        restrict: 'E',
-        link: function(scope, element, attrs) {
-
-            $(window).load(function() {
-                $(element).fadeOut();
-            });
-
-        }
-    }
-})
+});
 
 app.directive('preventDefault', function() {
     return {

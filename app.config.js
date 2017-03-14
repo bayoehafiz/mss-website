@@ -32,6 +32,27 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/solutions.html'
         })
+        //SOLUTION ROUTES
+        .state('survey-tool', {
+            url: '/survey-tool',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/survey-tools.html'
+        })
+        .state('live-ticker', {
+            url: '/live-ticker',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/live-ticker.html'
+        })
+        .state('email-migration', {
+            url: '/email-migration',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/email-migration.html'
+        })
+        .state('acronis-backup', {
+            url: '/acronis-backup',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/acronis-backup.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',
@@ -41,6 +62,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/software-development-order',
             controller: 'QuotationController',
             templateUrl: 'components/quotation/quotation.html'
+        })
+        .state('webapp', {
+            url: '/webapp',
+            controller: 'QuotationController',
+            templateUrl: 'components/software-development/webapp.html'
         })
         .state('it-infrastructure', {
             url: '/it-infrastructure',
