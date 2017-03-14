@@ -13,7 +13,6 @@ const app = angular.module('MSSPortal', [
     'vcRecaptcha',
     'LocalStorageModule',
     'ui-notification',
-    'wu.masonry',
     'blockUI',
     'ngMaterial',
     'md.data.table',
