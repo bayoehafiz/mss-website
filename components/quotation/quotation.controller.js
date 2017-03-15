@@ -47,7 +47,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
         }
     };
 
-    $scope.setWidgetId = function(widgetId) {
+    /*$scope.setWidgetId = function(widgetId) {
         console.info('Created widget ID: %s', widgetId);
         $scope.widgetId = widgetId;
     };
@@ -56,7 +56,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
         console.info('Response available');
         $scope.response = response;
         // send the `response` to your server for verification.
-    };
+    };*/
 
     // $scope.cbExpiration = function() {
     //     console.info('Captcha expired. Resetting response object');
@@ -73,11 +73,11 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
         var fo_data = $scope.softwaredev;
         var response = $scope.response;
         console.log(fo_data);
-        console.log('sending the captcha response to the server :', response);
+        /*console.log('sending the captcha response to the server :', response);
         if (response == null || response == "") {
             console.log('Failed validation');
             // vcRecaptchaService.reload($scope.widgetId);
-        } else {
+        } else {*/
             console.log('Success');
             //if user not login
             if (!$scope.isAuthenticated) {
@@ -114,7 +114,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
 
                                                         var wantedUser = response.data;
                                                         localStorage.setItem('profile', JSON.stringify(wantedUser));
-
+                                                        
                                                         // user already registered
                                                         if (wantedUser.user_metadata != undefined) {
                                                             console.log('User is registered, syncing the form now...');
@@ -126,9 +126,11 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
                                                             fo_data.address = wantedUser.user_metadata.company_address + ', ' + wantedUser.user_metadata.city + ', ' + wantedUser.user_metadata.province;
 
                                                             // send the form
-                                                            console.log('.. sending the form');
+                                                            console.log(fo_data);
                                                             orderFormService.sd_submit(fo_data).then(function(response) {
-                                                                if (response.success) {
+                                                                console.log(response);
+                                                                if (response.status == 200) {
+                                                                    console.log("response.success");
                                                                     ngDialog.open({
                                                                         template: 'components/modals/message.html',
                                                                         className: 'ngdialog-theme-default',
@@ -153,6 +155,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
                                                             $scope.closeThisDialog();
                                                             $state.go('account');
                                                         }
+                                                        //ngDialog.close();
                                                     })
 
                                             } else {
@@ -223,7 +226,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
 
                 }
             }
-        }
+        //}
     }
 
     $scope.back = function() {
