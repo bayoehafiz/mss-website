@@ -719,6 +719,22 @@ app.directive('bgParallax', function() {
     }
 });
 
+app.directive('masonry', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var $grid = $(element).masonry({
+                // options
+                itemSelector: '.mix',
+            });
+            // layout Masonry after each image loads
+            $grid.imagesLoaded().progress(function() {
+                $grid.masonry('layout');
+            });
+        }
+    }
+});
+
 app.directive('preventDefault', function() {
     return {
         restrict: 'A',
