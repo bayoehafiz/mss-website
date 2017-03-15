@@ -68,6 +68,16 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'QuotationController',
             templateUrl: 'components/software-development/webapp.html'
         })
+        .state('mobile-app', {
+            url: '/mobile-app',
+            controller: 'SoftwareDevController',
+            templateUrl: 'components/software-development/mobile-app.html'
+        })
+        .state('e-commerce', {
+            url: '/e-commerce',
+            controller: 'SoftwareDevController',
+            templateUrl: 'components/software-development/e-commerce.html'
+        })
         .state('it-infrastructure', {
             url: '/it-infrastructure',
             controller: 'ItInfrastructureController',
