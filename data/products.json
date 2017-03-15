@@ -31,7 +31,7 @@
 }, {
     "id": "63542vhnklhgwi39tfjklndsa",
     "name": "OFFICE STANDARD 2016",
-    "img": "assets/img/retail/office2016.jpg",
+    "img": "assets/img/retail/office2016.png",
     "price": 5703000,
     "periode": "One Time Buy",
     "category": "office",
@@ -41,7 +41,7 @@
 }, {
     "id": "mvlkjioq8ripqm",
     "name": "Windows Pro 10",
-    "img": "assets/img/retail/windows10.jpg",
+    "img": "assets/img/retail/windows10.png",
     "price": 2867000,
     "periode": "One Time Buy",
     "category": "windows",

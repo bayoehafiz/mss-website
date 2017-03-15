@@ -1154,14 +1154,20 @@ a.social-facebook {
         padding-top: 9em;
         padding-bottom: 1em;
     }
+    .ourTeam .i .c:hover .info {
+        top: 25%!important;
+    }
 }
 
 @media (max-width: 1024px) {
     .parallax {
-        background-attachment: inherit!important;
+        /*background-attachment: inherit!important;*/
     }
     .section-bg {
         padding: 20px 0 30px 0;
+    }
+    .padding-inline {
+        padding: 60px 0 10px;
     }
 }
 
