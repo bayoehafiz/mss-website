@@ -1,3 +1,21 @@
+window.addEventListener("load", function() {
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#1c4488"
+            }
+        },
+        "theme": "edgeless",
+        "position": "bottom-left",
+        "content": {
+            "href": "#/cookies-policy"
+        }
+    })
+});
+
 $(document).ready(function() {
     // Shrink the nav bar
     $(window).scroll(function() {
@@ -29,7 +47,7 @@ $(document).ready(function() {
             $(document).find('.fs-cancel').text('Cancel');
         }
 
-    
+
         $(window).resize(function() {
             var width = $(window).width();
             if (width > 840) {
