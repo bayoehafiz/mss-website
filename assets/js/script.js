@@ -33,8 +33,6 @@ $(document).ready(function() {
         cartList.prepend(productAdded);
     }
 
-
-
     $(window).load(function() {
         var width = $(window).width();
 
@@ -58,18 +56,14 @@ $(document).ready(function() {
                 $(document).find('.fs-cancel').text('');
             }
         })
-
-
     })
 
     $('.fs-form-overview').closest('.fs-form-wrap').find('.fs-cancel').hide();
-
 
     $('body').on('click', function(e) {
         if (!$('.navbar-toggle').is(e.target) && $('.navbar-toggle').has(e.target).length === 0 && $('.in').has(e.target).length === 0) {
             $('#navbar').removeClass('in');
         }
     });
-
 
 });
