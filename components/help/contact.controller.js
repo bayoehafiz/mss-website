@@ -5,7 +5,6 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
         comment: ''
     };
 
-
     var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
     if (userProfile) {
         var firstname = userProfile.user_metadata.first_name;
@@ -17,7 +16,6 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
         $scope.contact.email = email;
     }
     $scope.setWidgetId = function(widgetId) {
-        console.info('Created widget ID: %s', widgetId);
         $scope.widgetId = widgetId;
     };
 

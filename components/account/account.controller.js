@@ -5,7 +5,7 @@ function AccountController($scope, $state, authService, userService, Notificatio
     var myBlockUI = blockUI.instances.get('loadingBlock');
     // Start blocking the element.
     myBlockUI.start();
-    toggleCart();
+    
     if ($scope.isAuthenticated) {
         $scope.user = {};
         $scope.signupData = {};
