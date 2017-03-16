@@ -88,7 +88,7 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'ItinfrastructureorderController',
             templateUrl: 'components/it-infrastructure-order/it-infrastructure-order.html'
         })
-        //HARDWARE ROUTES
+        //INFRASTRUCTURE ROUTES
         .state('security', {
             url: '/security',
             controller: 'ItInfrastructureController',
@@ -98,6 +98,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/telephone',
             controller: 'ItInfrastructureController',
             templateUrl: 'components/it-infrastructure/telephone.html'
+        })
+        .state('network', {
+            url: '/network',
+            controller: 'ItInfrastructureController',
+            templateUrl: 'components/it-infrastructure/network.html'
         })
         .state('hardware-detail', {
             url: '/hardware-detail',
