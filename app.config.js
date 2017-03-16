@@ -99,6 +99,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'ItInfrastructureController',
             templateUrl: 'components/it-infrastructure/telephone.html'
         })
+        .state('network', {
+            url: '/network',
+            controller: 'ItInfrastructureController',
+            templateUrl: 'components/it-infrastructure/network.html'
+        })
         .state('hardware-detail', {
             url: '/hardware-detail',
             controller: 'HardwareDtlController',
