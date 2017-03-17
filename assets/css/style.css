@@ -1597,10 +1597,11 @@ img.vendor-logo:hover {
 }
 
 .ourTeam .i .c:hover img {
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-    -webkit-opacity: 0;
-    opacity: 1
+    -moz-opacity: 0.2;
+    -khtml-opacity: 0.2;
+    -webkit-opacity: 0.2;
+    opacity: 0.2;
+    top: 60%;
 }
 
 .ourTeam .i .c:hover .info {
