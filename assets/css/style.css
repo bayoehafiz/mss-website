@@ -359,6 +359,9 @@ a {
     line-height: 1.2em;
 }
 
+.breadcrumb li a{
+    color: #328cee!important;
+}
 
 /*footer #copyright {
     position: absolute;
@@ -430,6 +433,9 @@ a {
 
 .padding-inline {
     padding: 70px 0;
+}
+.padding-bottom {
+    padding-bottom: 30px;
 }
 
 .padding-top-inline {
@@ -1048,6 +1054,7 @@ a.social-facebook {
         padding-top: 11em;
         padding-bottom: 2em;
     }
+    
     .parallax {
         -webkit-background-position: center!important;
         -moz-background-position: center!important;
