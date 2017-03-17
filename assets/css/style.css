@@ -1520,7 +1520,7 @@ img.vendor-logo:hover {
     -moz-opacity: 0;
     -khtml-opacity: 0;
     -webkit-opacity: 0;
-    opacity: 0
+    opacity: 1
 }
 
 .ourTeam .i .c:hover .info {
