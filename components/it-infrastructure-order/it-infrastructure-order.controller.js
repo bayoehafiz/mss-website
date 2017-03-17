@@ -72,7 +72,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
     }
     /*--end auto fill when user has been logged in--*/
 
-    $scope.setWidgetId = function(widgetId) {
+    /*$scope.setWidgetId = function(widgetId) {
         console.info('Created widget ID: %s', widgetId);
         $scope.widgetId = widgetId;
     };
@@ -82,23 +82,24 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         $scope.response = response;
         console.log($scope.response);
         // send the `response` to your server for verification.
-    };
-
-    $scope.cbExpiration = function() {
-        console.info('Captcha expired. Resetting response object');
-        vcRecaptchaService.reload($scope.widgetId);
-        $scope.response = null;
-    };
+    };*/
+    
+    // $scope.cbExpiration = function() {
+    //     console.info('Captcha expired. Resetting response object');
+    //     vcRecaptchaService.reload($scope.widgetId);
+    //     $scope.response = null;
+    // };
 
 
     $scope.submit = function() {
         var fo_data = $scope.infra;
         var response = $scope.response;
-        console.log('sending the captcha response to the server :', response);
+        console.log(fo_data);
+        /*console.log('sending the captcha response to the server :', response);
         if (response == null || response == "") {
             console.log('Failed validation');
-            vcRecaptchaService.reload($scope.widgetId);
-        } else {
+            // vcRecaptchaService.reload($scope.widgetId);
+        } else {*/
             console.log('Success');
 
             if (!$scope.isAuthenticated) {
@@ -148,8 +149,8 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                                                             // send the form
                                                             console.log('.. sending the form');
-                                                            /*orderFormService.it_submit(fo_data).then(function(response) {
-                                                                if (response.success) {
+                                                            orderFormService.it_submit(fo_data).then(function(response) {
+                                                                if (response.status == 200) {
                                                                     ngDialog.open({
                                                                         template: 'components/modals/message.html',
                                                                         className: 'ngdialog-theme-default',
@@ -162,7 +163,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                                                                     // $state.go('account.order');
                                                                 }
-                                                            })*/
+                                                            })
                                                         }
 
                                                         // if user is not registered
@@ -185,7 +186,9 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
                                                 myBlockUI.stop();
                                             }, 1000);
                                         });
+                                    //ngDialog.close();
                                 }
+
                             }]
                         });
                     } else {
@@ -245,7 +248,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                 }
             }
-        }
+        //}
     }
 
     $scope.back = function() {

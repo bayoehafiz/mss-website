@@ -1,4 +1,4 @@
-<html>
+<html ng-app="MSSPortal">
 
 <head>
     <title>MSS - IT IS YOURS</title>
@@ -10,7 +10,7 @@
     <META NAME="robot" CONTENT="index,follow">
     <META NAME="refresh" CONTENT="60">
     <META NAME="copyright" CONTENT="Copyright © 2017 PT Menara Sinar Semesta. All Rights Reserved.">
-    <META NAME="author" CONTENT="MSS Web Development Team">
+    <META NAME="author" CONTENT="MSS DevTeam">
     <META NAME="generator" CONTENT="www.onlinemetatag.com">
     <META NAME="language" CONTENT="English, Indonesia">
     <META NAME="revisit-after" CONTENT="2 days">
@@ -20,10 +20,10 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.2/jquery.fullPage.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.2/jquery.fullPage.min.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/slick/slick-theme.css">
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/viewerjs/dist/viewer.min.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="assets/plugins/fullscreen-form/css/demo.css" />
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/style.css" />
     <link rel="stylesheet" href="assets/plugins/product-quick-view/css/style.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css" />
     <!-- Metro Ui (tree view) -->
     <link rel="stylesheet" type="text/css" href="assets/plugins/metro-ui/css/metro.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/metro-ui/css/metro-responsive.css">
@@ -41,60 +41,25 @@
     <link rel="stylesheet" href="vendors/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="vendors/ng-dialog/css/ngDialog-theme-default.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+    <!-- Custom scripts -->
     <script src="assets/plugins/fullscreen-form/js/modernizr.custom.js"></script>
     <!-- Start of Async Drift Code -->
-    <script ng-if="!isAuthenticated">
-    ! function() {
-        var t;
-        if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void(window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"], t.factory = function(e) {
-            return function() {
-                var n;
-                return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
-            };
-        }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-        }), t.load = function(t) {
-            var e, n, o, i;
-            e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "//js.driftt.com/include/" + i + "/" + t + ".js", n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
-        });
-    }();
-    drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('wi9ncdax3chf');
-    </script>
-    <!-- End of Async Drift Code -->
-    <!-- Cokkie Consent -->
-    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-    <script>
-    window.addEventListener("load", function() {
-        window.cookieconsent.initialise({
-            "palette": {
-                "popup": {
-                    "background": "#252e39"
-                },
-                "button": {
-                    "background": "#1c4488"
-                }
-            },
-            "theme": "edgeless",
-            "position": "bottom-left",
-            "content": {
-                "href": "#/cookies-policy"
-            }
-        })
-    });
-    </script>
-    <!-- Cokkie Consent -->
+    <script ng-if="!isAuthenticated" src="assets/js/drift.js"></script>
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 </head>
+<!-- <body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction> -->
 
-<body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction>
-    <loading-screen>
+<body is-btn-quote-shown product-cart-interaction>
+    <!-- <loading-screen>
         <div class="main loaded">
             <div class="content">
                 <div class="ball" loader-css="ball-scale-ripple-multiple"></div>
             </div>
         </div>
-    </loading-screen>
+    </loading-screen> -->
+    <!-- Navigation bar -->
     <div class="navbar-wrapper">
         <nav class="navbar navbar-static-top container">
             <div class="navbar-header">
@@ -104,7 +69,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!-- <a class="hidden-sm hidden-md hidden-lg nav-cart pull-right" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a> -->
                 <a class="navbar-brand" href="#"><img src="assets/img/mssico.png"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse pull-right">
@@ -117,7 +81,7 @@
                                 SERVICES <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="solutions" data-toggle="collapse" data-target=".navbar-collapse">SOLUTIONS</a></li>
+                            <li><a ui-sref="solutions" data-toggle="collapse" data-target=".navbar-collapse">ENTERPRISE SOLUTIONS</a></li>
                             <li><a ui-sref="software-development" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE DEVELOPMENT</a></li>
                             <li><a ui-sref="it-infrastructure" data-toggle="collapse" data-target=".navbar-collapse">IT INFRASTRUCTURE</a></li>
                         </ul>
@@ -131,7 +95,6 @@
                             <li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>
                         </ul>
                     </li>
-                    <!-- <li><a ui-sref="portfolio"> PORTFOLIO</a></li> -->
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 HELP <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -154,29 +117,33 @@
                             MY ACCOUNT
                         </a>
                     </li>
-                    <!-- <li id="box-btn-quotation" class="hidden-sm hidden-xs">
-                        <a href="#" ui-sref="quotation" id="btn-quotation">
-                            <button class="btn btn-default btn-custom text-default">GET A QUOTATION</button>
-                        </a>
-                    </li> -->
                 </ul>
             </div>
         </nav>
     </div>
+    <!-- Navigation Bar Ends -->
+    <!-- Main Content -->
     <div style="height: 100%">
-        <!-- main content -->
         <div ui-view style="background: #ecf0f1;"></div>
-        <!-- main content -->
         <!-- footer -->
-        <div id="footer" class="padding-inline">
+        <div id="footer" class="padding-inline" style="background: #fff;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 text-muted footer-content">
-                        <p>&copy; 2017 PT MENARA SINAR SEMESTA
-                            <br>Intiland Tower 2nd Floor Suite 6
-                            <br>Surabaya</p>
+                    <div class="col-md-7 col-sm-12 text-muted footer-content">
+                        <div class="middle row">
+                            <div class="col-md-5 col-sm-6">
+                                <img src="assets/img/microsoft_partner.png" class="img-responsive center-block" style="max-width: 180px; margin: auto;">
+                            </div>
+                            <div class="col-md-7 col-sm-6">
+                                <p>
+                                    &copy; 2017 PT MENARA SINAR SEMESTA
+                                    <br><small>Intiland Tower 2nd Floor Suite 6</small>
+                                    <br><small>Surabaya, ID</small>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 text-right">
+                    <div class="col-md-5 col-sm-12 text-right">
                         <p>
                             <a href="" class="social"><i class="fa fa-2x fa-facebook"></i></a>
                             <a href="" class="social"><i class="fa fa-2x fa-twitter"></i></a>
@@ -188,78 +155,7 @@
         </div>
         <!-- footer -->
     </div>
-    <!-- cd-cart-container -->
-    <div class="cd-cart-container empty">
-        <a href="#0" class="cd-cart-trigger" ng-click="cartTrigger()">
-                Cart
-                <ul class="count"> 
-                    <li>{{count}}</li>
-                </ul>
-            </a>
-        <div class="cd-cart">
-            <div class="wrapper">
-                <header>
-                    <h2>Cart</h2>
-                    <span class="undo">Item removed. <a href="#0">Undo</a></span>
-                </header>
-                <div class="body">
-                    <ul>
-                        <li class="product" ng-repeat="item in items track by $index">
-                            <div class="product-image">
-                                <a href="#0"><img src="{{item.img}}" alt="placeholder"></a>
-                            </div>
-                            <div class="product-details">
-                                <h3><a href="#0"> {{ item.name }}</a></h3>
-                                <span class="price">IDR {{ item.price }}</span>
-                                <div class="actions">
-                                    <a href="#0" class="delete-item" ng-click="remove($index, $event)">Delete</a>
-                                    <div class="quantity">
-                                        <label for="cd-product-">Qty</label>
-                                        <span class="select">
-                                            <a href="#0" ng-click="qtyMinus($index, $event)">-</a>
-                                            <input type="text" ng-model="item.qty" style="width: 40px;text-align: center; ">
-                                            <a href="#0" ng-click="qtyPlus($index, $event)">+</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <footer>
-                    <a href="#0 " class="checkout btn " id="pay-button" ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
-                </footer>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="//app.sandbox.midtrans.com/snap/snap.js" data-client-key="VT-client-_XRZTtVMrJ-7mjac"></script>
-    <!-- cd-cart-container -->
-    <!-- <div class="cd-cart-container empty">
-            <a href="#0" class="cd-cart-trigger">
-                Cart
-                <ul class="count"> 
-                    <li>0</li>
-                </ul>
-            </a>
-            <div class="cd-cart">
-                <div class="wrapper">
-                    <header>
-                        <h2>Cart</h2>
-                        <span class="undo">Item removed. <a href="#0">Undo</a></span>
-                    </header>
-                    <div class="body">
-                        <ul>
-                        </ul>
-                    </div>
-                    <footer>
-                        <a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
-                    </footer>
-                </div>
-                <footer>
-                    <a href="#0" class="checkout btn"><em>Checkout - $<span>0</span></em></a>
-                </footer>
-            </div>
-        </div> -->
+    <!-- Main Content Ends -->
     <!-- Jquery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -272,6 +168,7 @@
     <script src="vendors/masonry/dist/masonry.pkgd.min.js"></script>
     <script src="vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <!-- JQuery plugins -->
+    <!-- <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="VT-client-_XRZTtVMrJ-7mjac"></script> -->
     <!-- Metro Ui (tree view) -->
     <script src="assets/plugins/metro-ui/js/metro.js"></script>
     <!-- Product View -->
@@ -295,7 +192,6 @@
     <script src="vendors/angular-resource/angular-resource.min.js"></script>
     <script src="vendors/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="vendors/angular-animate/angular-animate.min.js"></script>
-    <script src="vendors/angular-masonry/angular-masonry.js"></script>
     <script src="vendors/angular-scroll/angular-scroll.min.js"></script>
     <script src="vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="vendors/auth0-lock-passwordless/build/lock-passwordless.min.js"></script>
@@ -323,17 +219,13 @@
     <script type="text/javascript" src="vendors/angular-socialshare/lib/angular-socialshare.js"></script>
     <!-- Core scripts -->
     <script src="app.js"></script>
-    <script src="app.constant.js"></script>
     <script src="app.config.js"></script>
     <script src="app.run.js"></script>
-    <!-- Factories -->
     <script src="app.factory.js"></script>
-    <!-- Services -->
     <script src="app.service.js"></script>
-    <!-- Directives -->
     <script src="app.directive.js"></script>
     <!-- Navigation Controller -->
-    <script src="nav.controller.js"></script>
+    <script src="components/nav.controller.js"></script>
     <!-- Controllers -->
     <script src="components/home/home.controller.js"></script>
     <script src="components/it-infrastructure/it-infrastructure.controller.js"></script>

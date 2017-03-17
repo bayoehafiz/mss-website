@@ -60,12 +60,13 @@ app.directive('slick', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             $(element).slick({
-                autoplay: false,
+                autoplay: true,
                 arrows: false,
                 dots: true,
                 fadingEffect: true,
                 easing: 'easeInOutCubic',
                 easingcss3: 'ease',
+                fade: true
             });
         }
     }
@@ -85,13 +86,15 @@ app.directive('productView', function() {
             //open the quick view panel
             $(element).on('click', '.cd-trigger', function(event) {
 
-                var selectedImage = $(this).closest('.mix').find('img'),
+                var selectedImage = $(this).find('img'),
                     slectedImageUrl = selectedImage.attr('src'),
-                    title = $(this).closest('.mix').find('.box-chart-content').children('p.name').text(),
-                    price = $(this).closest('.mix').find('.box-chart-content').children('.price').html(),
-                    data_price = $(this).closest('.mix').find('.box-chart-content').children('.price').text(),
+                    title = $(this).closest('.mix').find('.box-chart-content').children('p.title').text(),
+                    price = $(this).closest('.mix').find('.price').text(),
+                    desc = $(this).closest('.mix').find('.desc').val(),
+                    data_price = parseInt(price.replace(/[^\d.]/g, '')),
                     data_index = $(this).attr('data-index'),
                     id = $(this).attr('data-id');
+
 
                 $('body').addClass('overlay-layer');
                 getId(id);
@@ -99,7 +102,7 @@ app.directive('productView', function() {
 
                 //update the visible slider image in the quick view panel
                 //you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
-                updateQuickView(slectedImageUrl, title, price, parseInt(data_price.replace(/[^\d.]/g, '')), data_index);
+                updateQuickView(slectedImageUrl, title, price, desc, data_price, data_index);
             });
 
             //close the quick view panel
@@ -142,13 +145,14 @@ app.directive('productView', function() {
                 }
             }
 
-            function updateQuickView(url, title, price, data_price, data_index) {
+            function updateQuickView(url, title, price, desc, data_price, data_index) {
                 $('.cd-quick-view .cd-slider li').removeClass('selected').find('img').attr('src', url).parent('li').addClass('selected');
-                $('.cd-quick-view .cd-item-info').find('h2').text(title);
+                $('.cd-quick-view .cd-item-info').find('.title').html(title);
                 $('.cd-quick-view .cd-item-info').find('.price').html(price);
+                $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
-
+                $('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a').attr('socialshare-text', title);
             }
 
             function resizeQuickView() {
@@ -163,12 +167,12 @@ app.directive('productView', function() {
             function closeQuickView(finalWidth, maxQuickWidth) {
                 var close = $('.cd-close'),
                     activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
-                    selectedImage = $(element).find('img');
+                    // selectedImage = $(element).find('img');
+                    selectedImage = close.siblings('.cd-slider-wrapper').find('.selected img');
+
                 //update the image in the gallery
                 if (!$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
-
                     selectedImage.attr('src', activeSliderUrl);
-
                     animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
                 } else {
                     closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
@@ -176,7 +180,6 @@ app.directive('productView', function() {
             }
 
             function animateQuickView(image, finalWidth, maxQuickWidth, animationType) {
-
                 //store some image data (width, top position, ...)
                 //store window data to calculate quick view panel position
                 var parentListItem = image.closest('.cd-item'),
@@ -191,8 +194,6 @@ app.directive('productView', function() {
                     finalTop = (windowHeight - finalHeight) / 2,
                     quickViewWidth = (windowWidth * .8 < maxQuickWidth) ? windowWidth * .8 : maxQuickWidth,
                     quickViewLeft = (windowWidth - quickViewWidth) / 2;
-
-
 
                 if (animationType == 'open') {
                     //hide the image in the gallery
@@ -257,7 +258,7 @@ app.directive('productView', function() {
     }
 })
 
-app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService) {
+app.directive('productCartInteraction', function(productService, CartService, $window, checkoutService, authService, $state) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -352,15 +353,16 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             }
 
 
-            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope, authService) {
+            scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
                 var API = API_PROD;
                 e.preventDefault();
+                var order_id = Math.floor((Math.random() * 100000) + 1);
                 scope.data = {
                     products: scope.items,
                     order_id: "ORD-" + order_id,
                     gross_amount: scope.cartTotal
                 }
-                var order_id = Math.floor((Math.random() * 100000) + 1);
+
                 localStorage.setItem('order_id', order_id);
                 var lostor = localStorage.getItem('order_id');
                 if (lostor == order_id) {
@@ -369,48 +371,84 @@ app.directive('productCartInteraction', function(productService, CartService, $w
                     // if user already logged in
                     if (localStorage.getItem('profile') != undefined) {
                         console.log("have a profile");
-                        var userProfile = JSON.parse(localStorage.getItem('profile'));
-
                         //if user have metadata
                         if (userProfile.user_metadata != undefined) {
                             console.log('User is registered, syncing the form now...');
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
+                                }
+                            })
                         }
                         //if user have not metadata
                         else {
                             console.log('User is not registered, getting to signup page...');
-                            $state.go('account');
                             // save form data into local-storage & set origin-state flag
-                            /*localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
                             localStorage.setItem('pay_page', 'payment');
-                            $scope.closeThisDialog();
-                            $state.go('account');*/
+                            $state.go('account');
+                            toggleCart();
                         }
                     }
                     // if user not logged in
                     else {
-                        console.log("undefined");
+                        console.log("user not login yet");
                         authService.login();
-                    }
-                    /*
-                    var order_id = Math.floor((Math.random()*100000)+1);
-                    console.log(lostor);
-                    
-                    
-                    checkoutService.posttoken(scope.data).then(function (res) {
-                        if(res.data.success){
-                            console.log(res.data.data.token);
-                            snap.pay(res.data.data.token, {
-                                onSuccess: function(result){console.log('success');console.log(result);},
-                                onPending: function(result){console.log('pending');console.log(result);},
-                                onError: function(result){console.log('error');console.log(result);},
-                                onClose: function(){console.log('customer closed the popup without finishing the payment');}
-                            });
+                        if (userProfile.user_metadata != undefined) {
+                            console.log("User is registered, syncing the form now...");
+                            checkoutService.posttoken(scope.data).then(function(res) {
+                                var response = res.data;
+                                if (response.success) {
+                                    if (response.data.token) {
+                                        snap.pay(res.data.data.token, {
+                                            onSuccess: function(result) {
+                                                console.log('success');
+                                                console.log(result);
+                                            },
+                                            onPending: function(result) {
+                                                console.log('pending');
+                                                console.log(result);
+                                            },
+                                            onError: function(result) {
+                                                console.log('error');
+                                                console.log(result);
+                                            },
+                                            onClose: function() { console.log('customer closed the popup without finishing the payment'); }
+                                        });
+                                    } else {
+                                        alert(response.data.error_messages[0]);
+                                    }
+                                }
+                            })
+                        } else {
+                            console.log('User is not registered, getting to signup page...');
+                            // save form data into local-storage & set origin-state flag
+                            localStorage.setItem('cart_data', JSON.stringify(scope.data));
+                            localStorage.setItem('pay_page', 'payment');
+                            $state.go('account');
+                            toggleCart();
                         }
-                    })
-                    */
-
+                    }
                 }
-
             }
 
             scope.$watch('items', function(newVal) {
@@ -432,33 +470,33 @@ app.directive('productCartInteraction', function(productService, CartService, $w
             //product id - you don't need a counter in your real project but you can use your real product id
             var productId = 0;
 
-            if (cartWrapper.length > 0) {
-                //store jQuery objects
-                var cartBody = cartWrapper.find('.body')
-                var cartList = cartBody.find('ul').eq(0);
-                var cartTotal = cartWrapper.find('.checkout').find('span');
-                var cartTrigger = cartWrapper.children('.cd-cart-trigger');
-                var cartCount = cartTrigger.children('.count')
-                var addToCartBtn = $('.cd-add-to-cart');
+            // if (cartWrapper.length > 0) {
+            //store jQuery objects
+            var cartBody = cartWrapper.find('.body')
+            var cartList = cartBody.find('ul').eq(0);
+            var cartTotal = cartWrapper.find('.checkout').find('span');
+            var cartTrigger = cartWrapper.children('.cd-cart-trigger');
+            var cartCount = cartTrigger.children('.count')
+            var addToCartBtn = $('.cd-add-to-cart');
 
-                //add product to cart
-                addToCartBtn.on('click', function(event) {
-                    event.preventDefault();
-                    addToCart($(this));
-                });
+            //add product to cart
+            addToCartBtn.on('click', function(event) {
+                event.preventDefault();
+                console.log($(this));
+                addToCart($(this));
+            });
 
-                //open/close cart
-                cartTrigger.on('click', function(event) {
-                    event.preventDefault();
-                    toggleCart();
-                });
+            cartTrigger.on('click', function(event) {
+                event.preventDefault();
+                toggleCart();
+            });
 
-                //close cart when clicking on the .cd-cart-container::before (bg layer)
-                cartWrapper.on('click', function(event) {
-                    if ($(event.target).is($(this))) toggleCart(true);
-                });
+            //close cart when clicking on the .cd-cart-container::before (bg layer)
+            cartWrapper.on('click', function(event) {
+                if ($(event.target).is($(this))) toggleCart(true);
+            });
 
-            }
+            // }
 
             // show cart when localstorage product id not empty
             if ($window.localStorage['product_id'] != undefined) {
@@ -638,7 +676,7 @@ app.directive('productGrid', function() {
     }
 })
 
-app.directive('mixitup', function($compile, $timeout) {
+app.directive('mixitup', function($compile) {
     return {
         restrict: 'A',
         link: function($scope, element, attrs) {
@@ -664,7 +702,7 @@ app.directive('mixitup', function($compile, $timeout) {
                 });
             });
         }
-    }
+    };
 });
 
 app.directive('bgParallax', function() {
@@ -676,13 +714,13 @@ app.directive('bgParallax', function() {
             });
         }
     }
-})
+});
 
 app.directive('masonry', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var $grid = $('.product-gallery').masonry({
+            var $grid = $(element).masonry({
                 // options
                 itemSelector: '.mix',
             });
@@ -692,20 +730,7 @@ app.directive('masonry', function() {
             });
         }
     }
-})
-
-app.directive('loadingScreen', function() {
-    return {
-        restrict: 'E',
-        link: function(scope, element, attrs) {
-
-            $(window).load(function() {
-                $(element).fadeOut();
-            });
-
-        }
-    }
-})
+});
 
 app.directive('preventDefault', function() {
     return {

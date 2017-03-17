@@ -3,7 +3,7 @@ app.run(run);
 function run($rootScope, authService, authManager, bsLoadingOverlayService, Analytics) {
     $rootScope.authService = authService;
 
-    // check jwt token
+    // check jwt token 
     authManager.checkAuthOnRefresh();
     if (localStorage.getItem('access_token') == undefined) {
         authService.setNewToken();
@@ -20,7 +20,7 @@ function run($rootScope, authService, authManager, bsLoadingOverlayService, Anal
         templateUrl: 'components/loading.html'
     });
 
-    // bsLoadingOverlayService.start();
+    bsLoadingOverlayService.start();
 
     // Page loader on state change
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {

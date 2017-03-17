@@ -9,84 +9,72 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h3 class="featurette-heading">OUR SOFTWARE PRODUCTS</h3>
-            <p class="lead">We provide enterprise grade products to serve your company better.</p>
+            <p class="lead">We provide enterprise grade software products to serve your company better.</p>
         </div>
     </div>
     <div class="row">
         <div class="cd-quick-view">
             <div class="cd-slider-wrapper">
                 <ul class="cd-slider">
-                    <li class="selected"><img src="img/item-1.jpg" alt="Product 1"></li>
+                    <li class="selected"><img src="" alt=""></li>
                 </ul>
                 <ul class="cd-slider-navigation">
-                    <li><a class="cd-next" href="#0">Prev</a></li>
-                    <li><a class="cd-prev" href="#0">Next</a></li>
+                    <li><a class="cd-next" href="">Prev</a></li>
+                    <li><a class="cd-prev" href="">Next</a></li>
                 </ul>
             </div>
             <div class="cd-item-info">
-                <h2>Product Title</h2>
+                <h2 class="title"></h2>
                 <br>
                 <h4 class="price" style="color: #000"></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+                <p class="desc"></p>
                 <ul class="cd-item-action">
                     <li>
-                        <button class="btn btn-lg btn-success btn-custom cd-add-to-cart" data-price="25.99" data-id="" ng-click="addCart($event)">ADD TO CART</button>
+                        <button class="btn btn-lg btn-success btn-custom cd-add-to-cart" data-price="" data-id="" ng-click="add()" disabled="disabled">Contact us to order</button>
                     </li>
                 </ul>
             </div>
             <a href="#" class="cd-close">Close</a>
         </div>
-        <!-- Product grid -->
-        <div class="container controls text-center">
+        <!-- Product mixitup -->
+        <!-- <div class="container text-center controls">
             <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default filter" data-filter="all">ALL</button>
-                <button type="button" class="btn btn-default filter" data-filter=".{{category}}" ng-repeat="category in categories">{{category | uppercase }}</button>
+                <button type="button" class="btn btn-default filter" data-filter="all">All</button>
+                <button type="button" class="btn btn-default filter" data-filter=".email">Email</button>
+                <button type="button" class="btn btn-default filter" data-filter=".office">Office</button>
+                <button type="button" class="btn btn-default filter" data-filter=".windows">Windows</button>
             </div>
-        </div>
-        <div mixitup='mixitup' class="container" entities='items' id="mixitup-container">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center mix {{item.category}}" ng-repeat="item in softwares">
+        </div> -->
+        <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-center mix {{item.category}}" data-myorder="{{item.category}}" ng-repeat="item in softwares">
                 <div class="box-chart cd-item cd-trigger" data-id="{{item.id}}" data-index="{{$index}}">
                     <div class="box-chart-img">
                         <img src="{{item.img}}">
                     </div>
                     <div class="box-chart-content">
-                        <p class="name">{{item.name}}</p>
+                        <p class="title">{{item.name}}</p>
                         <br>
                         <h1 class="price">IDR <strong> {{item.price | currency:"":0}}</strong></h1>
                         <br/>
                         <p class="text-muted">{{item.periode}}</p>
                     </div>
+                    <input type="hidden" class="desc" value="{{item.desc}}"/>
                     <button class="btn btn-success btn-custom">View Details</button>
                 </div>
             </div>
         </div>
+        <!-- EOF Product mixitup -->
     </div>
     <!-- Social share -->
-    <div class="row-stretch">        
+    <div class="row-stretch">
         <div class="social-share">
             <p>Share on:</p>
-            <a href="#" 
-            socialshare socialshare-provider="twitter" 
-            socialshare-text="Software retail by PT Menara Sinar Semesta" 
-            socialshare-hashtags="emailservice, softwarelicense, msoffice, microsoft" 
-            socialshare-url="http://mss.co.id/#/products-software"
-            class="social-twitter" prevent-default>
+            <a href="#" socialshare socialshare-provider="twitter" socialshare-text="Software retail by PT Menara Sinar Semesta" socialshare-hashtags="emailservice, softwarelicense, msoffice, microsoft" socialshare-url="http://mss.co.id/#/products-software" class="social-twitter" prevent-default>
                 <i class="fa fa-twitter fa-2x"></i>
             </a>
-            <a href="#" 
-            socialshare socialshare-provider="facebook" 
-            socialshare-text="Software retail by PT Menara Sinar Semesta" 
-            socialshare-hashtags="emailservice, softwarelicense, msoffice, microsoft" 
-            socialshare-url="http://mss.co.id/#/products-software"
-            class="social-facebook" prevent-default>
+            <a href="#" socialshare socialshare-provider="facebook" socialshare-text="Software retail by PT Menara Sinar Semesta" socialshare-hashtags="emailservice, softwarelicense, msoffice, microsoft" socialshare-url="http://mss.co.id/#/products-software" class="social-facebook" prevent-default>
                 <i class="fa fa-facebook fa-2x"></i>
             </a>
         </div>
     </div>
 </div>
-<style type="text/css">
-#mixitup-container .mix {
-    display: none;
-    float: none;
-}
-</style>

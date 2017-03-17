@@ -13,7 +13,6 @@ const app = angular.module('MSSPortal', [
     'vcRecaptcha',
     'LocalStorageModule',
     'ui-notification',
-    'wu.masonry',
     'blockUI',
     'ngMaterial',
     'md.data.table',
@@ -21,5 +20,5 @@ const app = angular.module('MSSPortal', [
     'ngCart',
     'alexjoffroy.angular-loaders',
     '720kb.socialshare',
-    'angular-google-analytics'
+    'angular-google-analytics',
 ]);

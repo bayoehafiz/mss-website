@@ -173,7 +173,7 @@ function splashModalService($uibModal, $rootScope) {
     };
 }
 
-function productService($http, URL_BASE, $q) {
+function productService($http, $q) {
     var get = function() {
         return $http.get('data/products.json');
     }
@@ -293,7 +293,6 @@ function contactformService($resource) {
 function checkoutService($http) {
     var API = API_PROD;
     posttoken = function(data) {
-        console.log(data);
         return $http.post(API + "payment", data);
     }
     return {

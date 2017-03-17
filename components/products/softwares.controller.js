@@ -1,8 +1,4 @@
-app.controller('SoftwaresController', function($scope, $rootScope, $window, $anchorScroll, authService, NavShrink, productService, CartService, localStorageService, $q) {
-    NavShrink.shrink();
-
-    $scope.categories = ['email', 'office', 'windows'];
-
+app.controller('SoftwaresController', function($scope, $rootScope, $window, $anchorScroll, authService, NavShrink, productService, CartService, localStorageService, $q, ngDialog) {
     productService.get().then(function(response) {
         var promises = [];
         angular.forEach(response.data, function(val) {
@@ -16,5 +12,10 @@ app.controller('SoftwaresController', function($scope, $rootScope, $window, $anc
         })
     });
 
+    $scope.add = function() {
+        
+    }
+
+    NavShrink.shrink();
     $anchorScroll();
 });

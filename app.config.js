@@ -32,6 +32,27 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/solutions.html'
         })
+        //SOLUTION ROUTES
+        .state('survey-tool', {
+            url: '/survey-tool',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/survey-tools.html'
+        })
+        .state('live-ticker', {
+            url: '/live-ticker',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/live-ticker.html'
+        })
+        .state('email-migration', {
+            url: '/email-migration',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/email-migration.html'
+        })
+        .state('acronis-backup', {
+            url: '/acronis-backup',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/acronis-backup.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',
@@ -42,6 +63,21 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'QuotationController',
             templateUrl: 'components/quotation/quotation.html'
         })
+        .state('webapp', {
+            url: '/webapp',
+            controller: 'QuotationController',
+            templateUrl: 'components/software-development/webapp.html'
+        })
+        .state('mobile-app', {
+            url: '/mobile-app',
+            controller: 'SoftwareDevController',
+            templateUrl: 'components/software-development/mobile-app.html'
+        })
+        .state('e-commerce', {
+            url: '/e-commerce',
+            controller: 'SoftwareDevController',
+            templateUrl: 'components/software-development/e-commerce.html'
+        })
         .state('it-infrastructure', {
             url: '/it-infrastructure',
             controller: 'ItInfrastructureController',
@@ -51,6 +87,22 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/it-infrastructure-order',
             controller: 'ItinfrastructureorderController',
             templateUrl: 'components/it-infrastructure-order/it-infrastructure-order.html'
+        })
+        //INFRASTRUCTURE ROUTES
+        .state('security', {
+            url: '/security',
+            controller: 'ItInfrastructureController',
+            templateUrl: 'components/it-infrastructure/security.html'
+        })
+        .state('telephone', {
+            url: '/telephone',
+            controller: 'ItInfrastructureController',
+            templateUrl: 'components/it-infrastructure/telephone.html'
+        })
+        .state('network', {
+            url: '/network',
+            controller: 'ItInfrastructureController',
+            templateUrl: 'components/it-infrastructure/network.html'
         })
         .state('hardware-detail', {
             url: '/hardware-detail',

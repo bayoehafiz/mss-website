@@ -1,3 +1,21 @@
+window.addEventListener("load", function() {
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#1c4488"
+            }
+        },
+        "theme": "edgeless",
+        "position": "bottom-left",
+        "content": {
+            "href": "#/cookies-policy"
+        }
+    })
+});
+
 $(document).ready(function() {
     // Shrink the nav bar
     $(window).scroll(function() {
@@ -15,8 +33,6 @@ $(document).ready(function() {
         cartList.prepend(productAdded);
     }
 
-
-
     $(window).load(function() {
         var width = $(window).width();
 
@@ -29,7 +45,7 @@ $(document).ready(function() {
             $(document).find('.fs-cancel').text('Cancel');
         }
 
-    
+
         $(window).resize(function() {
             var width = $(window).width();
             if (width > 840) {
@@ -40,18 +56,14 @@ $(document).ready(function() {
                 $(document).find('.fs-cancel').text('');
             }
         })
-
-
     })
 
     $('.fs-form-overview').closest('.fs-form-wrap').find('.fs-cancel').hide();
-
 
     $('body').on('click', function(e) {
         if (!$('.navbar-toggle').is(e.target) && $('.navbar-toggle').has(e.target).length === 0 && $('.in').has(e.target).length === 0) {
             $('#navbar').removeClass('in');
         }
     });
-
 
 });
