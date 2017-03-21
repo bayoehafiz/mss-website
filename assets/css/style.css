@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,500');
 html,
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
 }
 
 body > div[ui-view] {
     background: #fafafa;
+    font-size: 16px!important;
 }
 
 h1,
@@ -350,13 +351,17 @@ a {
 .page-title h1,
 .page-title-2 h1 {
     color: #fff;
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: 600;
 }
 
 .hardware-lead {
     font-size: 1.5em;
     line-height: 1.2em;
+}
+
+.breadcrumb li a {
+    color: #328cee!important;
 }
 
 
@@ -430,6 +435,10 @@ a {
 
 .padding-inline {
     padding: 70px 0;
+}
+
+.padding-bottom {
+    padding-bottom: 30px;
 }
 
 .padding-top-inline {
@@ -927,6 +936,10 @@ a.social-facebook {
     top: 3px;
 }
 
+.lead {
+    color: #383737;
+}
+
 @media (min-width: 768px) {
     .col-sm-15 {
         width: 20%;
@@ -1154,14 +1167,20 @@ a.social-facebook {
         padding-top: 9em;
         padding-bottom: 1em;
     }
+    .ourTeam .i .c:hover .info {
+        top: 25%!important;
+    }
 }
 
 @media (max-width: 1024px) {
     .parallax {
-        background-attachment: inherit!important;
+        /*background-attachment: inherit!important;*/
     }
     .section-bg {
         padding: 20px 0 30px 0;
+    }
+    .padding-inline {
+        padding: 60px 0 10px;
     }
 }
 

@@ -152,7 +152,6 @@ app.directive('productView', function() {
                 $('.cd-quick-view .cd-item-info').find('.desc').html(desc);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-price', data_price);
                 $('.cd-quick-view .cd-item-info').find('.cd-add-to-cart').attr('data-index', data_index);
-                console.log($('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a'));
                 $('.cd-quick-view .cd-item-info').find('.cd-item-action li:last-child a').attr('socialshare-text', title);
             }
 
@@ -173,9 +172,7 @@ app.directive('productView', function() {
 
                 //update the image in the gallery
                 if (!$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
-
                     selectedImage.attr('src', activeSliderUrl);
-
                     animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
                 } else {
                     closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
@@ -357,7 +354,7 @@ app.directive('productCartInteraction', function(productService, CartService, $w
 
 
             scope.checkout = function(e, $http, uppercaseFilter, $parse, $scope) {
-                var API = API_LOCAL;
+                var API = API_PROD;
                 e.preventDefault();
                 var order_id = Math.floor((Math.random() * 100000) + 1);
                 scope.data = {

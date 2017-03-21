@@ -1,4 +1,4 @@
-<html>
+<html ng-app="MSSPortal">
 
 <head>
     <title>MSS - IT IS YOURS</title>
@@ -44,52 +44,14 @@
     <!-- Custom scripts -->
     <script src="assets/plugins/fullscreen-form/js/modernizr.custom.js"></script>
     <!-- Start of Async Drift Code -->
-    <script ng-if="!isAuthenticated">
-    ! function() {
-        var t;
-        if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void(window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"], t.factory = function(e) {
-            return function() {
-                var n;
-                return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
-            };
-        }, t.methods.forEach(function(e) {
-            t[e] = t.factory(e);
-        }), t.load = function(t) {
-            var e, n, o, i;
-            e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"), o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "//js.driftt.com/include/" + i + "/" + t + ".js", n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
-        });
-    }();
-    drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('wi9ncdax3chf');
-    </script>
-    <!-- End of Async Drift Code -->
+    <script ng-if="!isAuthenticated" src="assets/js/drift.js"></script>
     <!-- Cookie Consent -->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-    <script>
-    window.addEventListener("load", function() {
-        window.cookieconsent.initialise({
-            "palette": {
-                "popup": {
-                    "background": "#252e39"
-                },
-                "button": {
-                    "background": "#1c4488"
-                }
-            },
-            "theme": "edgeless",
-            "position": "bottom-left",
-            "content": {
-                "href": "#/cookies-policy"
-            },
-            "dismiss": 'I understand',
-        })
-    });
-    </script>
-    <!-- Cookie Consent -->
 </head>
+<!-- <body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction> -->
 
-<body ng-app="MSSPortal" is-btn-quote-shown product-cart-interaction>
+<body is-btn-quote-shown product-cart-interaction>
     <!-- <loading-screen>
         <div class="main loaded">
             <div class="content">
@@ -97,6 +59,7 @@
             </div>
         </div>
     </loading-screen> -->
+    <!-- Navigation bar -->
     <div class="navbar-wrapper">
         <nav class="navbar navbar-static-top container">
             <div class="navbar-header">
@@ -118,7 +81,7 @@
                                 SERVICES <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="solutions" data-toggle="collapse" data-target=".navbar-collapse">SOLUTIONS</a></li>
+                            <li><a ui-sref="solutions" data-toggle="collapse" data-target=".navbar-collapse">ENTERPRISE SOLUTIONS</a></li>
                             <li><a ui-sref="software-development" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE DEVELOPMENT</a></li>
                             <li><a ui-sref="it-infrastructure" data-toggle="collapse" data-target=".navbar-collapse">IT INFRASTRUCTURE</a></li>
                         </ul>
@@ -158,20 +121,29 @@
             </div>
         </nav>
     </div>
+    <!-- Navigation Bar Ends -->
+    <!-- Main Content -->
     <div style="height: 100%">
-        <!-- main content -->
         <div ui-view style="background: #ecf0f1;"></div>
-        <!-- main content -->
         <!-- footer -->
-        <div id="footer" class="padding-inline">
+        <div id="footer" class="padding-inline" style="background: #fff;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 text-muted footer-content">
-                        <p>&copy; 2017 PT MENARA SINAR SEMESTA
-                            <br>Intiland Tower 2nd Floor Suite 6
-                            <br>Surabaya</p>
+                    <div class="col-md-7 col-sm-12 text-muted footer-content">
+                        <div class="middle row">
+                            <div class="col-md-5 col-sm-6">
+                                <img src="assets/img/microsoft_partner.png" class="img-responsive center-block" style="max-width: 180px; margin: auto;">
+                            </div>
+                            <div class="col-md-7 col-sm-6">
+                                <p>
+                                    &copy; 2017 PT MENARA SINAR SEMESTA
+                                    <br><small>Intiland Tower 2nd Floor Suite 6</small>
+                                    <br><small>Surabaya, ID</small>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 text-right">
+                    <div class="col-md-5 col-sm-12 text-right">
                         <p>
                             <a href="" class="social"><i class="fa fa-2x fa-facebook"></i></a>
                             <a href="" class="social"><i class="fa fa-2x fa-twitter"></i></a>
@@ -183,51 +155,6 @@
         </div>
         <!-- footer -->
     </div>
-    <!-- cd-cart-container -->
-    <div class="cd-cart-container empty">
-        <a href="#0" class="cd-cart-trigger" ng-click="cartTrigger()">
-                My Cart
-                <ul class="count"> 
-                    <li>{{count}}</li>
-                </ul>
-            </a>
-        <div class="cd-cart">
-            <div class="wrapper">
-                <header>
-                    <h2>Cart</h2>
-                    <span class="undo">Item removed. <a href="#0">Undo</a></span>
-                </header>
-                <div class="body">
-                    <ul>
-                        <li class="product" ng-repeat="item in items track by $index">
-                            <div class="product-image">
-                                <a href="#0"><img src="{{item.img}}" alt="placeholder"></a>
-                            </div>
-                            <div class="product-details">
-                                <h3><a href="#0"> {{ item.name }}</a></h3>
-                                <span class="price">IDR {{ item.price }}</span>
-                                <div class="actions">
-                                    <a href="#0" class="delete-item" ng-click="remove($index, $event)">Delete</a>
-                                    <div class="quantity">
-                                        <label for="cd-product-">Qty</label>
-                                        <span class="select">
-                                            <a href="#0" ng-click="qtyMinus($index, $event)">-</a>
-                                            <input type="text" ng-model="item.qty" style="width: 40px;text-align: center; ">
-                                            <a href="#0" ng-click="qtyPlus($index, $event)">+</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <footer>
-                    <a href="#0 " class="checkout btn " id="pay-button" ng-click="checkout($event)"><em>Checkout - IDR <span>{{cartTotal}}</span></em></a>
-                </footer>
-            </div>
-        </div>
-    </div>
-    <!-- cd-cart-container -->
     <!-- Jquery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>

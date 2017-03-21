@@ -1,32 +1,33 @@
 <div class="container padding-inline">
     <div class="row margin-inline" id="section-contact">
         <div class="col-md-6">
-            <h3 class="featurette-heading">Let us know what's in your mind</h3>
+            <h3 class="featurette-heading">Let us know<br/><small>what's in your mind</small></h3>
             <hr>
-            <br>
-            <form class="form" id="form-div" ng-submit="submit()">
-                <div class="form-group float-label-control">
-                    <label for="">Full Name</label>
-                    <input name="name" type="text" ng-model="contact.name" class="validate[required,custom[onlyLetter],length[0,100]] form-control" placeholder="Your name" id="name" capitalize-first/>
+            <div class="panel" style="padding: 10px;">
+                <div class="panel-body">
+                    <form class="form" ng-submit="submit()">
+                        <div class="form-group float-label-control">
+                            <label for="">Full Name</label>
+                            <input name="name" type="text" ng-model="contact.name" class="validate[required,custom[onlyLetter],length[0,100]] form-control" placeholder="Your name" id="name" capitalize-first/>
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Email</label>
+                            <input name="email" type="text" ng-model="contact.email" class="validate[required,custom[email]] form-control" id="email" placeholder="Your email address" />
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Comment</label>
+                            <textarea name="comment" ng-model="contact.comment" class="validate[required,length[6,300]] form-control" id="comment" placeholder="Type your comment here" row=3></textarea>
+                        </div>
+                        <div vc-recaptcha key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'" ng-model="gRecaptchaResponse" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" lang=""></div>
+                        <br>
+                        <div id="callbackerror" class="callback-error" style="color:red"></div>
+                        <div id="callbacksuccess" class="callback-success" style="color:green"></div>
+                        <br>
+                        <input type="submit" value="SEND" class="btn btn-default btn-lg btn-custom text-default" />
+                        <div class="ease"></div>
+                    </form>
                 </div>
-                <div class="form-group float-label-control">
-                    <label for="">Email</label>
-                    <input name="email" type="text" ng-model="contact.email" class="validate[required,custom[email]] form-control" id="email" placeholder="Your email address" />
-                </div>
-                <div class="form-group float-label-control">
-                    <label for="">Comment</label>
-                     <textarea name="comment" ng-model="contact.comment" class="validate[required,length[6,300]] form-control" id="comment" placeholder="Type your comment here" row=3></textarea>
-                </div>
-               
-                <div vc-recaptcha key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'" ng-model="gRecaptchaResponse" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" lang=""></div>
-                <br>
-                <div id="callbackerror" class="callback-error" style="color:red"></div>
-                <div id="callbacksuccess" class="callback-success" style="color:green"></div>
-                <br>
-                <input type="submit" value="SEND" class="btn btn-default btn-lg btn-custom text-default" />
-                <div class="ease"></div>
-                <br>
-            </form>
+            </div>
         </div>
         <div class="col-md-offset-1 col-md-5">
             <h3 class="featurette-heading">Get in Touch</h3>
@@ -45,7 +46,7 @@
             </div>
         </div>
         <div class="col-md-12 margin-inline">
-            <h3 class="featurette-heading">LOCATION</h3>
+            <h3 class="featurette-heading">OUR LOCATION</h3>
             <hr>
             <br>
             <div id="map10"></div>
