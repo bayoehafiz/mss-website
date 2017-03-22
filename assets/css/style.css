@@ -364,6 +364,14 @@ a {
     color: #328cee!important;
 }
 
+.breadcrumb {
+    background-color: #fff!important;
+}
+
+ul.breadcrumb {
+    z-index: 100000000;
+}
+
 
 /*footer #copyright {
     position: absolute;
@@ -893,7 +901,7 @@ a.social-facebook {
 }
 
 .testimonial-slider .slick-slide {
-    height: 320px!important
+    height: 250px!important
 }
 
 .slider {
@@ -1180,7 +1188,7 @@ a.social-facebook {
         padding: 20px 0 30px 0;
     }
     .padding-inline {
-        padding: 60px 0 10px;
+        padding: 60px 0 50px;
     }
 }
 
@@ -1199,6 +1207,12 @@ a.social-facebook {
     .parallax {
         -webkit-background-size: 2024px 100vh !important;
         background-size: 2024px 100vh !important;
+    }
+    .breadcrumb {
+        z-index: 100000000;
+    }
+    .featurette-heading{
+        font-size: 18px!important;
     }
 }
 
@@ -1257,6 +1271,10 @@ a.social-facebook {
     .parallax.hard {
         background-image: url('../img/bg/hardware-retail-xs.svg')!important
     }
+    .bg-custom {
+        background-attachment: inherit!important;
+        background-size: cover!important;
+    }
 }
 
 
@@ -1280,6 +1298,11 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-custom {
+    background-attachment: inherit!important;
+    background-size: cover!important;
 }
 
 
