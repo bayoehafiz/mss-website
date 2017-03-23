@@ -961,6 +961,10 @@ a.social-facebook {
     height: auto!important;
 }
 
+label.label-upper.ng-binding {
+    margin-left: 35px;
+}
+
 .testimonial-slider .slick-slide {
     height: 250px!important
 }
