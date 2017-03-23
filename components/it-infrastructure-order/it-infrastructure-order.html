@@ -28,27 +28,66 @@
                         <label class="fs-field-label fs-anim-upper" for="q2">What is your scope of the project?</label>
                         <div class="fs-radio-group clearfix fs-anim-lower">
                             <div class="cell">
-                            <!--<ul>
-                                <li ng-repeat="check in checks" ng-if="check.val">
-                                            <label style="color:black;font-size:14px" ng-if="check.val"></label>
-                                            <label style="color:black;font-size:14px" >{{check.cat}}</label>
-                                            <ul ng-repeat="checkVal in check.val">
-                                                <li ng-if="check.type=='checkbox'">
-                                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
-                                                    <label style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                <ul>
+                                    <li ng-repeat="check in checks" ng-if="check.val">
+                                        <label style="color:black;font-size:14px" ng-if="check.val">&#8594;</label>
+                                        <label style="color:black;font-size:14px">{{check.cat}}</label>
+                                        <ul ng-repeat="checkVal in check.val">
+                                            <li ng-if="check.type=='checkbox'">
+                                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject[checkVal.name]">
+                                                <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
+                                            </li>
+                                            <li ng-if="check.type=='radio'">
+                                                <input type="radio" name="scopeProject" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
+                                                <label class="label-upper" style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li ng-repeat="check in checks" ng-if="!check.val" ng-init="current = $parent.start; $parent.start=$parent.start+3;">
+                                        <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject[check.cat]" value="check.cat">
+                                        <label style="color:black;font-size:14px" >&#8594; {{check.cat}}</label>
+                                        
+                                    </li>
+                                <ul>
+
+<!--
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.cctv"><label class="label-upper" style="color:black;font-size:14px">CCTV</label>
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.accesscontrol"><label class="label-upper" style="color:black;font-size:14px">Access Control</label>
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.lan"><label class="label-upper" style="color:black;font-size:14px">Local Area Network(LAN)</label>
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.wan"><label class="label-upper" style="color:black;font-size:14px">Wide Area Network(WAN)</label>
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.fiberoptic"><label class="label-upper" style="color:black;font-size:14px">Fiber Optic</label>
+                                <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.
+                                firewallsystem"><label class="label-upper" style="color:black;font-size:14px">Firewall System</label>
+                                
+
+
+                                <input type="radio" name="scopeProject" ng-model="infra.telp" value="IP System">IP System
+                                <input type="radio" name="scopeProject" ng-model="infra.telp" value="Analog System">Analog System
+                                <input type="radio" name="scopeProject" ng-model="infra.telp"  value="Hybrid System">Hybrid System
+
+                                <div class="treeview" data-role="treeview">
+                                    <ul>
+                                        <li class="node collapsed">
+                                            <span class="node-toggle"></span>
+                                            <span class="leaf">Security System</span>
+                                            <ul onFocus="window.scrollTo(0, 0);">
+                                                <li data-name="c1">
+                                                    <span class="leaf">CCTV </span>
                                                 </li>
-                                                <li ng-if="check.type=='radio'">
-                                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
-                                                    <label style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                <li data-mode="radio" data-name="c1" ng-if="check.type=='radio'">
+                                                    <span class="leaf">{{checkVal.name}}</span>
                                                 </li>
                                             </ul>
                                         </li>
-                                <li ng-repeat="check in checks" ng-if="!check.val">
-                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
-                                    <label style="color:black;font-size:14px" >{{check.cat}}</label>
-                                    
-                                </li>
-                            <ul>-->
+                                        <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
+                                            <input type="text" ng-model="check.cat" value="check.cat">
+                                            <span class="leaf">{{check.cat}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            
 
                                 <div class="treeview" data-role="treeview">
                                     <ul>
@@ -64,15 +103,11 @@
                                                 </li>
                                             </ul>
                                         </li>
-
                                         <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
                                             <span class="leaf">{{check.cat}}</span>
                                         </li>
-
                                     </ul>
-                                </div>
-
-                                            
+                                </div>-->
                             </div>
                         </div>
                     </div>
