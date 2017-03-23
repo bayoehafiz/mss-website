@@ -41,7 +41,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
     $scope.infra = {
         type_project: '',
-        scope_project: [],
+        scope: '',
         target_complete: '',
         name: '',
         company: '',
@@ -92,14 +92,14 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
 
     $scope.submit = function() {
-        var fo_data = $scope.infra;
+        var fo_data = $scope.infra.scope;
         var response = $scope.response;
         console.log(fo_data);
         /*console.log('sending the captcha response to the server :', response);
         if (response == null || response == "") {
             console.log('Failed validation');
             // vcRecaptchaService.reload($scope.widgetId);
-        } else {*/
+        } else { //end here
             console.log('Success');
 
             if (!$scope.isAuthenticated) {
@@ -248,7 +248,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                 }
             }
-        //}
+        //}*/
     }
 
     $scope.back = function() {

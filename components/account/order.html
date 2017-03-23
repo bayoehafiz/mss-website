@@ -51,7 +51,8 @@
                                         <tr md-row md-select="data" md-select-id="_id" md-auto-select ng-repeat="data in orders">
                                             <td md-cell><span ng-if="data.order_type == 'softwarefo'">Software Dev</span><span ng-if="data.order_type == 'itinfrafo'">IT Infrastructure</span></td>
                                             <td md-cell><span class="text-success font-500">Follow Up</span></td>
-                                            <td md-cell>{{ data.scope_project[0].cat || data.priority}}</td>
+                                            <td md-cell>{{ data.type_project || data.priority}}</td>
+                                            <!--<td md-cell>{{ data.scope_project[0].cat || data.priority}}</td>-->
                                             <td md-cell>{{ data.scope_project[0].val || data.budget | currency:'IDR ':0}}</td>
                                             <td md-cell>{{ data.company }}</td>
                                             <td md-cell>{{ data.created_on | date:"dd MMM yyyy" }}</td>

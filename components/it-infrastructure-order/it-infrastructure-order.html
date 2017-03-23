@@ -28,6 +28,28 @@
                         <label class="fs-field-label fs-anim-upper" for="q2">What is your scope of the project?</label>
                         <div class="fs-radio-group clearfix fs-anim-lower">
                             <div class="cell">
+                            <!--<ul>
+                                <li ng-repeat="check in checks" ng-if="check.val">
+                                            <label style="color:black;font-size:14px" ng-if="check.val"></label>
+                                            <label style="color:black;font-size:14px" >{{check.cat}}</label>
+                                            <ul ng-repeat="checkVal in check.val">
+                                                <li ng-if="check.type=='checkbox'">
+                                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
+                                                    <label style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                </li>
+                                                <li ng-if="check.type=='radio'">
+                                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
+                                                    <label style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                <li ng-repeat="check in checks" ng-if="!check.val">
+                                    <input type="checkbox" ng-model="infra.scope_project" value="red">
+                                    <label style="color:black;font-size:14px" >{{check.cat}}</label>
+                                    
+                                </li>
+                            <ul>-->
+
                                 <div class="treeview" data-role="treeview">
                                     <ul>
                                         <li class="node collapsed" ng-repeat="check in checks" ng-if="check.val">
@@ -42,11 +64,15 @@
                                                 </li>
                                             </ul>
                                         </li>
+
                                         <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
                                             <span class="leaf">{{check.cat}}</span>
                                         </li>
+
                                     </ul>
                                 </div>
+
+                                            
                             </div>
                         </div>
                     </div>
@@ -58,7 +84,7 @@
                             <select class="form-control" ng-model="infra.target_complete" onFocus="window.scrollTo(0, 0);">
                                 <option value="January">January</option>
                                 <option value="February">February</option>
-                                <option value="Maret">Maret</option>
+                                <option value="March">March</option>
                                 <option value="April">April</option>
                                 <option value="May">May</option>
                                 <option value="June">June</option>
@@ -75,6 +101,7 @@
                 <li data-input-trigger class="outer">
                     <div class="middle">
                         <label class="fs-field-label fs-anim-upper" for="q4">Name</label>
+                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh"/>
                         <input class="fs-anim-lower" id="q4" name="name" ng-model="infra.name" type="name" placeholder="Your Name" onFocus="window.scrollTo(0, 0);" capitalize-first/>
                     </div>
                 </li>

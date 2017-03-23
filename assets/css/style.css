@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,500');
 html,
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
 }
 
 body > div[ui-view] {
     background: #fafafa;
+    font-size: 16px!important;
 }
 
 h1,
@@ -359,6 +360,18 @@ a {
     line-height: 1.2em;
 }
 
+.breadcrumb li a {
+    color: #328cee!important;
+}
+
+.breadcrumb {
+    background-color: #fff!important;
+}
+
+ul.breadcrumb {
+    z-index: 100000000;
+}
+
 
 /*footer #copyright {
     position: absolute;
@@ -430,6 +443,10 @@ a {
 
 .padding-inline {
     padding: 70px 0;
+}
+
+.padding-bottom {
+    padding-bottom: 30px;
 }
 
 .padding-top-inline {
@@ -791,6 +808,67 @@ a.social-facebook {
 }
 
 
+/*Sticky Social Share*/
+
+.sticky-container {
+    /*background-color: #333;*/
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    right: -53px;
+    top: 21em;
+    width: 100px;
+}
+
+.sticky li {
+    list-style-type: none;
+    background-color: #1f1f1f;
+    color: #6c6c6c;
+    height: 45px;
+    padding: 8px 14px;
+    margin: 0px 0px 1px 0px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+
+.sticky li:hover {
+    margin-left: -80px;
+    /*-webkit-transform: translateX(-115px);
+        -moz-transform: translateX(-115px);
+        -o-transform: translateX(-115px);
+        -ms-transform: translateX(-115px);
+        transform:translateX(-115px);*/
+    /*background-color: #8e44ad;*/
+    -webkit-filter: grayscale(0%);
+}
+
+.sticky li i {
+    float: left;
+    margin-right: 10px;
+}
+
+.sticky li a {
+    padding: 0px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2;
+}
+
+/** fork icon**/
+
+.fork {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
 /* Portfolio */
 
 
@@ -884,7 +962,7 @@ a.social-facebook {
 }
 
 .testimonial-slider .slick-slide {
-    height: 320px!important
+    height: 250px!important
 }
 
 .slider {
@@ -1171,7 +1249,7 @@ a.social-facebook {
         padding: 20px 0 30px 0;
     }
     .padding-inline {
-        padding: 60px 0 10px;
+        padding: 60px 0 50px;
     }
 }
 
@@ -1190,6 +1268,12 @@ a.social-facebook {
     .parallax {
         -webkit-background-size: 2024px 100vh !important;
         background-size: 2024px 100vh !important;
+    }
+    .breadcrumb {
+        z-index: 100000000;
+    }
+    .featurette-heading {
+        font-size: 18px!important;
     }
 }
 
@@ -1248,6 +1332,10 @@ a.social-facebook {
     .parallax.hard {
         background-image: url('../img/bg/hardware-retail-xs.svg')!important
     }
+    .bg-custom {
+        background-attachment: inherit!important;
+        background-size: cover!important;
+    }
 }
 
 
@@ -1271,6 +1359,11 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-custom {
+    background-attachment: inherit!important;
+    background-size: cover!important;
 }
 
 

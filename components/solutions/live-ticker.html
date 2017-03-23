@@ -7,18 +7,25 @@
     <div class="row-stretch bg-default" style="padding-top:3em;padding-bottom:3em;">
         <div class="container">
             <div class="middle">
-                <div class="col-lg-6">
+                <div class="col-sm-12 padding-bottom" style="z-index: 100000000;">
+                    <ul class="breadcrumb">
+                        <li><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="solutions">Solution</a></li>
+                        <li>Live Ticker</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
                     <img src="/assets/img/services/sol-tickers.svg" class="img-responsive center-block" width="400">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <p class="software-lead text-default">
                         Work smarter to win faster.
                     </p>
                     <p class="lead" align="justify">Get real-time update of quote stocks and find last sale, net change and volume information in real-time. From Meta Trader allow you to automatically copy the deals performed by other traders in real time. Many successful traders provide their Forex trades in public access either for free or for a reasonable fee, becoming signal providers.
                     </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="/assets/img/live-stock/live-stock.PNG" width="600" class="img-bussiness-process">
+                    <div class="col-md-12">
+                        <img src="/assets/img/live-stock/live-stock.PNG" width="400" class="img-bussiness-process">
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,7 +45,7 @@
             </div>
             <div class="col-sm-4 text-center">
                 <div class="box-chart-img">
-                    <img src="assets/img/customer-survey-tools/analytics-dashboard.gif" height="80">
+                    <img src="assets/img/customer-survey-tools/chart.svg" height="80">
                 </div>
                 <h3 class="featurette-heading margin-inline">Beautiful Dashboard</h3>
                 <p class="lead">Power BI transforms live stock ticker into rich visuals for you to collect and organize so you can focus on what matters to you.</p>
@@ -73,14 +80,19 @@
     </div>
     <!-- Social share -->
     <div class="row-stretch">
-        <div class="social-share">
-            <p>Share on:</p>
-            <a href="#" target="_self" socialshare socialshare-provider="twitter" socialshare-text="Live Ticker / Stock Quotes App by PT Menara Sinar Semesta" socialshare-hashtags="liveticker, stocks, quotes, livequotes" socialshare-url="http://mss.co.id/#/live-ticker" class="social-twitter" prevent-default>
-                <i class="fa fa-twitter fa-2x"></i>
-            </a>
-            <a href="#" target="_self" socialshare socialshare-provider="twitter" socialshare-text="Live Ticker / Stock Quotes App by PT Menara Sinar Semesta" socialshare-hashtags="liveticker, stocks, quotes, livequotes" socialshare-url="http://mss.co.id/#/live-ticker" class="social-facebook" prevent-default>
-                <i class="fa fa-facebook fa-2x"></i>
-            </a>
+        <div class="sticky-container">
+            <ul class="sticky">
+                <li>
+                    <a href="#" target="_self" socialshare socialshare-provider="twitter" socialshare-text="Live Ticker / Stock Quotes App by PT Menara Sinar Semesta" socialshare-hashtags="liveticker, stocks, quotes, livequotes" socialshare-url="http://mss.co.id/#/live-ticker" class="social-twitter" prevent-default>
+                        <i class="fa fa-twitter fa-2x"></i> share
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_self" socialshare socialshare-provider="twitter" socialshare-text="Live Ticker / Stock Quotes App by PT Menara Sinar Semesta" socialshare-hashtags="liveticker, stocks, quotes, livequotes" socialshare-url="http://mss.co.id/#/live-ticker" class="social-facebook" prevent-default>
+                        <i class="fa fa-facebook fa-2x"></i> share
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
     "periode": "Monthly",
     "category": "email",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "<br>&#x2611; Secure and reliable business-class email with a 50 GB mailbox per user.<br>&#x2611; Users can connect supported versions of Outlook to Exchange Online, so they can use the rich client application they already know.<br>&#x2611; For web-client access, Outlook on the web provides a premium browser-based experience that matches the look and feel of the full Outlook client."
 
 }, {
     "id": "ahzfchxgauhis",
@@ -16,7 +16,7 @@
     "periode": "Monthly",
     "category": "email",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "<br>&#x2611; Business-class email hosting with 50 GB mailbox.<br>&#x2611; 1 TB of OneDrive storage.<br>&#x2611; Host unlimited HD video conferencing meetings for up to 250 people with Skype for Business.<br>&#x2611; Web versions of Outlook, Word, Excel, and PowerPoint (desktop versions of applications not included).<br>&#x2611; Manage tasks and teamwork with Microsoft Planner.<br>&#x2611; Collaborate across departments and locations with Yammer.<br>&#x2611; Maximum number of users: 300"
 
 }, {
     "id": "r8eutisjvkjfiofn",
@@ -26,7 +26,7 @@
     "periode": "Monthly",
     "category": "email",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "&#x2611; Business-class email hosting with 50 GB mailbox.<br>&#x2611; Desktop versions of Office 2016 applications: Outlook, Word, Excel, PowerPoint, OneNote, plus Access and Publisher for PC only.<br>&#x2611; Web versions of Outlook, Word, Excel, and PowerPoint.<br>&#x2611; 1 TB of OneDrive storage.<br>&#x2611; Inform and engage employees with a SharePoint intranet, and connect teams to content, expertise and processes with SharePoint team sites.<br>&#x2611; One license covers 5 PCs or Macs, 5 phones, and 5 tablets per user.<br>&#x2611; Host unlimited HD video conferencing meetings for up to 250 people with Skype for Business.<br>&#x2611; Chat-based workspace to connect your teams with Microsoft Teams"
 
 }, {
     "id": "63542vhnklhgwi39tfjklndsa",
@@ -36,7 +36,7 @@
     "periode": "One Time Buy",
     "category": "office",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "<ol><li>&#x2611; Create beautiful documents and enjoy the read with Microsoft Word.</li><li>&#x2611; Achieve valuable insights with powerful analysis tools with Excel.</li><li>&#x2611; Design and deliver beautiful presentations with ease and confidence with PowerPoint.</li><li>&#x2611; Take notes and have them where you want when you need them with OneNote.</li><li>&#x2611; Manage your email, contacts, schedules, and to do with Outlook.</li><li>&#x2611; Create professional and impactful publications with Publisher</li></ol>"
 
 }, {
     "id": "mvlkjioq8ripqm",
@@ -46,7 +46,7 @@
     "periode": "One Time Buy",
     "category": "windows",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "Moving from Windows Home to Windows 10 Pro can save time and money by helping you manage and secure your workplace. Powerful features make it easier to manage devices, updates, configurations, and to help secure your data. Even better, these features build on the IT infrastructure you’ve already invested in. It's designed to work with the devices you already own, and lights up the features of new devices like 2-in-1s. Windows 10 is not compatible with Windows Vista."
 
 }, {
     "id": "qwertyuiolkjhgf",
@@ -56,27 +56,27 @@
     "periode": "One Time Buy",
     "category": "windows",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "Windows Server 2016 is the cloud-ready operating system that supports your current workloads while introducing new technologies that make it easy to transition to cloud computing when you are ready. It delivers powerful new layers of security along with Azure-inspired innovation for the applications and infrastructure that power your business."
 
 }, {
     "id": "dakcuiasdhjk",
-    "name": "Windows Server CAL",
+    "name": "Windows Server CAL Dvc",
     "img": "assets/img/retail/winserverdvc.png",
     "price": 684000,
     "periode": "One Time Buy",
     "category": "windows",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "A Windows Server CAL gives a device the right to access any edition of Windows Server of the same or earlier version. Each Window Server CAL allows access to multiple licenses of Windows Server."
 
 }, {
     "id": "asmdvlasjfkajof",
-    "name": "Windows Server CAL",
+    "name": "Windows Server CAL Usr",
     "img": "assets/img/retail/winserverusr.png",
     "price": 877000,
     "periode": "One Time Buy",
     "category": "windows",
     "type": "software",
-    "desc": "Lorem ipsum dolor sit amet, consoleectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium."
+    "desc": "A Windows Server CAL gives an user the right to access any edition of Windows Server of the same or earlier version. Each Window Server CAL allows access to multiple licenses of Windows Server."
 
 }, {
     "id": "78438fhf892hf9",
@@ -95,7 +95,7 @@
     "price": 165000,
     "category": "network",
     "type": "hardware",
-    "desc": "TL-WR840N adalah gabungan kabel / jaringan nirkabel yang dirancang khusus untuk kebutuhan jaringan usaha kecil dan usaha rumahan. TL-WR840N menciptakan kinerja nirkabel yang luar biasa dan canggih, sehingga ideal untuk streaming video HD, VoIP dan game online. Dan juga, Tombol setup (WPS) Wi-Fi Protected pada bagian luar ramping dan modis memastikan enkripsi WPA2, mencegah jaringan dari intrusi luar."
+    "desc": "300Mbps wireless transmission rate ideal for both bandwidth sensitive tasks and basic work', IP based bandwidth control allows administrators to determine how much bandwidth is allotted to each PC,Guest Network allows you to creates a seperate network to share safely with guests"
 }, {
     "id": "hjdsa79whfuiah",
     "sn": "",
