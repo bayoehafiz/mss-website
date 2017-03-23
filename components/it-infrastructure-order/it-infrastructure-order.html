@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" prevent-scroll>
     <span class="logo-form" style="z-index: 1000000000000;">
         <a href="#"><img src="/assets/img/mssico.png" alt="" width="110"></a>
     </span>
@@ -28,7 +28,7 @@
                         <label class="fs-field-label fs-anim-upper" for="q2">What is your scope of the project?</label>
                         <div class="fs-radio-group clearfix fs-anim-lower">
                             <div class="cell">
-                            <!--<ul>
+                                <!--<ul>
                                 <li ng-repeat="check in checks" ng-if="check.val">
                                             <label style="color:black;font-size:14px" ng-if="check.val"></label>
                                             <label style="color:black;font-size:14px" >{{check.cat}}</label>
@@ -49,7 +49,6 @@
                                     
                                 </li>
                             <ul>-->
-
                                 <div class="treeview" data-role="treeview">
                                     <ul>
                                         <li class="node collapsed" ng-repeat="check in checks" ng-if="check.val">
@@ -64,15 +63,11 @@
                                                 </li>
                                             </ul>
                                         </li>
-
                                         <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
                                             <span class="leaf">{{check.cat}}</span>
                                         </li>
-
                                     </ul>
                                 </div>
-
-                                            
                             </div>
                         </div>
                     </div>
@@ -101,7 +96,7 @@
                 <li data-input-trigger class="outer">
                     <div class="middle">
                         <label class="fs-field-label fs-anim-upper" for="q4">Name</label>
-                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh"/>
+                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh" />
                         <input class="fs-anim-lower" id="q4" name="name" ng-model="infra.name" type="name" placeholder="Your Name" onFocus="window.scrollTo(0, 0);" capitalize-first/>
                     </div>
                 </li>
@@ -174,6 +169,7 @@
         }
     });
 })();
+
 </script>
 <script>
 $('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
