@@ -743,19 +743,3 @@ app.directive('preventDefault', function() {
     }
 });
 
-app.directive('preventScroll', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attr) {
-            $(element).closest('body').css({
-                'overflow':'hidden',
-                'height':'100%'
-            });
-            
-            // $(element).find('fs-form-overview').css({
-            //     'overflow':'auto',
-            //     'height':'auto'
-            // });
-        }
-    }
-})

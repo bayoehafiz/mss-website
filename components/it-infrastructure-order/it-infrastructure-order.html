@@ -1,4 +1,4 @@
-<div class="container" prevent-scroll>
+<div class="container">
     <span class="logo-form" style="z-index: 1000000000000;">
         <a href="#"><img src="/assets/img/mssico.png" alt="" width="110"></a>
     </span>
@@ -28,7 +28,6 @@
                         <label class="fs-field-label fs-anim-upper" for="q2">What is your scope of the project?</label>
                         <div class="fs-radio-group clearfix fs-anim-lower">
                             <div class="cell">
-
                                 <ul>
                                     <li ng-repeat="check in checks" ng-if="check.val">
                                         <label style="color:black;font-size:14px" ng-if="check.val">&#8594;</label>
@@ -40,18 +39,16 @@
                                             </li>
                                             <li ng-if="check.type=='radio'">
                                                 <input type="radio" name="scopeProject" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
-                                                <label class="label-upper" style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                         </ul>
                                     </li>
                                     <li ng-repeat="check in checks" ng-if="!check.val" ng-init="current = $parent.start; $parent.start=$parent.start+3;">
                                         <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject[check.cat]" value="check.cat">
-                                        <label style="color:black;font-size:14px" >&#8594; {{check.cat}}</label>
-                                        
+                                        <label style="color:black;font-size:14px">&#8594; {{check.cat}}</label>
                                     </li>
-                                <ul>
-
-<!--
+                                    <ul>
+                                        <!--
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.cctv"><label class="label-upper" style="color:black;font-size:14px">CCTV</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.accesscontrol"><label class="label-upper" style="color:black;font-size:14px">Access Control</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.lan"><label class="label-upper" style="color:black;font-size:14px">Local Area Network(LAN)</label>
@@ -209,6 +206,9 @@
     });
 })();
 
+$('form').find('li.outer').css({
+    'overflow':'hidden'
+});
 </script>
 <script>
 $('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
@@ -234,26 +234,6 @@ $(window).load(function() {
             $(document).find('.fs-cancel').text('');
         }
     })
-
-
-});
-//----- set clicked treeview on label -----//
-$(".treeview").on("click", "span.leaf", function(event) {
-    var radio = $(this).closest('li').find('input[type=radio]');
-    if (radio.is(':checked')) {
-        radio.prop('checked', false);
-    } else if (radio.not(':checked')) {
-        radio.prop('checked', true);
-    }
-});
-//----- set clicked label on checkbox------//
-$(".treeview").on("click", "span.leaf", function(event) {
-    var input = $(this).closest('li').find('input[type=checkbox]');
-    if (input.is(':checked')) {
-        input.prop('checked', false);
-    } else if (input.not(':checked')) {
-        input.prop('checked', true);
-    }
 });
 
 //------ set auto focus in form ----- //
