@@ -35,7 +35,7 @@
                                             <span class="leaf">{{check.cat}}</span>
                                             <ul ng-repeat="checkVal in check.val" onFocus="window.scrollTo(0, 0);">
                                                 <li data-mode="checkbox" data-name="c1" ng-if="check.type=='checkbox'">
-                                                    <span class="leaf">{{checkVal.name}}</span>
+                                                    <span class="leaf" ng-model="test">{{checkVal.name}}</span>
                                                 </li>
                                                 <li data-mode="radio" data-name="c1" ng-if="check.type=='radio'">
                                                     <span class="leaf">{{checkVal.name}}</span>
