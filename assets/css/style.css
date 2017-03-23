@@ -808,6 +808,67 @@ a.social-facebook {
 }
 
 
+/*Sticky Social Share*/
+
+.sticky-container {
+    /*background-color: #333;*/
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    right: -53px;
+    top: 21em;
+    width: 100px;
+}
+
+.sticky li {
+    list-style-type: none;
+    background-color: #1f1f1f;
+    color: #6c6c6c;
+    height: 45px;
+    padding: 8px 14px;
+    margin: 0px 0px 1px 0px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+
+.sticky li:hover {
+    margin-left: -80px;
+    /*-webkit-transform: translateX(-115px);
+        -moz-transform: translateX(-115px);
+        -o-transform: translateX(-115px);
+        -ms-transform: translateX(-115px);
+        transform:translateX(-115px);*/
+    /*background-color: #8e44ad;*/
+    -webkit-filter: grayscale(0%);
+}
+
+.sticky li i {
+    float: left;
+    margin-right: 10px;
+}
+
+.sticky li a {
+    padding: 0px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2;
+}
+
+/** fork icon**/
+
+.fork {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+
 /* Portfolio */
 
 
@@ -1211,7 +1272,7 @@ a.social-facebook {
     .breadcrumb {
         z-index: 100000000;
     }
-    .featurette-heading{
+    .featurette-heading {
         font-size: 18px!important;
     }
 }
