@@ -41,7 +41,8 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
     $scope.infra = {
         type_project: '',
-        scope: '',
+        scopeProject: [],
+        scopeProjectradio: '',
         target_complete: '',
         name: '',
         company: '',
@@ -72,35 +73,10 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
     }
     /*--end auto fill when user has been logged in--*/
 
-    /*$scope.setWidgetId = function(widgetId) {
-        console.info('Created widget ID: %s', widgetId);
-        $scope.widgetId = widgetId;
-    };
-
-    $scope.setResponse = function(response) {
-        console.info('Response available');
-        $scope.response = response;
-        console.log($scope.response);
-        // send the `response` to your server for verification.
-    };*/
-    
-    // $scope.cbExpiration = function() {
-    //     console.info('Captcha expired. Resetting response object');
-    //     vcRecaptchaService.reload($scope.widgetId);
-    //     $scope.response = null;
-    // };
-
 
     $scope.submit = function() {
-        var fo_data = $scope.infra.scope;
-        var response = $scope.response;
+        var fo_data = $scope.infra;
         console.log(fo_data);
-        /*console.log('sending the captcha response to the server :', response);
-        if (response == null || response == "") {
-            console.log('Failed validation');
-            // vcRecaptchaService.reload($scope.widgetId);
-        } else { //end here
-            console.log('Success');
 
             if (!$scope.isAuthenticated) {
                 // sign the guest in
@@ -247,8 +223,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
                     $state.go('account');
 
                 }
-            }
-        //}*/
+            }  
     }
 
     $scope.back = function() {
