@@ -1037,6 +1037,13 @@ label.label-upper.ng-binding {
     #home-slider-mobile {
         display: none;
     }
+    label.label-upper.ng-binding {
+        top: -14px;
+    }
+    label.label-upper-2{
+        top: -14px;
+        margin-left: 2em!important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1355,6 +1362,26 @@ label.label-upper.ng-binding {
 /* Landscape */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/*----------- mobile phone mini -----------*/
+
+@media (max-width: 480px) {
+    .scope-p {
+        margin-left: -3em!important;
+    }
+    label.label-upper {
+        top: -1em;
+        margin-left: 3.5em!important;
+    }
+    .scope-p-2 {
+        margin-left: -3.8em!important;
+    }
+    label.label-upper-2 {
+        top: -1em;
+        margin-left: 1.5em!important;
+    }
+}
 
 
 /*Parallax*/
