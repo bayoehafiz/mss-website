@@ -17,7 +17,4 @@ app.controller('DownloadController', function($scope, $rootScope, $http, $locati
     if ($scope.query) {
         $scope.loadItems();
     }
-
-    NavShrink.shrink();
-    $anchorScroll();
 });
