@@ -21,4 +21,5 @@ const app = angular.module('MSSPortal', [
     'alexjoffroy.angular-loaders',
     '720kb.socialshare',
     'angular-google-analytics',
+    'download'
 ]);

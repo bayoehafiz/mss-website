@@ -30,4 +30,6 @@ function run($rootScope, authService, authManager, bsLoadingOverlayService, Anal
         localStorage.setItem('prev_state', fromState.name);
     })
 
+    // Onedrive ADAL auth
+    // adalAuthenticationService.login();
 }

@@ -1,15 +1,15 @@
 <div class="container padding-top-inline">
     <div class="panel" block-ui="loadingBlock">
-        <div class="panel-heading">
+        <div class="panel-heading" style="margin-top: 1em;">
             <div class="row">
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <br>
                     <div class="col-md-1 col-sm-2">
                         <img src="assets/img/icon/profile.svg" class="img-responsive">
                     </div>
                     <div class="col-md-8 col-sm-7">
                         <h1>Profile</h1>
-                        <p class="text-muted">Information about your profile</p>
+                        <p class="text-muted"><h4>Information about your profile</h4></p>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <a href="" class="pull-right" ng-click="close()">
@@ -20,6 +20,17 @@
                     <div class="col-md-12">
                         <hr>
                     </div>
+                </div> -->
+                <a href="" class="pull-right v-center" style="margin-right: 20px;color:grey;" ng-click="close()">
+                    <i class="fa fa-close fa-2x"></i>
+                </a>
+                <div class="col-lg-1 col-md-2 v-center">
+                    <img src="assets/img/icon/profile.svg" class="img-responsive" width="100px;">
+                </div>
+                <div class="col-lg-8 col-md-8 v-center">
+                    <h1>Profile</h1>
+                    <br>
+                    <p class="text-muted">Information about your profile</p>
                 </div>
             </div>
         </div>
@@ -112,35 +123,3 @@
         </div>
     </div>
 </div>
-<style type="text/css">
-.box-chart {
-    min-height: 0px!important;
-}
-
-.hover {
-    -webkit-transition: all .15s ease;
-    /* Safari and Chrome */
-    -moz-transition: all .15s ease;
-    /* Firefox */
-    -o-transition: all .15s ease;
-    /* IE 9 */
-    -ms-transition: all .15s ease;
-    /* Opera */
-    transition: all .15s ease;
-}
-
-.hover:hover {
-    background-color: #fff;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateZ(0) scale(1.05);
-    /* Safari and Chrome */
-    -moz-transform: scale(1.05);
-    /* Firefox */
-    -ms-transform: scale(1.05);
-    /* IE 9 */
-    -o-transform: translatZ(0) scale(1.05);
-    /* Opera */
-    transform: translatZ(0) scale(1.05);
-}
-</style>

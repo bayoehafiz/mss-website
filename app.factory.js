@@ -25,14 +25,47 @@ app
         }
     })
 
-    .factory('CartService', function(localStorageService,$window) {
-        return {
-            add: function(data) {
-                $window.localStorage['product_id'] = JSON.stringify(data);
-            }
+.factory('CartService', function(localStorageService, $window) {
+    return {
+        add: function(data) {
+            $window.localStorage['product_id'] = JSON.stringify(data);
         }
-    })
-    
-    .factory('allHttpInterceptor', function(bsLoadingOverlayHttpInterceptorFactoryFactory) {
-        return bsLoadingOverlayHttpInterceptorFactoryFactory();
-    })
+    }
+})
+
+.factory('allHttpInterceptor', function(bsLoadingOverlayHttpInterceptorFactoryFactory) {
+    return bsLoadingOverlayHttpInterceptorFactoryFactory();
+})
+
+.factory('oneDriveFactory', ['$http', 'graphUrl',
+    function($http, graphUrl) {
+
+        var oneDriveFactory = {};
+
+        // retrieve child files and folders 
+        oneDriveFactory.getChildren = function(itemId) {
+            return $http({
+                method: 'GET',
+                url: graphUrl + '/me/drive/items/' + itemId + '/children'
+            });
+        };
+
+        // getting information about file or folder 
+        oneDriveFactory.getItem = function(itemId) {
+            return $http({
+                method: 'GET',
+                url: graphUrl + '/me/drive/items/' + itemId
+            });
+        };
+
+        // search 
+        oneDriveFactory.searchItems = function(query) {
+            return $http({
+                method: 'GET',
+                url: graphUrl + '/me/drive/root/search(q=\'{' + escape(query) + '}\')'
+            });
+        };
+
+        return oneDriveFactory;
+    }
+])
