@@ -185,6 +185,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
                         var myBlockUI = blockUI.instances.get('loadingBlock');
                         // Start blocking the element.
                         myBlockUI.start();
+                        console.log(response);
 
                         if (response.data.success) {
                             ngDialog.open({
