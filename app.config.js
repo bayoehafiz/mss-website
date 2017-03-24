@@ -224,8 +224,6 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
 
     $urlRouterProvider.otherwise('/');
 
-    $locationProvider.hashPrefix('');
-
     // Google Analytics
     AnalyticsProvider
         .logAllCalls(true)
@@ -243,6 +241,8 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
         positionX: 'right',
         positionY: 'top'
     });
+
+    $locationProvider.hashPrefix('');
 
     $locationProvider.html5Mode(true);
 }
