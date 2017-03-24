@@ -125,6 +125,12 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'HardwaresController',
             templateUrl: 'components/products/hardwares.html'
         })
+        // DOWNLOAD ROUTES
+        .state('download', {
+            url: '/download',
+            controller: 'DownloadController',
+            templateUrl: 'components/download/main.html'
+        })
         // HELP Routes
         .state('contact', {
             url: '/contact',
@@ -237,4 +243,6 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
         positionX: 'right',
         positionY: 'top'
     });
+
+    $locationProvider.html5Mode(true);
 }
