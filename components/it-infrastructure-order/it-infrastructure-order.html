@@ -6,7 +6,7 @@
         <h3>Infrastructure Project Inquiry</h3>
     </div>
     <div class="fs-form-wrap" id="fs-form-wrap">
-        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off" ng-submit="submit()">
+        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off" ng-submit="submit()" enctype='application/json'>
             <ol class="fs-fields">
                 <li data-input-trigger class="outer">
                     <div class="middle">
@@ -38,13 +38,13 @@
                                                 <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                             <li ng-if="check.type=='radio'">
-                                                <input type="radio" name="scopeProject" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
-                                                <label class="label-upper" style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                <input type="radio" name="scopeProjectrad" ng-model="infra.scopeProject[checkVal.name]" value={{checkVal.name}}>
+                                                <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                         </ul>
                                     </li>
                                     <li ng-repeat="check in checks" ng-if="!check.val" ng-init="current = $parent.start; $parent.start=$parent.start+3;">
-                                        <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject[check.cat]" value="check.cat">
+                                        <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject[check.cat]">
                                         <label style="color:black;font-size:14px" >&#8594; {{check.cat}}</label>
                                         
                                     </li>
