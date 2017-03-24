@@ -1,6 +1,6 @@
 app.config(config);
 
-function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $urlRouterProvider, $locationProvider, $httpProvider, NotificationProvider, AnalyticsProvider, config) {
+function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $urlRouterProvider, $locationProvider, $httpProvider, NotificationProvider, AnalyticsProvider) {
     $stateProvider
         .state('home', {
             url: '/',
@@ -195,23 +195,6 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SettingController',
             templateUrl: 'components/account/setting.html'
         });
-
-    // Angular file manager
-    var defaults = config.$get();
-    config.set({
-        appName: 'angular-filemanager',
-        pickCallback: function(item) {
-            var msg = 'Picked %s "%s" for external use'
-                .replace('%s', item.type)
-                .replace('%s', item.fullPath());
-            window.alert(msg);
-        },
-
-        allowedActions: angular.extend(defaults.allowedActions, {
-            pickFiles: true,
-            pickFolders: false,
-        }),
-    });
 
     // Lock passwordless
     lockPasswordlessProvider.init({
