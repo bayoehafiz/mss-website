@@ -108,7 +108,7 @@ $('form').find('li.outer').css({
 <script>
 $('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
 $(".fs-progress").wrap("<div class='row-stretch'></div>");
-$(window).load(function() {
+$(window).on("load",function() {
     var width = $(window).width();
 
     if (width < 840) {

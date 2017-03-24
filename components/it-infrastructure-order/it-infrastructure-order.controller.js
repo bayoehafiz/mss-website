@@ -100,7 +100,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
                                     orderFormService
                                         .verifyCode(fo_data.email, code)
-                                        .then(function(response) {
+                                        .then(function(response) {                                            
                                             if (response.status == 200) {
                                                 localStorage.setItem('id_token', response.data.id_token);
                                                 localStorage.setItem('user_token', response.data.access_token);
@@ -185,7 +185,6 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
                         var myBlockUI = blockUI.instances.get('loadingBlock');
                         // Start blocking the element.
                         myBlockUI.start();
-                        console.log(response);
 
                         if (response.data.success) {
                             ngDialog.open({
