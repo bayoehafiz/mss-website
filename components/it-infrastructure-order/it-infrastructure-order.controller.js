@@ -39,7 +39,6 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
     }, ]
 
 
-    $scope.checkVal=[];
     $scope.infra = {
         type_project: '',
         scopeProject: [],
@@ -51,6 +50,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         phone: '',
         email: ''
     };
+    $scope.checkv = [];
 
     /*--start auto fill when user has been logged in--*/
     if ($scope.isAuthenticated && localStorage.getItem('profile') != undefined) {
@@ -76,15 +76,6 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
 
     $scope.submit = function() {
-        console.log($scope.checkVal);
-
-        var spp = [];
-        angular.forEach($scope.checkVal, function (value, key) {
-                if ($scope.checkVal[key].checked == $scope.checkVal[key].name) {
-                    books.spp($scope.checkVal[key].checked);
-                }
-            });
-
         var fo_data = $scope.infra;
         console.log(fo_data);
 

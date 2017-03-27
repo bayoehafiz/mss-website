@@ -187,7 +187,7 @@ app.controller('QuotationController', function QuotationController($scope, $q, $
                         var myBlockUI = blockUI.instances.get('loadingBlock');
                         // Start blocking the element.
                         myBlockUI.start();
-                        console.log(response);
+                        
                         if (response.data.success) {
                             ngDialog.open({
                                 template: 'components/modals/message.html',
