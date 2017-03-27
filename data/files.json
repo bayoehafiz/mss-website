@@ -33,4 +33,18 @@
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 
+} {
+    "id": "0123",
+    "name": "Samsung®️ CCTV Catalogue",
+    "path": "assets/files/Samsung_CCTV_Catalogue.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
+}, {
+    "id": "1129",
+    "name": "Panasonic®️ PABX Catalogue",
+    "path": "assets/files/Panasonic_PABX.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
 }]
