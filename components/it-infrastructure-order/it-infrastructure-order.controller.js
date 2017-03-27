@@ -226,6 +226,10 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
             }  
     }
 
+    $scope.$watch('infra.scopeProject', function(newVal) {
+        console.log(newVal);
+    })
+
     $scope.back = function() {
         prevState = localStorage.getItem('prev_state');
         if (prevState == '' || prevState == undefined)
