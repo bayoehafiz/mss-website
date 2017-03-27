@@ -73,8 +73,8 @@
                 <a class="navbar-brand" href="#"><img src="assets/img/mssico.png"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse pull-right">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
                         <a ui-sref="home" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">HOME</a>
                     </li>
                     <li class="dropdown">
@@ -93,10 +93,10 @@
                             </a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref="software" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE</a></li>
-                            <li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>
+                            <!--<li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>-->
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li>
                         <a ui-sref="download" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">DOWNLOAD</a>
                     </li>
                     <li class="dropdown">
@@ -113,7 +113,7 @@
                     </li>
                     <li ng-if="!isAuthenticated">
                         <a href="" class="link color-success" ng-click="authService.login()">
-                            LOGIN
+                            <span class="text-primary">SIGN IN</span>
                         </a>
                     </li>
                     <li ng-if="isAuthenticated">
@@ -130,7 +130,7 @@
     <div style="height: 100%">
         <div ui-view style="background: #ecf0f1;"></div>
         <!-- footer -->
-        <div id="footer" class="padding-inline" style="background: #fff;">
+        <div id="footer" class="footer" style="background: #fff;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-12 text-muted footer-content">
@@ -220,7 +220,6 @@
     <script type="text/javascript" src="vendors/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="vendors/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="vendors/angular-socialshare/lib/angular-socialshare.js"></script>
-    <script type="text/javascript" src="vendors/angular-download/angular-download.js"></script>
     <!-- <script src="//secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal.min.js"></script>
     <script src="//secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal-angular.min.js"></script> -->
     <script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>

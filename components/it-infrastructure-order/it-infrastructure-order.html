@@ -6,7 +6,8 @@
         <h3>Infrastructure Project Inquiry</h3>
     </div>
     <div class="fs-form-wrap" id="fs-form-wrap">
-        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off" ng-submit="submit()" enctype='application/json'>
+
+        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off">
             <ol class="fs-fields">
                 <li data-input-trigger class="outer">
                     <div class="middle">
@@ -34,21 +35,23 @@
                                         <label style="color:black;font-size:14px">{{check.cat}}</label>
                                         <ul ng-repeat="checkVal in check.val">
                                             <li ng-if="check.type=='checkbox'">
-                                                <input class="scope-p" type="checkbox" name="scopeProject" ng-model="infra.scopeProject[checkVal.name]">
+                                                <input type="checkbox" class="scope-p" ng-true-value="'{{checkVal.name}}'" ng-false-value="''" id="'{{checkVal.name}}'" ng-model="checkVal[checkVal.name]" ng-change="checked()">
                                                 <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                             <li ng-if="check.type=='radio'">
-                                                <input class="scope-p" type="radio" name="scopeProject" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
-                                                <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
+                                                <input type="radio" class="scope-p" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
+                                                <label class="label-upper" style="color:black;font-size:14px" >{{checkVal.name}}</label>
                                             </li>
                                         </ul>
                                     </li>
                                     <li ng-repeat="check in checks" ng-if="!check.val" ng-init="current = $parent.start; $parent.start=$parent.start+3;">
-                                        <input class="scope-p-2" type="checkbox" name="scopeProject" ng-model="infra.scopeProject[check.cat]" value="check.cat">
-                                        <label class="label-upper-2" style="color:black;font-size:14px">{{check.cat}}</label>
+                                        <input type="checkbox" name="scopeProject" class="scope-p-2" ng-model="infra.scopeProject[check.cat]" value="check.cat">
+                                        <label class="label-upper-2" style="color:black;font-size:14px" >{{check.cat}}</label>
+                                        
                                     </li>
-                                    <ul>
-                                        <!--
+                                <ul>
+
+<!--
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.cctv"><label class="label-upper" style="color:black;font-size:14px">CCTV</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.accesscontrol"><label class="label-upper" style="color:black;font-size:14px">Access Control</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.lan"><label class="label-upper" style="color:black;font-size:14px">Local Area Network(LAN)</label>
@@ -57,12 +60,9 @@
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.
                                 firewallsystem"><label class="label-upper" style="color:black;font-size:14px">Firewall System</label>
                                 
-
-
                                 <input type="radio" name="scopeProject" ng-model="infra.telp" value="IP System">IP System
                                 <input type="radio" name="scopeProject" ng-model="infra.telp" value="Analog System">Analog System
                                 <input type="radio" name="scopeProject" ng-model="infra.telp"  value="Hybrid System">Hybrid System
-
                                 <div class="treeview" data-role="treeview">
                                     <ul>
                                         <li class="node collapsed">
@@ -77,13 +77,13 @@
                                                 </li>
                                             </ul>
                                         </li>
-
                                         <li data-mode="checkbox" ng-repeat="check in checks" data-name="c3_1_1" ng-if="!check.val">
                                             <input type="text" ng-model="check.cat" value="check.cat">
                                             <span class="leaf">{{check.cat}}</span>
                                         </li>
                                     </ul>
                                 </div>
+                            
                                 <div class="treeview" data-role="treeview">
                                     <ul>
                                         <li class="node collapsed" ng-repeat="check in checks" ng-if="check.val">
@@ -102,7 +102,6 @@
                                             <span class="leaf">{{check.cat}}</span>
                                         </li>
                                     </ul>
-
                                 </div>-->
                             </div>
                         </div>
@@ -132,7 +131,7 @@
                 <li data-input-trigger class="outer">
                     <div class="middle">
                         <label class="fs-field-label fs-anim-upper" for="q4">Name</label>
-                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh" />
+                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh"/>
                         <input class="fs-anim-lower" id="q4" name="name" ng-model="infra.name" type="name" placeholder="Your Name" onFocus="window.scrollTo(0, 0);" capitalize-first/>
                     </div>
                 </li>
@@ -169,7 +168,7 @@
                 </li> -->
             </ol>
             <!-- /fs-fields -->
-            <button class="fs-submit">Get Quotation</button>
+            <button class="fs-submit" ng-click="submit()">Get Quotation</button>
         </form>
         <!-- /fs-form -->
     </div>
@@ -183,13 +182,10 @@
 </style>
 <script>
 (function() {
-
     if ($('html').hasClass('fp-enabled')) {
         $.fn.fullpage.destroy('all');
     }
-
     var formWrap = document.getElementById('fs-form-wrap');
-
     [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
         new SelectFx(el, {
             stickyPlaceholder: false,
@@ -198,7 +194,6 @@
             }
         });
     });
-
     new FForm(formWrap, {
         onReview: function() {
             classie.add(document.body, 'overview'); // for demo purposes only
@@ -213,9 +208,8 @@ $('form').find('li.outer').css({
 <script>
 $('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
 $(".fs-progress").wrap("<div class='row-stretch'></div>");
-$(window).load(function() {
+$(window).on("load",function() {
     var width = $(window).width();
-
     if (width < 840) {
         $(document).find('.fs-continue').text('');
         $(document).find('.fs-cancel').text('');
@@ -223,7 +217,6 @@ $(window).load(function() {
         $(document).find('.fs-continue').text('Continue');
         $(document).find('.fs-cancel').text('Cancel');
     }
-
     $(window).resize(function() {
         var width = $(window).width();
         if (width > 840) {
@@ -242,7 +235,6 @@ $(".fs-continue").click(function() {
     $("textarea").focus();
     $("select").focus();
 });
-
 $("input").keyup(function(e) {
     if (e.keyCode == 13) {
         $("input").focus();
@@ -254,6 +246,7 @@ $("input").keyup(function(e) {
 //----- set clicked treeview on label -----//
 $(".cell").on("click", "label.label-upper", function(event) {
     var radio = $(this).closest('li').find('input[type=radio]');
+    console.log(radio);
     if (radio.is(':checked')) {
         radio.prop('checked', false);
     } else if (radio.not(':checked')) {
