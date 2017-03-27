@@ -3,6 +3,7 @@ app
     .service("userService", userService)
     .service('splashModal', splashModalService)
     .service('productService', productService)
+    .service('fileService', fileService)
     .service('orderFormService', orderFormService)
     .service('contactformService', contactformService)
     .service('checkoutService', checkoutService);
@@ -183,6 +184,15 @@ function productService($http, $q) {
     }
 }
 
+function fileService($http, $q) {
+    var get = function() {
+        return $http.get('data/files.json');
+    }
+
+    return {
+        get: get
+    }
+}
 
 function orderFormService($resource, $http) {
     var API = API_PROD;

@@ -351,7 +351,7 @@ a {
 .page-title h1,
 .page-title-2 h1 {
     color: #fff;
-    font-size: 3.5em;
+    font-size: 3.3em;
     font-weight: 600;
 }
 
@@ -799,12 +799,20 @@ ul.cbox li {
     margin-right: 15px;
 }
 
-a.social-twitter {
+li:hover a.social-twitter {
     color: #1da1f2;
 }
 
-a.social-facebook {
+li:hover a.social-facebook {
     color: #3f5d9a;
+}
+
+li:hover a.social-google {
+    color: #dd4b3e;
+}
+
+li:hover a.social-linkedin {
+    color: #0177b5;
 }
 
 
@@ -815,29 +823,29 @@ a.social-facebook {
     padding: 0px;
     margin: 0px;
     position: fixed;
-    right: -53px;
+    left: -100px;
     top: 21em;
-    width: 100px;
+    width: 150px;
 }
 
 .sticky li {
     list-style-type: none;
     background-color: #1f1f1f;
-    color: #6c6c6c;
-    height: 45px;
-    padding: 8px 14px;
+    color: #ffffff;
+    height: 50px;
+    padding: 10px 8px;
     margin: 0px 0px 1px 0px;
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     cursor: pointer;
-    filter: gray;
+    filter: white;
     -webkit-filter: grayscale(100%);
 }
 
 .sticky li:hover {
-    margin-left: -80px;
+    margin-right: -80px;
     /*-webkit-transform: translateX(-115px);
         -moz-transform: translateX(-115px);
         -o-transform: translateX(-115px);
@@ -848,17 +856,18 @@ a.social-facebook {
 }
 
 .sticky li i {
-    float: left;
-    margin-right: 10px;
+    margin: 0 8px 0 15px;
 }
 
 .sticky li a {
     padding: 0px;
-    margin-left: 10px;
+    float: right;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 2;
+    color: #fff;
 }
+
 
 /** fork icon**/
 
@@ -1027,6 +1036,13 @@ label.label-upper.ng-binding {
     .navbar-toggle {}
     #home-slider-mobile {
         display: none;
+    }
+    label.label-upper.ng-binding {
+        top: -14px;
+    }
+    label.label-upper-2{
+        top: -14px;
+        margin-left: 2em!important;
     }
 }
 
@@ -1354,6 +1370,26 @@ label.label-upper.ng-binding {
 /* Landscape */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/*----------- mobile phone mini -----------*/
+
+@media (max-width: 480px) {
+    .scope-p {
+        margin-left: -3em!important;
+    }
+    label.label-upper {
+        top: -1em;
+        margin-left: 3.5em!important;
+    }
+    .scope-p-2 {
+        margin-left: -3.8em!important;
+    }
+    label.label-upper-2 {
+        top: -1em;
+        margin-left: 1.5em!important;
+    }
+}
 
 
 /*Parallax*/

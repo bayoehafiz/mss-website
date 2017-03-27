@@ -20,5 +20,5 @@ const app = angular.module('MSSPortal', [
     'ngCart',
     'alexjoffroy.angular-loaders',
     '720kb.socialshare',
-    'angular-google-analytics',
+    'angular-google-analytics'
 ]);

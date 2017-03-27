@@ -42,7 +42,7 @@ function ProfileController($scope, $state, authService, userService, blockUI, $t
                     scope: $scope,
                     controller: ['$scope', function($scope) {
                         $scope.type = 'success';
-                        $scope.line1 = "Your profile is updated";
+                        $scope.line1 = "Your profile is successfully updated";
                     }]
                 });
             } else {
@@ -54,7 +54,7 @@ function ProfileController($scope, $state, authService, userService, blockUI, $t
                     controller: ['$scope', function($scope) {
                         $scope.type = 'error';
                         $scope.line1 = "Failed updating your profile";
-                        $scope.line2 = "Please try again later"
+                        $scope.line2 = "Please try again in few minutes"
                     }]
                 });
             }

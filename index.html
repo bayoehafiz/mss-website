@@ -14,6 +14,7 @@
     <META NAME="generator" CONTENT="www.onlinemetatag.com">
     <META NAME="language" CONTENT="English, Indonesia">
     <META NAME="revisit-after" CONTENT="2 days">
+    <!-- <base href="/"> -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon-32x32.png" />
     <!-- Basic style -->
     <link rel="stylesheet" type="text/css" href="assets/plugins/cart/css/reset.css" />
@@ -94,6 +95,9 @@
                             <li><a ui-sref="software" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE</a></li>
                             <li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>
                         </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a ui-sref="download" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">DOWNLOAD</a>
                     </li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -216,8 +220,12 @@
     <script type="text/javascript" src="vendors/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="vendors/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="vendors/angular-socialshare/lib/angular-socialshare.js"></script>
+    <!-- <script src="//secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal.min.js"></script>
+    <script src="//secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal-angular.min.js"></script> -->
+    <script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>
     <!-- Core scripts -->
     <script src="app.js"></script>
+    <script src="app.constant.js"></script>
     <script src="app.config.js"></script>
     <script src="app.run.js"></script>
     <script src="app.factory.js"></script>
@@ -236,6 +244,7 @@
     <script src="components/products/hardwares.controller.js"></script>
     <script src="components/solutions/solutions.controller.js"></script>
     <script src="components/quotation/quotation.controller.js"></script>
+    <script src="components/download/download.controller.js"></script>
     <script src="components/account/account.controller.js"></script>
     <script src="components/account/profile.controller.js"></script>
     <script src="components/account/service.controller.js"></script>
