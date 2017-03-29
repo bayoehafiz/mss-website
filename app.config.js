@@ -68,6 +68,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'QuotationController',
             templateUrl: 'components/quotation/quotation.html'
         })
+        .state('company-profile-form', {
+            url: '/company-profile-form',
+            controller: 'CompanyProfileController',
+            templateUrl: 'components/quotation/company-profile.html'
+        })
         .state('webapp', {
             url: '/webapp',
             controller: 'QuotationController',

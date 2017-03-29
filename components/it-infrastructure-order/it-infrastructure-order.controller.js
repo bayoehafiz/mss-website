@@ -50,7 +50,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         phone: '',
         email: ''
     };
-    $scope.checkv = [];
+    $scope.checkv = []
 
     /*--start auto fill when user has been logged in--*/
     if ($scope.isAuthenticated && localStorage.getItem('profile') != undefined) {
@@ -77,7 +77,8 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
     $scope.submit = function() {
         var fo_data = $scope.infra;
-        console.log(fo_data);
+        //console.log(fo_data);
+        console.log($scope.checkv);
 
         if (!$scope.isAuthenticated) {
             // sign the guest in
