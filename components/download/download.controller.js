@@ -7,7 +7,6 @@ app.controller('DownloadController', function($scope, $rootScope, $http, $locati
         });
 
         $q.all(promises).then(function(response) {
-            console.log(response)
             $scope.files = response;
         })
     });
