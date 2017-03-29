@@ -28,7 +28,8 @@
     "type": "software",
     "desc": "&#x2611; Business-class email hosting with 50 GB mailbox.<br>&#x2611; Desktop versions of Office 2016 applications: Outlook, Word, Excel, PowerPoint, OneNote, plus Access and Publisher for PC only.<br>&#x2611; Web versions of Outlook, Word, Excel, and PowerPoint.<br>&#x2611; 1 TB of OneDrive storage.<br>&#x2611; Inform and engage employees with a SharePoint intranet, and connect teams to content, expertise and processes with SharePoint team sites.<br>&#x2611; One license covers 5 PCs or Macs, 5 phones, and 5 tablets per user.<br>&#x2611; Host unlimited HD video conferencing meetings for up to 250 people with Skype for Business.<br>&#x2611; Chat-based workspace to connect your teams with Microsoft Teams"
 
-}, {
+},
+{
     "id": "63542vhnklhgwi39tfjklndsa",
     "name": "OFFICE STANDARD 2016",
     "img": "assets/img/retail/office2016.png",
@@ -78,7 +79,8 @@
     "type": "software",
     "desc": "A Windows Server CAL gives an user the right to access any edition of Windows Server of the same or earlier version. Each Window Server CAL allows access to multiple licenses of Windows Server."
 
-}, {
+}
+, {
     "id": "78438fhf892hf9",
     "sn": "",
     "name": "UBiQUiTi Access Point Long Range",
