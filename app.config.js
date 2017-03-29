@@ -33,6 +33,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             templateUrl: 'components/solutions/solutions.html'
         })
         //SOLUTION ROUTES
+        .state('business-email', {
+            url: '/business-email',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/business-email.html'
+        })
         .state('survey-tool', {
             url: '/survey-tool',
             controller: 'SolutionsController',

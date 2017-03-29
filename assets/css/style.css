@@ -23,6 +23,37 @@ a {
     outline: none!important;
 }
 
+
+/* centered columns styles */
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}
+
+.col-fixed {
+    /* custom width */
+    width: 320px;
+}
+
+.col-min {
+    /* custom min width */
+    min-width: 320px;
+}
+
+.col-max {
+    /* custom max width */
+    max-width: 320px;
+}
+
 .bg-default {
     background-color: #fff
 }
@@ -1040,7 +1071,7 @@ label.label-upper.ng-binding {
     label.label-upper.ng-binding {
         top: -14px;
     }
-    label.label-upper-2{
+    label.label-upper-2 {
         top: -14px;
         margin-left: 2em!important;
     }
