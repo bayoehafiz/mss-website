@@ -34,7 +34,7 @@
                                         <label style="color:black;font-size:14px">{{check.cat}}</label>
                                         <ul ng-repeat="checkVal in check.val">
                                             <li ng-if="check.type=='checkbox'">
-                                                <input type="checkbox" class="scope-p" ng-true-value="'{{checkVal.name}}'" ng-false-value="''" id="'{{checkVal.name}}'" ng-model="checkVal[checkVal.name]" ng-change="checked()">
+                                                <input type="checkbox" class="scope-p" ng-model="checkVal.selected">
                                                 <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                             <li ng-if="check.type=='radio'">
@@ -245,7 +245,6 @@ $("input").keyup(function(e) {
 //----- set clicked treeview on label -----//
 $(".cell").on("click", "label.label-upper", function(event) {
     var radio = $(this).closest('li').find('input[type=radio]');
-    console.log(radio);
     if (radio.is(':checked')) {
         radio.prop('checked', false);
     } else if (radio.not(':checked')) {
