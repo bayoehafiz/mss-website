@@ -6,39 +6,27 @@
             </div>
         </div>
     </div>
-    <div class="row-stretch padding-inline">        
+    <div class="row-stretch padding-inline bg-default" scroll-step>
         <div class="container">
             <div class="col-md-8">
                 <h4 class="featurette-heading">Requirements:</h4>
-                <form class="compro-form">
-                    <ul>
-                        <li class="form-page">
-                            <label class="fs-field-label fs-anim-upper">1. What is your need?</label>
-                            <ul>
-                                <li>
-                                    <label class="label-upper" style="color:black;font-size:14px">
-                                        <input type="radio" class="scope-p" value="New webiste"> Build a new website
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="label-upper" style="color:black;font-size:14px">
-                                        <input type="radio" class="scope-p" value="Redesign website"> Redesign existing website
-                                    </label>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="form-page">
-                            <label class="fs-field-label fs-anim-upper" for="q2">2. What features do you want to show in your site?</label>
+                <form id="regiration_form" novalidate action="action.php" method="post">
+                    <fieldset>
+                        <h3>1. What features do you want to show in your site?</h3>
+                        <div class="form-group">
                             <ul ng-repeat="item in features">
                                 <li>
-                                    <label class="label-upper" style="color:black;font-size:14px">
+                                    <label class="label-upper">
                                         <input type="checkbox" class="scope-p" ng-model="feat[$index]" ng-change="selectItems(item)" value="{{item.name}}"> {{item.name}} <span>{{item.price | currency:"IDR "}}</span>
                                     </label>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="form-page">
-                            <label class="fs-field-label fs-anim-upper" for="q2">3. What add-ons do you want to add to your site? (Price excluded)</label>
+                        </div>
+                        <input type="button" name="password" class="next btn btn-info" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <h3>2. What add-ons do you want to add to your site? (Price excluded)</h3>
+                        <div class="form-group">
                             <ul ng-repeat="addon in addons">
                                 <li>
                                     <label class="label-upper" style="color:black;font-size:14px">
@@ -46,20 +34,47 @@
                                     </label>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <button ng-click="submit()">Submit</button>
+                        </div>
+                        <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
+                        <input type="button" name="next" class="next btn btn-info" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <h3>3. Do you plan to create a logo?</h3>
+                        <div class="form-group">
+                            <ul>
+                                <li>
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="No"> No, I have my logo
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="Yes"> Yes, I want to create logo here
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="Yes"> Yes, I want to create logo in other agency
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
+                        <input type="submit" name="submit" class="submit btn btn-success" value="Submit" />
+                    </fieldset>
                 </form>
             </div>
             <div class="col-md-4">
                 <h4 class="featurette-heading">Summary:</h4>
-                <p class="lead">Basic price of service includes: responsive template, admin dashboard, about (profile) page, contact page, social media share(max. 3 social media)</p>
-
-                <ul ng-repeat="y in selectedItems track by $index" ng-show="selectedItems.length>0">
-                    <li>{{y}}</li>
-                </ul>
-                <br> Price total: {{totprice | currency :"IDR "}}
+                <p class="lead">Basic price of service includes: responsive template, admin dashboard, about (profile) page, contact page, social media share(max. 3 social media)
+                    <br> Price total: <span class="total-price">{{totprice | currency :"IDR "}}</span>
+                </p>
             </div>
         </div>
     </div>
 </div>
+<style type="text/css">
+#regiration_form fieldset:not(:first-of-type) {
+    display: none;
+}
+</style>
