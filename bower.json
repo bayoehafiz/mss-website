@@ -51,7 +51,8 @@
     "angular-socialshare": "angularjs-socialshare#^2.3.7",
     "angular-google-analytics": "^1.1.9",
     "angular-filemanager": "^1.5.1",
-    "angular-download": "^0.0.2"
+    "angular-download": "^0.0.2",
+    "image-engine-angular": "^1.0.1"
   },
   "resolutions": {
     "masonry": "^4.1.1",

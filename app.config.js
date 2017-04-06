@@ -256,3 +256,8 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
 
     // $locationProvider.html5Mode(true);
 }
+
+app.config(function (imgEngConfigProvider) {
+       imgEngConfigProvider.setToken('kpzc');
+       imgEngConfigProvider.isLite(); // Add this line only for ImageEngine Lite
+    });
