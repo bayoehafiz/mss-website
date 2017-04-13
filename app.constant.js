@@ -1,1 +1,1 @@
-app.constant('graphUrl', 'https://graph.microsoft.com/v1.0') 
+app.constant('graphUrl', 'https://graph.microsoft.com/v1.0')
