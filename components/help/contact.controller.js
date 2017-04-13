@@ -51,26 +51,24 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
                 if (!response.data.success) {
                     localStorage.setItem('callback_contact_captcha_error', response.data.message);
                     var callback = localStorage.getItem('callback_contact_captcha_error');
-                    document.getElementById('callbackerror').innerHTML = callback;
-                    document.getElementById('callbacksuccess').innerHTML = "";
                     localStorage.removeItem('callback_contact_captcha_error');
-                    var callback = "";
-                    vcRecaptchaService.reload($scope.widgetId);
+
                 } else {
                     localStorage.setItem('callback_contact_captcha_success', 'Thank You for contact us, we will touch you under 1x24 hours');
                     var callback = localStorage.getItem('callback_contact_captcha_success');
-                    document.getElementById('callbacksuccess').innerHTML = callback;
-                    document.getElementById('callbackerror').innerHTML = "";
                     localStorage.removeItem('callback_contact_captcha_success');
 
-                    var callback = "";
-                    
                     $scope.contact = {
                         name: '',
                         email: '',
                         comment: ''
                     };
                 }
+
+                document.getElementById('callbacksuccess').innerHTML = callback;
+                document.getElementById('callbackerror').innerHTML = "";
+                var callback = "";
+                vcRecaptchaService.reload($scope.widgetId);
             });
         }
     }

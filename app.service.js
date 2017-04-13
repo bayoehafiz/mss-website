@@ -291,7 +291,7 @@ function orderFormService($resource, $http) {
 
 function contactformService($http) {
     submit = function(data) {
-        return $http.post(API + '/contact/', data);
+        return $http.post(API + '/contactform/', data);
     }
 
     return {
