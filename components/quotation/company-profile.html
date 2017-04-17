@@ -1,55 +1,32 @@
 <div class="container">
-    <span class="logo-form" style="z-index: 1000000000000;">
-        <a href="#"><img src="/assets/img/mssico.png" alt="" width="110"></a>
-    </span>
-    <div class="outer-title">
-        <h3>Software Development Inquiry</h3>
+    <div class="row-stretch padding-inline">
+        <div class="container">
+            <div class="col-md-12">
+                <h3 class="featurette-heading text-center" style="margin-top:3em;">Website Profile Inquiry</h3>
+            </div>
+        </div>
     </div>
-    <div class="fs-form-wrap" id="fs-form-wrap">
-        <form id="myform" name="myform" class="fs-form fs-form-full" autocomplete="off">
-            <ol class="fs-fields">
-                <li class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q1">Your Name</label>
-                        <input class="fs-anim-lower" ng-model="cp.name" id="q1" name="name" type="text" placeholder="John Doe" ng-required="true" autofocus="autofocus" onFocus="window.scrollTo(0, 0);" capitalize-first>
-                    </div>
-                </li>
-                <li class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2" data-info="We won't send you spam, we promise...">Your email address</label>
-                        <input class="fs-anim-lower" ng-model="cp.email" id="q2" name="email" type="email" placeholder="john@example.com" ng-required="true" onFocus="window.scrollTo(0, 0);">
-                    </div>
-                </li>
-                <li class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2">Your phone number</label>
-                        <input class="fs-anim-lower" ng-model="cp.phone" id="q2" data-info="We'll contact you for further deal" name="phone" type="text" placeholder="+6231-12345678" onFocus="window.scrollTo(0, 0);" ng-required="true">
-                    </div>
-                </li>
-                <li class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2">Your company name?</label>
-                        <input class="fs-anim-lower" ng-model="cp.company" id="q2" name="company" type="text" placeholder="your company" onFocus="window.scrollTo(0, 0);" ng-required="true" capitalize-first>
-                    </div>
-                </li>
-                <li data-input-trigger class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2">What features do you want to show in your site?</label>
-                        <div class="fs-radio-group clearfix fs-anim-lower">
+    <div class="row-stretch padding-inline bg-default" scroll-step>
+        <div class="container">
+            <div class="col-md-8">
+                <h4 class="featurette-heading">Requirements:</h4>
+                <form id="regiration_form" novalidate action="action.php" method="post">
+                    <fieldset>
+                        <h3>1. What features do you want to show in your site?</h3>
+                        <div class="form-group">
                             <ul ng-repeat="item in features">
                                 <li>
-                                    <label class="label-upper" style="color:black;font-size:14px">
-                                        <input type="checkbox" class="scope-p" ng-model="feat[item]" value="{{item}}"> {{item}}
+                                    <label class="label-upper">
+                                        <input type="checkbox" class="scope-p" ng-model="feat[$index]" ng-change="selectItems(item)" value="{{item.name}}"> {{item.name}} <span>{{item.price | currency:"IDR "}}</span>
                                     </label>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </li>
-                <li data-input-trigger class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2">What add-ons do you want to add to your site?</label>
-                        <div class="fs-radio-group clearfix fs-anim-lower">
+                        <input type="button" name="password" class="next btn btn-info" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <h3>2. What add-ons do you want to add to your site? (Price excluded)</h3>
+                        <div class="form-group">
                             <ul ng-repeat="addon in addons">
                                 <li>
                                     <label class="label-upper" style="color:black;font-size:14px">
@@ -58,111 +35,46 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </li>
-                <li data-input-trigger class="outer">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q2">Which extra features do you want to add? (price excluded)</label>
-                        <div class="fs-radio-group clearfix fs-anim-lower">
-                            <ul ng-repeat="extra in extras">
+                        <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
+                        <input type="button" name="next" class="next btn btn-info" value="Next" />
+                    </fieldset>
+                    <fieldset>
+                        <h3>3. Do you plan to create a logo?</h3>
+                        <div class="form-group">
+                            <ul>
                                 <li>
-                                    <label class="label-upper" style="color:black;font-size:14px">
-                                        <input type="checkbox" class="scope-p" ng-model="extfeat[extra]" value="{{extra}}"> {{extra}}
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="No"> No, I have my logo
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="Yes"> Yes, I want to create logo here
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-upper">
+                                        <input type="radio" class="scope-p" value="Yes"> Yes, I want to create logo in other agency
                                     </label>
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </li>
-                <!-- <li class="outer re-captcha">
-                    <div class="middle">
-                        <label class="fs-field-label fs-anim-upper" for="q6">Verify this captcha</label>
-                        <div vc-recaptcha key="'6LciWw4UAAAAAPSYdTvrUpRT1THqM8Oe2n1x69Nw'" ng-model="gRecaptchaResponse" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()" lang="" class="fs-mark fs-anim-lower" required
-                        ></div>
-                    </div>
-                </li> -->
-            </ol>
-            <!-- /fs-fields -->
-            <button class="fs-submit" type="submit" ng-click="submit()">Get Quotation</button>
-        </form>
-        <!-- /fs-form -->
+                        <input type="button" name="previous" class="previous btn btn-default" value="Previous" />
+                        <input type="submit" name="submit" class="submit btn btn-success" value="Submit" />
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h4 class="featurette-heading">Summary:</h4>
+                <p class="lead">Basic price of service includes: responsive template, admin dashboard, about (profile) page, contact page, social media share(max. 3 social media)
+                    <br> Price total: <span class="total-price">{{totprice | currency :"IDR "}}</span>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 <style type="text/css">
-.navbar-wrapper,
-#footer,
-.cd-cart-container {
+#regiration_form fieldset:not(:first-of-type) {
     display: none;
 }
 </style>
-<script>
-(function() {
-
-    if ($('html').hasClass('fp-enabled')) {
-        $.fn.fullpage.destroy('all');
-    }
-
-    var formWrap = document.getElementById('fs-form-wrap');
-
-    [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el) {
-        new SelectFx(el, {
-            stickyPlaceholder: false,
-            onChange: function(val) {
-                document.querySelector('span.cs-placeholder').style.backgroundColor = val;
-            }
-        });
-    });
-
-    new FForm(formWrap, {
-        onReview: function() {
-            classie.add(document.body, 'overview'); // for demo purposes only
-        }
-    });
-})();
-
-$('form').find('li.outer').css({
-    'overflow': 'hidden'
-});
-</script>
-<script>
-$('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
-$(".fs-progress").wrap("<div class='row-stretch'></div>");
-$(window).on("load", function() {
-    var width = $(window).width();
-
-    if (width < 840) {
-        $(document).find('.fs-continue').text('');
-        $(document).find('.fs-cancel').text('');
-    } else {
-        $(document).find('.fs-continue').text('Continue');
-        $(document).find('.fs-cancel').text('Cancel');
-    }
-
-    $(window).resize(function() {
-        var width = $(window).width();
-        if (width > 840) {
-            $(document).find('.fs-continue').text('Continue');
-            $(document).find('.fs-cancel').text('Cancel');
-        } else {
-            $(document).find('.fs-continue').text('');
-            $(document).find('.fs-cancel').text('');
-        }
-    })
-
-
-});
-//------ set auto focus in form ----- //
-$(".fs-continue").click(function() {
-    $("input").focus();
-    $("textarea").focus();
-    $("select").focus();
-});
-
-$("input").keyup(function(e) {
-    if (e.keyCode == 13) {
-        $("input").focus();
-        $("textarea").focus();
-        $("select").focus();
-    }
-});
-</script>

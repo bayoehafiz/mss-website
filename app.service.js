@@ -289,21 +289,20 @@ function orderFormService($resource, $http) {
 };
 
 
-function contactformService($resource) {
-    var API = API_LOCAL;
-    create = function(data) {
-        return $resource(API + 'contactform').save(data);
+function contactformService($http) {
+    submit = function(data) {
+        return $http.post(API + '/contactform/', data);
     }
+
     return {
-        create: create
+        submit: submit
     }
 
 }
 
 function checkoutService($http) {
-    var API = API_LOCAL;
     posttoken = function(data) {
-        return $http.post(API + "payment", data);
+        return $http.post(API + "/payment", data);
     }
     return {
         posttoken: posttoken

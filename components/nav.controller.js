@@ -1,9 +1,8 @@
 app.controller('NavController', NavController);
 
-function NavController(authService, $scope, ngCart) {
-    // console.clear();
-    $scope.authService = authService;
-
-    ngCart.setTaxRate(7.5);
-    ngCart.setShipping(2.99); 
+function NavController($scope, $window) {
+    $scope.myAccount = function() {
+    	console.log('redirecting...');
+        $window.location.href = "https://my.mss.co.id";
+    }
 }

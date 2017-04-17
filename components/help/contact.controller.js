@@ -34,9 +34,8 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
 
     $scope.submit = function() {
         var response = $scope.response;
-        console.log('sending the captcha response to the server :', response);
+
         if (response == null || response == "") {
-            console.log('Failed validation');
             localStorage.setItem('callback_contact_captcha_error', 'Please fill captcha correctly');
             var callback = localStorage.getItem('callback_contact_captcha_error');
             document.getElementById('callbackerror').innerHTML = callback;
@@ -44,21 +43,33 @@ app.controller('ContactController', function ContactController($scope, $anchorSc
             localStorage.removeItem('callback_contact_captcha_error');
             var callback = "";
             vcRecaptchaService.reload($scope.widgetId);
-        } else {
-            //console.log('Success');
-            console.log($scope.contact);
-            //$scope.tmpval = [];
-            //$scope.tmpval.push($scope.contact);
-            contactformService.create($scope.contact, function(res) {
 
-                console.log(res);
-            })
-            localStorage.setItem('callback_contact_captcha_success', 'Thank You for contact us, we will touch you under 1x24 hours');
-            var callback = localStorage.getItem('callback_contact_captcha_success');
-            document.getElementById('callbacksuccess').innerHTML = callback;
-            document.getElementById('callbackerror').innerHTML = "";
-            localStorage.removeItem('callback_contact_captcha_success');
-            var callback = "";
+        } else {
+
+            contactformService.submit($scope.contact).then(function(response) {
+                console.log(response);
+                if (!response.data.success) {
+                    localStorage.setItem('callback_contact_captcha_error', response.data.message);
+                    var callback = localStorage.getItem('callback_contact_captcha_error');
+                    localStorage.removeItem('callback_contact_captcha_error');
+
+                } else {
+                    localStorage.setItem('callback_contact_captcha_success', 'Thank You for contact us, we will touch you under 1x24 hours');
+                    var callback = localStorage.getItem('callback_contact_captcha_success');
+                    localStorage.removeItem('callback_contact_captcha_success');
+
+                    $scope.contact = {
+                        name: '',
+                        email: '',
+                        comment: ''
+                    };
+                }
+
+                document.getElementById('callbacksuccess').innerHTML = callback;
+                document.getElementById('callbackerror').innerHTML = "";
+                var callback = "";
+                vcRecaptchaService.reload($scope.widgetId);
+            });
         }
     }
 
