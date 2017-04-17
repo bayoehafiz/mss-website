@@ -7,29 +7,43 @@
 
 }, {
     "id": "2244",
-    "name": "Ms Exchange Email Package",
+    "name": "Ms Exchange®️ Email Package",
     "path": "assets/files/Exchange_Email_Pkg.pdf",
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 
 }, {
     "id": "0933",
-    "name": "Netviel FO Catalogue",
+    "name": "Netviel®️ FO Catalogue",
     "path": "assets/files/Netviel_FO_Catalogue.pdf",
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 
 }, {
     "id": "6683",
-    "name": "Netviel UTP Catalogue",
+    "name": "Netviel®️ UTP Catalogue",
     "path": "assets/files/Netviel_UTP_Catalogue.pdf",
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 
 }, {
     "id": "8980",
-    "name": "UniFi AP-DS Catalogue",
+    "name": "UniFi®️ AP-DS Catalogue",
     "path": "assets/files/UniFi_AP_DS_Catalogue.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
+}, {
+    "id": "0123",
+    "name": "Samsung®️ CCTV Catalogue",
+    "path": "assets/files/Samsung_CCTV_Catalogue.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
+}, {
+    "id": "1129",
+    "name": "Panasonic®️ PABX Catalogue",
+    "path": "assets/files/Panasonic_PABX.pdf",
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 

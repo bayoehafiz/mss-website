@@ -6,7 +6,8 @@ app.controller('ItInfrastructureController', function($scope, $anchorScroll, aut
     NavShrink.shrink(); // Sticky Navigation
 
     $scope.openForm = function() {
-    	$state.go('it-infrastructure-order');
+    	//$state.go('it-infrastructure-order');
+    	$state.go('contact');
     }
 
     $anchorScroll();

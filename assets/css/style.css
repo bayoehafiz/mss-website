@@ -23,6 +23,37 @@ a {
     outline: none!important;
 }
 
+
+/* centered columns styles */
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+}
+
+.col-fixed {
+    /* custom width */
+    width: 320px;
+}
+
+.col-min {
+    /* custom min width */
+    min-width: 320px;
+}
+
+.col-max {
+    /* custom max width */
+    max-width: 320px;
+}
+
 .bg-default {
     background-color: #fff
 }
@@ -335,8 +366,8 @@ a {
 }
 
 #footer {
-    /*border-top: 1px solid #e2e2e2;
-    padding-top: 35px;*/
+    /*border-top: 1px solid #e2e2e2;*/
+    padding-top: 2em;
     clear: both;
 }
 
@@ -468,8 +499,8 @@ ul.breadcrumb {
     padding: 13px 0;
     text-align: center;
     display: inline-block;
-    color: #fff!important;
-    background: #1b4488;
+    color: #333!important;
+    /*background: #1b4488;*/
     font-weight: bold;
 }
 
@@ -1040,7 +1071,7 @@ label.label-upper.ng-binding {
     label.label-upper.ng-binding {
         top: -14px;
     }
-    label.label-upper-2{
+    label.label-upper-2 {
         top: -14px;
         margin-left: 2em!important;
     }
@@ -1409,10 +1440,10 @@ html {
     background-size: cover;
 }
 
-.bg-custom {
+/*.bg-custom {
     background-attachment: inherit!important;
     background-size: cover!important;
-}
+}*/
 
 
 /* Cart Style */

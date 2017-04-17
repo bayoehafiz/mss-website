@@ -30,7 +30,7 @@
                             <div class="cell">
                                 <ul>
                                     <li ng-repeat="check in checks" ng-if="check.val">
-                                        <label style="color:black;font-size:14px" ng-if="check.val">&#8594;</label>
+                                        <!-- <label style="color:black;font-size:14px" ng-if="check.val">&#8594;</label> -->
                                         <label style="color:black;font-size:14px">{{check.cat}}</label>
                                         <ul ng-repeat="checkVal in check.val">
                                             <li ng-if="check.type=='checkbox'">
@@ -38,19 +38,23 @@
                                                 <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
                                             </li>
                                             <li ng-if="check.type=='radio'">
-                                                <input type="radio" class="scope-p" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}">
-                                                <label class="label-upper" style="color:black;font-size:14px" >{{checkVal.name}}</label>
+                                                <label class="label-upper" style="color:black;font-size:14px">
+                                                    <input type="radio" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}"> {{checkVal.name}}
+                                                </label>
+                                            </li>
+                                            <li ng-if="check.type=='checkbox'">
+                                                <label class="label-upper" style="color:black;font-size:14px">
+                                                    <input type="checkbox" class="scope-p" name="scopeProject" ng-model="checkv.selected" value="{{checkVal.name}}"> {{checkVal.name}}
+                                                </label>
                                             </li>
                                         </ul>
                                     </li>
                                     <li ng-repeat="check in checks" ng-if="!check.val" ng-init="current = $parent.start; $parent.start=$parent.start+3;">
-                                        <input type="checkbox" name="scopeProject" class="scope-p-2" ng-model="infra.scopeProject[check.cat]" value="check.cat">
-                                        <label class="label-upper-2" style="color:black;font-size:14px" >{{check.cat}}</label>
-                                        
+                                        <input type="checkbox" class="scope-p-2" name="scopeProject" ng-model="infra.scopeProject[check.cat]" value="check.cat">
+                                        <label class="label-upper-2" style="color:black;font-size:14px">{{check.cat}}</label>
                                     </li>
-                                <ul>
-
-<!--
+                                    <ul>
+                                        <!--
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.cctv"><label class="label-upper" style="color:black;font-size:14px">CCTV</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.accesscontrol"><label class="label-upper" style="color:black;font-size:14px">Access Control</label>
                                 <input type="checkbox" name="scopeProject" ng-model="infra.scopeProject.lan"><label class="label-upper" style="color:black;font-size:14px">Local Area Network(LAN)</label>
@@ -130,7 +134,7 @@
                 <li data-input-trigger class="outer">
                     <div class="middle">
                         <label class="fs-field-label fs-anim-upper" for="q4">Name</label>
-                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh"/>
+                        <input style="display: none;" ng-model="infra.scope" value="eteeeehh" />
                         <input class="fs-anim-lower" id="q4" name="name" ng-model="infra.name" type="name" placeholder="Your Name" onFocus="window.scrollTo(0, 0);" capitalize-first/>
                     </div>
                 </li>
@@ -207,7 +211,7 @@ $('form').find('li.outer').css({
 <script>
 $('<button class="fs-cancel fs-show" ng-click="back()">Cancel</button> ').insertAfter('.fs-continue');
 $(".fs-progress").wrap("<div class='row-stretch'></div>");
-$(window).on("load",function() {
+$(window).on("load", function() {
     var width = $(window).width();
     if (width < 840) {
         $(document).find('.fs-continue').text('');

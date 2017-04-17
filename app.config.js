@@ -33,6 +33,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             templateUrl: 'components/solutions/solutions.html'
         })
         //SOLUTION ROUTES
+        .state('business-email', {
+            url: '/business-email',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/business-email.html'
+        })
         .state('survey-tool', {
             url: '/survey-tool',
             controller: 'SolutionsController',
@@ -62,6 +67,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             url: '/software-development-order',
             controller: 'QuotationController',
             templateUrl: 'components/quotation/quotation.html'
+        })
+        .state('company-profile-form', {
+            url: '/company-profile-form',
+            controller: 'CompanyProfileController',
+            templateUrl: 'components/quotation/company-profile.html'
         })
         .state('webapp', {
             url: '/webapp',

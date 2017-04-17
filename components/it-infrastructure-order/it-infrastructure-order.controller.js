@@ -3,21 +3,21 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
     $scope.checks = [{
         cat: 'Security System',
         val: [{
-            name: 'CCTV'
+            name: 'CCTV', value: 'CCTV'
         }, {
-            name: 'Access Control'
+            name: 'Access Control', value: 'Access Control'
         }],
         type: 'checkbox',
     }, {
         cat: 'Network System',
         val: [{
-            name: 'Local Area Network(LAN)'
+            name: 'Local Area Network(LAN)', value: 'Local Area Network(LAN)'
         }, {
-            name: 'Wide Area Network(WAN)'
+            name: 'Wide Area Network(WAN)', value: 'Wide Area Network(WAN)'
         }, {
-            name: 'Fiber Optic'
+            name: 'Fiber Optic', value: 'Fiber Optic'
         }, {
-            name: 'Firewall System'
+            name: 'Firewall System', value: 'Firewall System'
         }],
         type: 'checkbox'
     }, {
@@ -31,11 +31,11 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         }],
         type: 'radio'
     }, {
-        cat: 'Public Address System',
+        cat: 'Public Address System', value: 'Public Address System',
     }, {
-        cat: 'Server System',
+        cat: 'Server System', value: 'Server System',
     }, {
-        cat: 'Teleconference System',
+        cat: 'Teleconference System', value: 'Teleconference System',
     }, ]
 
 
@@ -53,6 +53,7 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         phone: '',
         email: ''
     };
+    $scope.checkv = []
 
     /*--start auto fill when user has been logged in--*/
     if ($scope.isAuthenticated && localStorage.getItem('profile') != undefined) {
@@ -78,17 +79,101 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
 
 
     $scope.submit = function() {
+        var fo_data = $scope.infra;
+        //console.log(fo_data);
+        console.log($scope.checkv);
 
-        $scope.checkItems = [];
+        if (!$scope.isAuthenticated) {
+            // sign the guest in
+            orderFormService.signUser(fo_data.email).then(function(response, id_token, profile) {
+                if (response.status == 200) {
+                    ngDialog.open({
+                        template: 'components/modals/verify-code.html',
+                        className: 'ngdialog-theme-default',
+                        showClose: false,
+                        closeByEscape: false,
+                        closeByNavigation: false,
+                        closeByDocument: false,
+                        cache: false,
+                        scope: $scope,
+                        controller: ['$scope', 'orderFormService', 'blockUI', '$timeout', 'userService', 'orderFormService', function($scope, orderFormService, blockUI, $timeout, userService, orderFormService) {
+                            $scope.verify = function(code) {
+                                // Get the reference to the block service.
+                                var myBlockUI = blockUI.instances.get('loadingBlockModal');
+                                // Start blocking the element.
+                                myBlockUI.start();
 
-        $scope.checks.forEach(function(val1) {
-            if (val1.type = 'checkbox') {
-                if (val1.val.length > 0) {
-                    val1.val.forEach(function(val2) {
-                        if (val2.selected) {
-                            checkItems.push(val2.name);
-                        }
-                    })
+                                orderFormService
+                                    .verifyCode(fo_data.email, code)
+                                    .then(function(response) {
+                                        if (response.status == 200) {
+                                            localStorage.setItem('id_token', response.data.id_token);
+                                            localStorage.setItem('user_token', response.data.access_token);
+
+                                            // check if user registered or not
+                                            orderFormService
+                                                .getUserProfile(response.data.access_token)
+                                                .then(function(response) {
+
+                                                    var wantedUser = response.data;
+                                                    localStorage.setItem('profile', JSON.stringify(wantedUser));
+
+                                                    // user already registered
+                                                    if (wantedUser.user_metadata != undefined) {
+                                                        console.log('User is registered, syncing the form now...');
+
+                                                        // replace form data with related user's data
+                                                        fo_data.name = wantedUser.user_metadata.first_name + ' ' + wantedUser.user_metadata.last_name;
+                                                        fo_data.company = wantedUser.user_metadata.company_name;
+                                                        fo_data.phone = wantedUser.user_metadata.phone_number;
+                                                        fo_data.address = wantedUser.user_metadata.company_address + ', ' + wantedUser.user_metadata.city + ', ' + wantedUser.user_metadata.province;
+
+                                                        // send the form
+                                                        console.log('.. sending the form');
+                                                        orderFormService.it_submit(fo_data).then(function(response) {
+                                                            if (response.status == 200) {
+                                                                ngDialog.open({
+                                                                    template: 'components/modals/message.html',
+                                                                    className: 'ngdialog-theme-default',
+                                                                    scope: $scope,
+                                                                    controller: ['$scope', function($scope) {
+                                                                        $scope.type = 'success';
+                                                                        $scope.line1 = "Thank You. Your form has been submitted succesfully and is going into our sales email. We'll get you in touch soon!";
+                                                                    }]
+                                                                });
+
+                                                                // $state.go('account.order');
+                                                            }
+                                                        })
+                                                    }
+
+                                                    // if user is not registered
+                                                    else {
+                                                        console.log('User is not registered, getting to signup page...');
+                                                        // save form data into local-storage & set origin-state flag
+                                                        localStorage.setItem('fo_data', JSON.stringify(fo_data));
+                                                        localStorage.setItem('fo_type', 'it');
+                                                        $scope.closeThisDialog();
+                                                        $state.go('account');
+                                                    }
+                                                })
+
+                                        } else {
+                                            $scope.error = "Wrong passcode!";
+                                        }
+
+                                        $timeout(function() {
+                                            // Stop the block after some async operation.
+                                            myBlockUI.stop();
+                                        }, 1000);
+                                    });
+                                //ngDialog.close();
+                            }
+
+                        }]
+                    });
+                } else {
+                    alert("Error sending access code to " + fo_data.email);
                 }
             }
         })

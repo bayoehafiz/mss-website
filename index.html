@@ -3,6 +3,7 @@
 <head>
     <title>MSS - IT IS YOURS</title>
     <!-- Viewport settings-->
+    <meta property="og:title" content="MSS WEBSITE" />
     <META charset="UTF-8">
     <META NAME="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <META NAME="description" CONTENT="Website of IT company which services are: software development, IT infrastructure project, IT solutions, and also online store of IT infrastructure hardwares.">
@@ -73,8 +74,8 @@
                 <a class="navbar-brand" href="#"><img src="assets/img/mssico.png"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse pull-right">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
                         <a ui-sref="home" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">HOME</a>
                     </li>
                     <li class="dropdown">
@@ -87,7 +88,7 @@
                             <li><a ui-sref="it-infrastructure" data-toggle="collapse" data-target=".navbar-collapse">IT INFRASTRUCTURE</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 PRODUCTS <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
@@ -95,8 +96,8 @@
                             <li><a ui-sref="software" data-toggle="collapse" data-target=".navbar-collapse">SOFTWARE</a></li>
                             <li><a ui-sref="hardware" data-toggle="collapse" data-target=".navbar-collapse">HARDWARE</a></li>
                         </ul>
-                    </li>
-                    <li class="dropdown">
+                    </li> -->
+                    <li>
                         <a ui-sref="download" class="dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="button" aria-haspopup="true" aria-expanded="false">DOWNLOAD</a>
                     </li>
                     <li class="dropdown">
@@ -113,7 +114,7 @@
                     </li>
                     <li ng-if="!isAuthenticated">
                         <a href="" class="link color-success" ng-click="authService.login()">
-                            LOGIN
+                            <span class="text-primary">SIGN IN</span>
                         </a>
                     </li>
                     <li ng-if="isAuthenticated">
@@ -130,7 +131,7 @@
     <div style="height: 100%">
         <div ui-view style="background: #ecf0f1;"></div>
         <!-- footer -->
-        <div id="footer" class="padding-inline" style="background: #fff;">
+        <div id="footer" class="footer" style="background: #fff;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7 col-sm-12 text-muted footer-content">
@@ -244,6 +245,7 @@
     <script src="components/products/hardwares.controller.js"></script>
     <script src="components/solutions/solutions.controller.js"></script>
     <script src="components/quotation/quotation.controller.js"></script>
+    <script src="components/quotation/company-profile.controller.js"></script>
     <script src="components/download/download.controller.js"></script>
     <script src="components/account/account.controller.js"></script>
     <script src="components/account/profile.controller.js"></script>
