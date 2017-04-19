@@ -33,6 +33,10 @@
                                         <!-- <label style="color:black;font-size:14px" ng-if="check.val">&#8594;</label> -->
                                         <label style="color:black;font-size:14px">{{check.cat}}</label>
                                         <ul ng-repeat="checkVal in check.val">
+                                            <li ng-if="check.type=='checkbox'">
+                                                <input type="checkbox" class="scope-p" ng-model="checkVal.selected">
+                                                <label class="label-upper" style="color:black;font-size:14px">{{checkVal.name}}</label>
+                                            </li>
                                             <li ng-if="check.type=='radio'">
                                                 <label class="label-upper" style="color:black;font-size:14px">
                                                     <input type="radio" ng-model="infra.scopeProjectradio" value="{{checkVal.name}}"> {{checkVal.name}}
@@ -90,7 +94,7 @@
                                             <span class="leaf">{{check.cat}}</span>
                                             <ul ng-repeat="checkVal in check.val" onFocus="window.scrollTo(0, 0);">
                                                 <li data-mode="checkbox" data-name="c1" ng-if="check.type=='checkbox'">
-                                                    <span class="leaf">{{checkVal.name}}</span>
+                                                    <span class="leaf" ng-model="test">{{checkVal.name}}</span>
                                                 </li>
                                                 <li data-mode="radio" data-name="c1" ng-if="check.type=='radio'">
                                                     <span class="leaf">{{checkVal.name}}</span>
@@ -242,32 +246,31 @@ $("input").keyup(function(e) {
     }
 });
 
-// //----- set clicked treeview on label -----//
-// $(".cell").on("click", "label.label-upper", function(event) {
-//     var radio = $(this).closest('li').find('input[type=radio]');
-//     console.log(radio);
-//     if (radio.is(':checked')) {
-//         radio.prop('checked', false);
-//     } else if (radio.not(':checked')) {
-//         radio.prop('checked', true);
-//     }
-// });
-// //----- set clicked label on checkbox------//
-// $(".cell").on("click", "label.label-upper", function(event) {
-//     var input = $(this).closest('li').find('input[type=checkbox]');
-//     if (input.is(':checked')) {
-//         input.prop('checked', false);
-//     } else if (input.not(':checked')) {
-//         input.prop('checked', true);
-//     }
-// });
-// //----- set clicked label on checkbox------//
-// $(".cell").on("click", "label.label-upper-2", function(event) {
-//     var inp = $(this).closest('li').find('input[type=checkbox]');
-//     if (inp.is(':checked')) {
-//         inp.prop('checked', false);
-//     } else if (inp.not(':checked')) {
-//         inp.prop('checked', true);
-//     }
-// });
+//----- set clicked treeview on label -----//
+$(".cell").on("click", "label.label-upper", function(event) {
+    var radio = $(this).closest('li').find('input[type=radio]');
+    if (radio.is(':checked')) {
+        radio.prop('checked', false);
+    } else if (radio.not(':checked')) {
+        radio.prop('checked', true);
+    }
+});
+//----- set clicked label on checkbox------//
+$(".cell").on("click", "label.label-upper", function(event) {
+    var input = $(this).closest('li').find('input[type=checkbox]');
+    if (input.is(':checked')) {
+        input.prop('checked', false);
+    } else if (input.not(':checked')) {
+        input.prop('checked', true);
+    }
+});
+//----- set clicked label on checkbox------//
+$(".cell").on("click", "label.label-upper-2", function(event) {
+    var inp = $(this).closest('li').find('input[type=checkbox]');
+    if (inp.is(':checked')) {
+        inp.prop('checked', false);
+    } else if (inp.not(':checked')) {
+        inp.prop('checked', true);
+    }
+});
 </script>

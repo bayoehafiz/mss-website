@@ -1152,6 +1152,10 @@ label.label-upper.ng-binding {
         height: 100%;
         vertical-align: middle;
     }
+    .home-slider-box-content{
+        position: relative;
+        top: -100px
+    }
     .slick-slide .featurette-heading {
         font-size: 17px;
     }
@@ -1396,6 +1400,10 @@ label.label-upper.ng-binding {
         background-attachment: inherit!important;
         background-size: cover!important;
     }
+    .home-slider-box-content{
+        position: relative;
+        top: -100px
+    }
 }
 
 
@@ -1441,10 +1449,10 @@ html {
     background-size: cover;
 }
 
-.bg-custom {
+/*.bg-custom {
     background-attachment: inherit!important;
     background-size: cover!important;
-}
+}*/
 
 
 /* Cart Style */
