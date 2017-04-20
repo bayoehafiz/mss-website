@@ -3,21 +3,27 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
     $scope.checks = [{
         cat: 'Security System',
         val: [{
-            name: 'CCTV', value: 'CCTV'
+            name: 'CCTV',
+            value: 'CCTV'
         }, {
-            name: 'Access Control', value: 'Access Control'
+            name: 'Access Control',
+            value: 'Access Control'
         }],
         type: 'checkbox',
     }, {
         cat: 'Network System',
         val: [{
-            name: 'Local Area Network(LAN)', value: 'Local Area Network(LAN)'
+            name: 'Local Area Network(LAN)',
+            value: 'Local Area Network(LAN)'
         }, {
-            name: 'Wide Area Network(WAN)', value: 'Wide Area Network(WAN)'
+            name: 'Wide Area Network(WAN)',
+            value: 'Wide Area Network(WAN)'
         }, {
-            name: 'Fiber Optic', value: 'Fiber Optic'
+            name: 'Fiber Optic',
+            value: 'Fiber Optic'
         }, {
-            name: 'Firewall System', value: 'Firewall System'
+            name: 'Firewall System',
+            value: 'Firewall System'
         }],
         type: 'checkbox'
     }, {
@@ -31,11 +37,14 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
         }],
         type: 'radio'
     }, {
-        cat: 'Public Address System', value: 'Public Address System',
+        cat: 'Public Address System',
+        value: 'Public Address System',
     }, {
-        cat: 'Server System', value: 'Server System',
+        cat: 'Server System',
+        value: 'Server System',
     }, {
-        cat: 'Teleconference System', value: 'Teleconference System',
+        cat: 'Teleconference System',
+        value: 'Teleconference System',
     }, ]
 
 
@@ -175,8 +184,10 @@ app.controller('ItinfrastructureorderController', function(lockPasswordless, aut
                 } else {
                     alert("Error sending access code to " + fo_data.email);
                 }
-            }
-        })
+
+            })
+
+        }
 
         // var spp = [];
         // angular.forEach($scope.checkVal, function(value, key) {

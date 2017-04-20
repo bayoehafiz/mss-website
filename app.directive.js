@@ -1,4 +1,4 @@
-app.directive('isBtnQuoteShown', ['$location', function($location) {
+app.directive('isBtnQuoteShown', function($location) {
     return {
         restrict: 'A',
         link: function(scope, element) {
@@ -16,7 +16,7 @@ app.directive('isBtnQuoteShown', ['$location', function($location) {
 
         }
     };
-}])
+})
 
 app.directive('capitalizeAll', function(uppercaseFilter, $parse) {
     return {
@@ -748,21 +748,21 @@ app.directive('scrollStep', function() {
         restrict: 'A',
         link: function(scope, element, attr) {
             var thisElm = $(element);
-                var current = 1,
-                    current_step, next_step, steps;
-                steps = thisElm.find("fieldset").length;
-                thisElm.find(".next").click(function() {
-                    current_step = $(this).parent();
-                    next_step = $(this).parent().next();
-                    next_step.show();
-                    current_step.hide();
-                });
-                thisElm.find(".previous").click(function() {
-                    current_step = $(this).parent();
-                    next_step = $(this).parent().prev();
-                    next_step.show();
-                    current_step.hide();
-                });
+            var current = 1,
+                current_step, next_step, steps;
+            steps = thisElm.find("fieldset").length;
+            thisElm.find(".next").click(function() {
+                current_step = $(this).parent();
+                next_step = $(this).parent().next();
+                next_step.show();
+                current_step.hide();
+            });
+            thisElm.find(".previous").click(function() {
+                current_step = $(this).parent();
+                next_step = $(this).parent().prev();
+                next_step.show();
+                current_step.hide();
+            });
         }
     }
 });
