@@ -47,4 +47,18 @@
     "type": "pdf",
     "desc": "Official company profile of MSS. Last update on March 2017"
 
+}, {
+    "id": "1190",
+    "name": "Hikvision®️ CCTV Catalogue",
+    "path": "assets/files/Hikvision_cctv_Catalogue.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
+}, {
+    "id": "1189",
+    "name": "Entrypass®️ Catalogue",
+    "path": "assets/files/Entrypass_Catalogue.pdf",
+    "type": "pdf",
+    "desc": "Official company profile of MSS. Last update on March 2017"
+
 }]
