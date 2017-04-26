@@ -58,6 +58,11 @@ function config($stateProvider, jwtOptionsProvider, lockPasswordlessProvider, $u
             controller: 'SolutionsController',
             templateUrl: 'components/solutions/acronis-backup.html'
         })
+        .state('maintenance-service', {
+            url: '/maintenance-service',
+            controller: 'SolutionsController',
+            templateUrl: 'components/solutions/maintenance-service.html'
+        })
         .state('software-development', {
             url: '/software-development',
             controller: 'SoftwareDevController',
