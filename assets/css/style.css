@@ -471,6 +471,12 @@ ul.breadcrumb {
 .margin-inline {
     margin: 40px 0;
 }
+.margin-bottom-30{
+    margin-bottom: 30px;
+}
+.margin-bottom-50{
+    margin-bottom: 50px;
+}
 
 .padding-inline {
     padding: 70px 0;
