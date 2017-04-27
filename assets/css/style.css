@@ -800,7 +800,6 @@ ul.cbox li {
     width: 7em;
 }
 
-
 /* Maps ---------------------------------- */
 
 #map10 {
@@ -1260,7 +1259,7 @@ label.label-upper.ng-binding {
     .lead {
         font-size: inherit;
         padding: 20px;
-    }
+    }    
 }
 
 @media (min-width: 992px) {
@@ -1320,6 +1319,10 @@ label.label-upper.ng-binding {
     }
     .padding-inline {
         padding: 60px 0 50px;
+    }
+    .mobile-footer-center{
+        text-align: center;
+        margin: 15px 0 10px;
     }
 }
 
@@ -1434,6 +1437,18 @@ label.label-upper.ng-binding {
     label.label-upper-2 {
         top: -1em;
         margin-left: 1.5em!important;
+    }
+    .nav-pills li{
+        width: 100%;
+    }
+    #navbar{
+        max-width: 375px;
+        width: 90%;
+        margin-right: 15px;
+    }
+    .mobile-footer-center{
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
 
