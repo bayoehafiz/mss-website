@@ -873,18 +873,23 @@ ul.cbox li {
 /* List group what's included -------------------- */
 .maintain-service li{
     line-height: 1.5;
-    padding-left: 5px;
+    padding-left: 15px;
 }
 .maintain-service li:before{
-    content: '—';
-    margin-right: 10px;
+    content: '-';
+    margin-right: 6px;
     color: #5b90de;
     font-size: 16px;
 }
 .maintain-service h4{
-    margin: 10px 5px 0;
+    margin: 10px 0;
 }
-
+.maintain-service i{
+    color: #1b4488;
+}
+span.maintenance-svc{
+    margin-right: 10px;
+}
 
 /* Social share ---------------------------------- */
 
