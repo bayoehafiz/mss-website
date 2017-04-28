@@ -873,7 +873,8 @@ ul.cbox li {
 /* List group what's included -------------------- */
 .maintain-service li{
     line-height: 1.5;
-    padding-left: 15px;
+    padding-left: 20px;
+    text-indent: -15px;
 }
 .maintain-service li:before{
     content: '-';
