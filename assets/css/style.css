@@ -870,6 +870,21 @@ ul.cbox li {
     background-color: #5b90de;
 }
 
+/* List group what's included -------------------- */
+.maintain-service li{
+    line-height: 1.5;
+    padding-left: 5px;
+}
+.maintain-service li:before{
+    content: '—';
+    margin-right: 10px;
+    color: #5b90de;
+    font-size: 16px;
+}
+.maintain-service h4{
+    margin: 10px 5px 0;
+}
+
 
 /* Social share ---------------------------------- */
 
