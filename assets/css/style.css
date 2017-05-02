@@ -1366,6 +1366,9 @@ label.label-upper.ng-binding {
     }
     .list-cust .list-group-item:last-child{
         font-size: 2.2em;
+    }    
+    img.img-maintenance{
+        width: 70%;
     }
 }
 
@@ -1395,6 +1398,9 @@ label.label-upper.ng-binding {
     }
     .ourTeam .i .c:hover .info {
         top: 25%!important;
+    }
+    img.img-maintenance{
+        min-width: 90%;
     }
 }
 
