@@ -472,6 +472,14 @@ ul.breadcrumb {
     margin: 40px 0;
 }
 
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
 .padding-inline {
     padding: 70px 0;
 }
@@ -805,15 +813,84 @@ ul.cbox li {
     top: 0;
 }
 
-/* Form inquiries ---------------------------------- */
-.scope-p{
 
+/* list group tables ---------------------------------- */
+
+.list-cust .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
 }
-.label-upper{
-    
+
+.list-cust .list-group-item:last-child {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 3em;
+    font-size: 1.7em;
+    font-weight: 600;
+    color: white;
 }
 
+.list-cust .list-group-item {
+    border-right: 0px;
+    border-left: 0px;
+    height: 3.5em;
+    vertical-align: middle;
+    background-color: #ececec;
+    font-weight: 500;
+    color: #2e2e2e;
+    line-height: 2;
+}
 
+#maintenance.list-group {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.list-cust.basic a:nth-child(odd) {
+    background-color: #dde8c9;
+}
+
+.list-cust.standard a:nth-child(odd) {
+    background-color: #f1dbd6;
+}
+
+.list-cust.enterprise a:nth-child(odd) {
+    background-color: #d4e3f3;
+}
+
+.list-cust.basic a:last-child {
+    background-color: #8faf56;
+}
+
+.list-cust.standard a:last-child {
+    background-color: #e59883;
+}
+
+.list-cust.enterprise a:last-child {
+    background-color: #5b90de;
+}
+
+/* List group what's included -------------------- */
+.maintain-service li{
+    line-height: 1.5;
+    padding-left: 20px;
+    text-indent: -15px;
+}
+.maintain-service li:before{
+    content: '-';
+    margin-right: 6px;
+    color: #5b90de;
+    font-size: 16px;
+}
+.maintain-service h4{
+    margin: 10px 0;
+}
+.maintain-service i{
+    color: #1b4488;
+}
+span.maintenance-svc{
+    margin-right: 10px;
+}
 
 /* Social share ---------------------------------- */
 
@@ -1084,6 +1161,19 @@ label.label-upper.ng-binding {
         top: -14px;
         margin-left: 2em!important;
     }
+    .list-cust .list-group-item {
+        font-size: 1.1em;
+        line-height: 2.4;
+    }
+    .list-cust .list-group-item:last-child {
+        height: 3.2em;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: white;
+    }
+    .maintenance h4{
+        font-size: 2em;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1152,7 +1242,7 @@ label.label-upper.ng-binding {
         height: 100%;
         vertical-align: middle;
     }
-    .home-slider-box-content{
+    .home-slider-box-content {
         position: relative;
         top: -100px
     }
@@ -1274,6 +1364,12 @@ label.label-upper.ng-binding {
     .page-title-2 {
         padding: 12em 2em 8em;
     }
+    .list-cust .list-group-item:last-child{
+        font-size: 2.2em;
+    }    
+    img.img-maintenance{
+        width: 70%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -1303,6 +1399,9 @@ label.label-upper.ng-binding {
     .ourTeam .i .c:hover .info {
         top: 25%!important;
     }
+    img.img-maintenance{
+        min-width: 90%;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1314,6 +1413,10 @@ label.label-upper.ng-binding {
     }
     .padding-inline {
         padding: 60px 0 50px;
+    }
+    .mobile-footer-center {
+        text-align: center;
+        margin: 15px 0 10px;
     }
 }
 
@@ -1348,6 +1451,9 @@ label.label-upper.ng-binding {
     .parallax {
         -webkit-background-size: 2024px 100vh !important;
         background-size: 2024px 100vh !important;
+    }
+    .list-cust .list-group-item:last-child{
+        font-size: 1.8em;
     }
 }
 
@@ -1400,7 +1506,7 @@ label.label-upper.ng-binding {
         background-attachment: inherit!important;
         background-size: cover!important;
     }
-    .home-slider-box-content{
+    .home-slider-box-content {
         position: relative;
         top: -100px
     }
@@ -1429,6 +1535,18 @@ label.label-upper.ng-binding {
         top: -1em;
         margin-left: 1.5em!important;
     }
+    .nav-pills li {
+        width: 100%;
+    }
+    #navbar {
+        max-width: 375px;
+        width: 90%;
+        margin-right: 15px;
+    }
+    .mobile-footer-center {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -1448,6 +1566,7 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 /*.bg-custom {
     background-attachment: inherit!important;
