@@ -1103,10 +1103,6 @@ label.label-upper.ng-binding {
     height: 100%;
 }
 
-.home-slider #slider0 {
-    background-image: url(../img/slider/lebaran2017.svg);
-}
-
 .home-slider #slider1 {
     background-image: url(../img/slider/bg-softdev.svg);
 }
